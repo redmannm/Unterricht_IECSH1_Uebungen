@@ -20,13 +20,20 @@ namespace Uebung4
             Console.WriteLine("----------------------------------------------");
             Console.Write("Geben Sie das zu ermittelnde Jahr ein: ");
             
-            while ((jahr < 0) || (jahr > 9999)) {
-                if (jahr != -1) {
+            while ((jahr < 1) || (jahr > 9999)) {
+                //if (jahr != -1) {
+                //    Console.WriteLine("Die Eingabe war kein zulässiger Wert.");
+                //    Console.Write("Geben Sie einen Wert zwischen 1 und 9999 ein:");
+                //    jahr = 0;
+                //}
+                try
+                {
+                    jahr = Convert.ToInt32(Console.ReadLine());
+                } catch(System.FormatException) {
                     Console.WriteLine("Die Eingabe war kein zulässiger Wert.");
-                    Console.Write("Geben Sie einen Wert zwischen 0 und 9999 ein:");
-                    Console.Error.WriteLine("Test");
+                    Console.Write("Geben Sie einen Wert zwischen 1 und 9999 ein:");
+                    jahr = -1;
                 }
-                jahr = Convert.ToInt32(Console.ReadLine());
             }
             
             //if ()

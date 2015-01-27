@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Auto;
+using AutoClass;
 
 namespace AutoApp
 {
@@ -12,9 +12,25 @@ namespace AutoApp
         static void Main(string[] args)
         {
 
-            Auto.Auto fahrzeug1 = new Auto.Auto();
+            Auto fahrzeug1 = new Auto();
 
-            Console.WriteLine(fahrzeug1.tuerOffen);
+            Console.WriteLine(fahrzeug1.tuerOffen.ToString());
+            
+            Console.ReadLine();
+        }
+        public string getMenu()
+        {
+            clearScreen();
+            string menu = "Anwendungsbeispiel der Klasse Auto\n" +
+                          "----------------------------------\n" +
+                          ;
+
+            return menu;
+        }
+
+        public void clearScreen()
+        {
+            Console.Clear();
         }
     }
 }

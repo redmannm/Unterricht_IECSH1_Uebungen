@@ -48,9 +48,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Auto\Auto.csproj">
+    <ProjectReference Include="..\Auto\AutoClass.csproj">
       <Project>{05adc63e-6c7d-40a5-8fd2-50a12c9a61bc}</Project>
-      <Name>Auto</Name>
+      <Name>AutoClass</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Auto
+namespace AutoClass
 {
     // Erstellen Sie ein Klasse mit deren Hilfe Sie ein PKW in Ihrer Anwendung erstellen können.
     //
@@ -41,6 +41,7 @@ namespace Auto
         public Auto()
         {
             this.tuerOffen = false;
+            this.motorAn = false;
         }
         public void TuerOeffnen()
         {
@@ -52,7 +53,7 @@ namespace Auto
             {
                 this.tuerOffen = true;
             }
-            
+
         }
 
         public void MotorStarten()

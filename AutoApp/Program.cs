@@ -17,7 +17,6 @@ namespace AutoApp
             
             ConsoleKeyInfo menuKey;
             
-
             Console.Write(getMenu(1)); // Hauptmenü aufrufen
             
             do

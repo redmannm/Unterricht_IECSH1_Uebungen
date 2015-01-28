@@ -194,7 +194,7 @@ namespace AutoApp
             if (@fahrzeug.Baujahr.ToShortDateString() == "01.01.0001")
                 Console.WriteLine("{0}{1}", "Baujahr:".PadRight(12), "Nicht gesetzt".PadLeft(15));
             else
-                Console.WriteLine("{0}{1}", "Baujahr:".PadRight(12), Convert.ToString(@fahrzeug.Baujahr.ToShortDateString()).PadLeft(15));
+                Console.WriteLine("{0}{1}", "Baujahr:".PadRight(12), Convert.ToString(@fahrzeug.Baujahr.Year).PadLeft(15));
         }
 
         public static void setPkwConfig(Auto @fahrzeug)
@@ -219,112 +219,48 @@ namespace AutoApp
             // Leistung eingeben
             //------------------
             Console.Write("\nLeistung in KW eingeben [" + @fahrzeug.Leistung.ToString() + "]: ");
-            @fahrzeug.Leistung = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                @fahrzeug.Leistung = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                @fahrzeug.Leistung = 0;
+            }
 
             //
             // Kilometerstand eingeben
             //------------------------
-            bool kmStandFormatErr = false;   // Fehler Flag für Formatfehler setzen
-            bool kmStandOverflowErr = false; // Fehler Flag für überlauf setzen
-
-            // Schleife solange ausführen bis Eingaben korrekt sind
-            while (true)
-            {
-                try // Anweisungsblock versuchen abzuarbeiten
+            Console.Write("\nKM-Stand eingeben [" + @fahrzeug.KmStand.ToString() + "]: ");
+            //tmp = Console.ReadLine();
+            //if (tmp == "")
+            //    @fahrzeug.KmStand = 0.0;
+            //else
+                try
                 {
-                    // Fehler Meldungen
-                    if (kmStandFormatErr)
-                        Console.WriteLine("Falsches Format eingegeben. Bitte Ganzzahl oder Fließkommazahl eingeben.");
-                    if (kmStandOverflowErr)
-                        Console.WriteLine("Wert zu groß!");
-
-                    // Eingabe Meldung
-                    Console.Write("\nKM-Stand eingeben [" + this.kmStand.ToString() + "]: ");
-
-                    // Wenn bei Abfrage ohne Eingabe Enter gedrückt wird 
-                    // Kilometerstand auf aktuellen Wert belassen
-                    tmp = Console.ReadLine();
-                    if (tmp == "")
-                        this.kmStand = this.kmStand;
-                    else
-                        this.kmStand = Convert.ToDouble(tmp);
-                    break; // Schleife beende
+                    @fahrzeug.KmStand = Convert.ToDouble(Console.ReadLine());
                 }
-                catch (FormatException) // Formatierungsfehler abfangen
+                catch (FormatException)
                 {
-                    kmStandFormatErr = true;
+                    @fahrzeug.KmStand = 0.0;
                 }
-                catch (OverflowException) // Übergroße Werte abfangen
-                {
-                    kmStandOverflowErr = true;
-                }
-            } // Schleifen ende
-
+                
             //
             // Farbe eingeben
             //---------------
-
-            // Eingabe Meldung
-            Console.Write("\nFarbe eingeben [" + this.farbe + "]: ");
-
-            // Wenn bei Abfrage ohne Eingabe Enter gedrückt wird Farbe auf
-            // aktuellen Wert belassen
-            tmp = Console.ReadLine();
-            if (tmp == "")
-                this.farbe = this.farbe;
-            else
-                this.farbe = tmp;
+            Console.Write("\nFarbe eingeben [" + @fahrzeug.Farbe + "]: ");
+            @fahrzeug.Farbe = Console.ReadLine();
 
             //
             // Baujahr eingeben
             //-----------------
-            bool baujahrErr = false; // Fehler Flag für Formatfehler setzen
-
-            // Schleife solange ausführen bis Eingaben korrekt sind
-            while (true)
-            {
-                try // Anweisungsblock versuchen abzuarbeiten
-                {
-                    // Fehler Meldungen
-                    if (baujahrErr)
-                        Console.WriteLine("Falsches Format eingegeben. Bitte korregieren.");
-
-                    // Eingabe Meldungen
-                    if (this.baujahr.ToShortDateString() == "01.01.0001")
-                        tmp = "Nicht gesezt";
-                    else
-                        tmp = this.baujahr.ToShortDateString();
-                    Console.WriteLine("\nBaujahr eingeben [" + tmp + "] ");
-                    Console.WriteLine("Format: Nur Jahr (bsp. 1999)");
-                    Console.WriteLine("{0}{1}", "".PadRight(8), "Komplettes Datum (bsp. 11.10.1974)");
-
-                    // Wenn bei Abfrage ohne Eingabe Enter gedrückt wird 
-                    // Baujahr auf aktuellen Wert belassen
-                    tmp = Console.ReadLine();
-                    if (tmp == "")
-                        this.baujahr = this.baujahr;
-                    else
-                        this.baujahr = DateTime.Parse(tmp + ".01.01");
-                    break; // Schleife beenden
-                }
-                catch (FormatException) // Formatierungsfehler abfangen
-                {
-                    try // Anweisungsblock versuchen abzuarbeiten
-                    {
-                        this.baujahr = DateTime.Parse(tmp);
-                        break;
-                    }
-                    catch (FormatException) // Formatierungsfehler abfangen
-                    {
-                        baujahrErr = true;
-                    }
-                    baujahrErr = true;
-                }
-            } // Schleifen ende
+            if (@fahrzeug.Baujahr.Year.ToString() == "1")
+                tmp = "";
+            else
+                tmp = @fahrzeug.Baujahr.Year.ToString();
+            Console.WriteLine("\nBaujahr eingeben [" + tmp + "] ");
+            Console.Write("Format: Nur Jahr (bsp. 1999): ");
+            @fahrzeug.Baujahr = Convert.ToDateTime(Console.ReadLine() + ".01.01");
         }
-
-        
-
-
     }
 }

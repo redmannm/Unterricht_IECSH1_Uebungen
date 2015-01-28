@@ -49,7 +49,7 @@ namespace AutoApp
                 //
                 if (menuKey.Key == ConsoleKey.D3)
                 {
-                    if (thisApp.fahrzeug1.tuerStatus)
+                    if (thisApp.fahrzeug1.TuerStatus)
                     {
                         Console.Write(getMenu(1));
                         Console.WriteLine("Die Fahrzeugtür ist bereits geöfnet!");
@@ -67,7 +67,7 @@ namespace AutoApp
                 //
                 if (menuKey.Key == ConsoleKey.D4)
                 {
-                    if (!thisApp.fahrzeug1.tuerStatus)
+                    if (!thisApp.fahrzeug1.TuerStatus)
                     {
                         Console.Write(getMenu(1));
                         Console.WriteLine("Die Fahrzeugtür ist bereits geschloßen!");
@@ -85,7 +85,7 @@ namespace AutoApp
                 //
                 if (menuKey.Key == ConsoleKey.D5)
                 {
-                    if (thisApp.fahrzeug1.motorStatus)
+                    if (thisApp.fahrzeug1.MotorStatus)
                     {
                         Console.Write(getMenu(1));
                         Console.WriteLine("Der Motor läuft bereits!");
@@ -103,7 +103,7 @@ namespace AutoApp
                 //
                 if (menuKey.Key == ConsoleKey.D6)
                 {
-                    if (!thisApp.fahrzeug1.motorStatus)
+                    if (!thisApp.fahrzeug1.MotorStatus)
                     {
                         Console.Write(getMenu(1));
                         Console.WriteLine("Der Motor ist bereits aus!");
@@ -181,20 +181,20 @@ namespace AutoApp
             Console.WriteLine("{0}{1}", "".PadRight(12), ps.PadLeft(15));
 
             // Kilometerstand ausgeben
-            string km = Convert.ToString(this.kmStand) + " KM";
+            string km = Convert.ToString(@fahrzeug.KmStand) + " KM";
             Console.WriteLine("{0}{1}", "KM-Stand:".PadRight(12), km.PadLeft(15));
 
             // Farbe ausgeben
-            if (this.farbe == null)
+            if (@fahrzeug.Farbe == null)
                 Console.WriteLine("{0}{1}", "Farbe:".PadRight(12), "Nicht gesetzt".PadLeft(15));
             else
-                Console.WriteLine("{0}{1}", "Farbe:".PadRight(12), this.farbe.PadLeft(15));
+                Console.WriteLine("{0}{1}", "Farbe:".PadRight(12), @fahrzeug.Farbe.PadLeft(15));
 
             // Baujahr ausgeben
-            if (this.baujahr.ToShortDateString() == "01.01.0001")
+            if (@fahrzeug.Baujahr.ToShortDateString() == "01.01.0001")
                 Console.WriteLine("{0}{1}", "Baujahr:".PadRight(12), "Nicht gesetzt".PadLeft(15));
             else
-                Console.WriteLine("{0}{1}", "Baujahr:".PadRight(12), Convert.ToString(this.baujahr.ToShortDateString()).PadLeft(15));
+                Console.WriteLine("{0}{1}", "Baujahr:".PadRight(12), Convert.ToString(@fahrzeug.Baujahr.ToShortDateString()).PadLeft(15));
         }
 
         public static void setPkwConfig(Auto @fahrzeug)
@@ -206,44 +206,20 @@ namespace AutoApp
             //
             // Marke eingeben
             //---------------
-
-            Console.Write("Marke eingeben [" + Marke + "]: ");
-            Marke = Console.ReadLine();
+            Console.Write("Marke eingeben [" + @fahrzeug.Marke + "]: ");
+            @fahrzeug.Marke = Console.ReadLine();
 
             //
             // Modell eingeben
             //----------------
-
-            Console.Write("\nModell eingeben [" + Modell + "]: ");
-            Modell = Console.ReadLine();
+            Console.Write("\nModell eingeben [" + @fahrzeug.Modell + "]: ");
+            @fahrzeug.Modell = Console.ReadLine();
 
             //
             // Leistung eingeben
             //------------------
-            
-
-            // Schleife solange ausführen bis Eingaben korrekt sind
-            while (true)
-            {
-                try // Anweisungsblock versuchen abzuarbeiten
-                {
-                    Console.Write("\nLeistung in KW eingeben [" + this.Leistung.ToString() + "]: ");
-
-                    // Wenn bei Abfrage ohne Eingabe Enter gedrückt wird
-                    // Leistung auf aktuellen Wert belassen
-                    fahrzeug.Leistung = Console.ReadLine();
-                    
-                    break; // Schleife beenden
-                }
-                catch (FormatException) // Formatierungsfehler abfangen
-                {
-                    leistungFormatErr = true;
-                }
-                catch (OverflowException) // Übergroße Werte abfangen
-                {
-                    leistungOverflowErr = true;
-                }
-            } // Schleifen ende
+            Console.Write("\nLeistung in KW eingeben [" + @fahrzeug.Leistung.ToString() + "]: ");
+            @fahrzeug.Leistung = Convert.ToInt32(Console.ReadLine());
 
             //
             // Kilometerstand eingeben

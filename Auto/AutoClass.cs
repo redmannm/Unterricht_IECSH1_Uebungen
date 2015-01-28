@@ -76,23 +76,82 @@ namespace AutoClass
             {
                 bool leistungFormatErr = false;   // Fehler Flag für Formatfehler setzen
                 bool leistungOverflowErr = false; // Fehler Flag für überlauf setzen
-
-                // Fehler Meldungen
-                if (leistungFormatErr)
-                    Console.WriteLine("Falsches Format eingegeben. Bitte nur Ganzzahlen eingeben.");
-                if (leistungOverflowErr)
-                    Console.WriteLine("Respekt! Mehr als 2,147 Milliarden KW Leistung.");
-                if (Convert.ToString(value) == "")
-                    leistung = leistung;
-                else
-                    leistung = Convert.ToInt32(value);
+                while (true)
+                {
+                    try // Anweisungsblock versuchen abzuarbeiten
+                    {
+                        // Fehler Meldungen
+                        if (leistungFormatErr)
+                            Console.WriteLine("Falsches Format eingegeben. Bitte nur Ganzzahlen eingeben.");
+                        if (leistungOverflowErr)
+                            Console.WriteLine("Respekt! Mehr als 2,147 Milliarden KW Leistung.");
+                        if (Convert.ToString(value) == "")
+                            leistung = leistung;
+                        else
+                            leistung = Convert.ToInt32(value);
+                        break;
+                    }
+                    catch (FormatException) // Formatierungsfehler abfangen
+                    {
+                        leistungFormatErr = true;
+                    }
+                    catch (OverflowException) // Übergroße Werte abfangen
+                    {
+                        leistungOverflowErr = true;
+                    }
+                }
             }
         }
-        public double kmStand;
-        public string farbe;
-        public DateTime baujahr;
-        public bool tuerStatus;
-        public bool motorStatus;
+        private double kmStand;
+
+        public double KmStand
+        {
+            get { return kmStand; }
+            set
+            {
+                
+            }
+        }
+        private string farbe;
+
+        public string Farbe
+        {
+            get { return farbe; }
+            set
+            {
+                
+            }
+        }
+        private DateTime baujahr;
+
+        public DateTime Baujahr
+        {
+            get { return baujahr; }
+            set
+            {
+                baujahr = value;
+            }
+        }
+        private bool tuerStatus;
+
+        public bool TuerStatus
+        {
+            get { return tuerStatus; }
+            set 
+            { 
+                
+            }
+        }
+        private bool motorStatus;
+
+        public bool MotorStatus
+        {
+            get { return motorStatus; }
+            set
+            {
+                
+            }
+        }
 
         public Auto()
         {
@@ -109,26 +168,26 @@ namespace AutoClass
         /// </summary>
         public void TuerAction()
         {
-            if (this.tuerStatus == true)
+            if (TuerStatus == true)
             {
-                this.tuerStatus = false;
+                TuerStatus = false;
             }
             else
             {
-                this.tuerStatus = true;
+                TuerStatus = true;
             }
 
         }
 
         public void MotorAction()
         {
-            if (this.motorStatus == true)
+            if (MotorStatus == true)
             {
-                this.motorStatus = false;
+                MotorStatus = false;
             }
             else
             {
-                this.motorStatus = true;
+                MotorStatus = true;
             }
         }
     }

@@ -12,7 +12,7 @@ namespace PersonenVerwaltung
         {
             PersonenListManager personenListe = new PersonenListManager();
 
-            Console.Write(getMenu()); // Hauptmenü aufrufen
+            Console.Write(getMenu(1)); // Hauptmenü aufrufen
 
             ConsoleKeyInfo menuKey;
             do
@@ -24,8 +24,9 @@ namespace PersonenVerwaltung
                 //
                 if (menuKey.Key == ConsoleKey.D1)
                 {
-                    Console.Write(getMenu("mainMenu"));
+                    clearScreen();
                     personenListe.addPerson();
+                    Console.Write(getMenu(1));
                     
 
                 }
@@ -73,27 +74,21 @@ namespace PersonenVerwaltung
             } while (menuKey.Key != ConsoleKey.E);
             
         }
-        public static string getMenu(string type)
+        public static string getMenu(int menuType)
         {
             string strMenu;
 
-            switch (type)
+            switch (menuType)
             {
-                case "mainMenu": // Hauptmenü
+                case 1: // Hauptmenü
                     clearScreen();
                     strMenu = "Personenverwaltung\n" +
                               "------------------\n\n" +
                               "(1) Neue Person anlegen\n" +
                               "(2) Personen auflisten\n";
                     return strMenu;
-                case "addPerson": // Person hinzufügen
-                    clearScreen();
-                    strMenu = "";
-
-                    return strMenu;
-                default:
-                    return strMenu;
             }
+            return string.Empty;
         }
         public static void clearScreen()
         {

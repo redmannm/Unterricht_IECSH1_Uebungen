@@ -17,9 +17,11 @@ namespace PersonenVerwaltung
 
         }
 
-        public void addPerson()
+        public Person addPerson()
         {
-            personItem.Name = ""
+            Console.Write("Familienname: ");
+            personItem.Name = Console.ReadLine();
+            return personItem;
         }
     }
 }

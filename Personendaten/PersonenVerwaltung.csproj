@@ -57,8 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Person.cs" />
-    <Compile Include="PersonenClass.cs" />
-    <Compile Include="PersonenListClass.cs" />
+    <Compile Include="PersonenListManager.cs" />
     <Compile Include="Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

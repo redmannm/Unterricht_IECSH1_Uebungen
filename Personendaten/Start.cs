@@ -10,7 +10,7 @@ namespace PersonenVerwaltung
     {
         static void Main(string[] args)
         {
-            List<Person> personen = new List<Person>();
+            PersonenListManager personenListe = new PersonenListManager();
 
             Console.Write(getMenu()); // Hauptmenü aufrufen
 
@@ -25,6 +25,8 @@ namespace PersonenVerwaltung
                 if (menuKey.Key == ConsoleKey.D1)
                 {
                     Console.Write(getMenu("mainMenu"));
+                    personenListe.addPerson();
+                    
 
                 }
 

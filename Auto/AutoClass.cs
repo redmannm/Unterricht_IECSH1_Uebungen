@@ -64,6 +64,7 @@ namespace AutoClass
                     modell = value;
             }
         }
+
         private int leistung;
         /// <summary>
         /// Leistung des Fahrzeugs
@@ -73,7 +74,18 @@ namespace AutoClass
             get { return leistung; }
             set
             {
-                
+                bool leistungFormatErr = false;   // Fehler Flag für Formatfehler setzen
+                bool leistungOverflowErr = false; // Fehler Flag für überlauf setzen
+
+                // Fehler Meldungen
+                if (leistungFormatErr)
+                    Console.WriteLine("Falsches Format eingegeben. Bitte nur Ganzzahlen eingeben.");
+                if (leistungOverflowErr)
+                    Console.WriteLine("Respekt! Mehr als 2,147 Milliarden KW Leistung.");
+                if (Convert.ToString(value) == "")
+                    leistung = leistung;
+                else
+                    leistung = Convert.ToInt32(value);
             }
         }
         public double kmStand;

@@ -175,8 +175,8 @@ namespace AutoApp
                 Console.WriteLine("{0}{1}", "Modell:".PadRight(12), @fahrzeug.Modell.PadLeft(15));
 
             // Leistung ausgeben
-            string kw = Convert.ToString(this.Leistung) + " KW";
-            string ps = Convert.ToString(this.Leistung * 1.35962) + " PS";
+            string kw = Convert.ToString(@fahrzeug.Leistung) + " KW";
+            string ps = Convert.ToString(@fahrzeug.Leistung * 1.35962) + " PS";
             Console.WriteLine("{0}{1}", "Leistung:".PadRight(12), kw.PadLeft(15));
             Console.WriteLine("{0}{1}", "".PadRight(12), ps.PadLeft(15));
 
@@ -220,30 +220,19 @@ namespace AutoApp
             //
             // Leistung eingeben
             //------------------
-            bool leistungFormatErr = false;   // Fehler Flag für Formatfehler setzen
-            bool leistungOverflowErr = false; // Fehler Flag für überlauf setzen
+            
 
             // Schleife solange ausführen bis Eingaben korrekt sind
             while (true)
             {
                 try // Anweisungsblock versuchen abzuarbeiten
                 {
-                    // Fehler Meldungen
-                    if (leistungFormatErr)
-                        Console.WriteLine("Falsches Format eingegeben. Bitte nur Ganzzahlen eingeben.");
-                    if (leistungOverflowErr)
-                        Console.WriteLine("Respekt! Mehr als 2,147 Milliarden KW Leistung.");
-
-                    // Eingabe Meldung
                     Console.Write("\nLeistung in KW eingeben [" + this.Leistung.ToString() + "]: ");
 
                     // Wenn bei Abfrage ohne Eingabe Enter gedrückt wird
                     // Leistung auf aktuellen Wert belassen
-                    tmp = Console.ReadLine();
-                    if (tmp == "")
-                        this.Leistung = this.Leistung;
-                    else
-                        this.Leistung = Convert.ToInt32(tmp);
+                    fahrzeug.Leistung = Console.ReadLine();
+                    
                     break; // Schleife beenden
                 }
                 catch (FormatException) // Formatierungsfehler abfangen

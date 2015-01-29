@@ -10,7 +10,7 @@ namespace PersonenVerwaltung
     {
         List<Person> personenCollection = new List<Person>();
 
-        private Person personItem = new Person();
+        
 
         public PersonenListManager()
         {
@@ -19,6 +19,7 @@ namespace PersonenVerwaltung
 
         public void addPerson()
         {
+            Person personItem = new Person();
             Console.Write("{0}", "Familienname: ".PadRight(15));
             personItem.Name = Console.ReadLine();
 
@@ -69,11 +70,16 @@ namespace PersonenVerwaltung
                 }
             } while (true);
             personenCollection.Add(personItem);
+            personItem = null;
         }
 
         public void getPersonList()
         {
-            for (int i = 0; i < personenCollection.Count - 1; i++)
+            Console.Write("Personen auflisten\n" +
+                         "-------------------\n\n");
+            Console.Write("| Nr. |     Name      |    Vorname    |  Geb. Dat. |  Fam.-Stand | Anz. Kinder |\n" +
+                          "|-----|---------------|---------------|------------|-------------|-------------|\n");
+            for (int i = 0; i < personenCollection.Count; i++)
             {
                 Console.WriteLine(personenCollection[i].Name);
                 Console.WriteLine(personenCollection[i].Vorname);

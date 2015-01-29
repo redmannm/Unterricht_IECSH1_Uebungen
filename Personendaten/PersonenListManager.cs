@@ -145,11 +145,29 @@ namespace PersonenVerwaltung
         {
             int y = 0;
             int x = 0;
-            int count = 0;
+            int countItems = 0;
             int intMaxTeilbar = 0;
             int intItemsPerPage = 10;
             int intRest = 0;
             int intAnzItems = personenCollection.Count;
+            
+            // Alle Datemsätze
+            int int_AllDataItems = personenCollection.Count;
+
+            // Datensätze pro Seite
+            int int_PageDataItems = 10;
+
+            // Übrige Datensätze
+            int int_DivRestDataItems = (int_AllDataItems % int_PageDataItems);
+    
+            // Datensätze ohne Rest / Größter Nenner
+            int int_DivMaxDataItems = int_AllDataItems -int_DivRestDataItems;
+
+            // Anzahl der Datensatz Seiten
+            int int_DatasetPages = int_DivMaxDataItems / int_PageDataItems;
+            if (int_DivRestDataItems > 0)
+                int_DatasetPages += 1;
+
             string strFamStand = "";
             for (int i = 0; i < personenCollection.Count; i++)
             {
@@ -178,8 +196,8 @@ namespace PersonenVerwaltung
                             strFamStand = "verheiratet";
                         else if (item.FamilienStand == 3)
                             strFamStand = "geschieden";
-                        ++count;
-                        Console.Write("| {0}| {1}| {2}| {3}| {4}| {5}|\n", count.ToString().PadRight(4), item.Name.PadRight(14), item.Vorname.PadRight(14), item.GebDat.ToShortDateString().PadRight(11), strFamStand.PadRight(12), item.AnzKinder.ToString().PadRight(12));
+                        ++countItems;
+                        Console.Write("| {0}| {1}| {2}| {3}| {4}| {5}|\n", countItems.ToString().PadRight(4), item.Name.PadRight(14), item.Vorname.PadRight(14), item.GebDat.ToShortDateString().PadRight(11), strFamStand.PadRight(12), item.AnzKinder.ToString().PadRight(12));
                         Console.Write("|-----|---------------|---------------|------------|-------------|-------------|\n");
                     }
                     Console.Write("\n\n(W) - Weiter");

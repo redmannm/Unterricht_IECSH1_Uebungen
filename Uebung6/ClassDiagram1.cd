@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+  <Class Name="Uebung6.Fahrzeug">
+    <Position X="4.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAACAAABEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Fahrzeug.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Uebung6.PKW">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>PKW.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Uebung6.LKW">
+    <Position X="7" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAACAEAAAAAAAAAAA=</HashCode>
+      <FileName>LKW.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Uebung6.Familien_Van">
+    <Position X="0.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAAAAAAAAA=</HashCode>
+      <FileName>Familien_Van.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Uebung6.Limousine">
+    <Position X="2.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Limousine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Uebung6.Sportwagen">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAAAAAAAAA=</HashCode>
+      <FileName>Sportwagen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

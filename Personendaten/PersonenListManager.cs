@@ -10,8 +10,6 @@ namespace PersonenVerwaltung
     {
         List<Person> personenCollection = new List<Person>();
 
-        
-
         public PersonenListManager()
         {
 
@@ -35,7 +33,6 @@ namespace PersonenVerwaltung
             int y = 0;
             int x = 0;
             int count = 0;
-            int intMaxTeilbar = 0;
             int intItemsPerPage = 10;
             int intRest = 0;
             string strFamStand = "";
@@ -49,7 +46,6 @@ namespace PersonenVerwaltung
                 try
                 {
                     intRest = (intMaxItems % intItemsPerPage);
-                    intMaxTeilbar = intMaxItems - (intMaxItems % intItemsPerPage);
                     if (y <= 19)
                         x = intItemsPerPage;
                     else
@@ -91,6 +87,7 @@ namespace PersonenVerwaltung
         public void addPerson()
         {
             Person personItem = new Person();
+
             Console.Write("{0}", "Familienname: ".PadRight(15));
             personItem.Name = Console.ReadLine();
 
@@ -116,7 +113,7 @@ namespace PersonenVerwaltung
                 try
                 {
                     Console.Write("{0}", "Fam.-Stand: ".PadRight(15));
-                    Console.Write("{0}", "1 = ledig | 2 = verheiratet | 3 = geschieden".PadRight(15));
+                    Console.Write("{0}", "1 = ledig | 2 = verheiratet | 3 = geschieden: ".PadRight(15));
                     personItem.FamilienStand = Convert.ToInt32(Console.ReadLine());
                     if (personItem.FamilienStand != 0)
                         break;

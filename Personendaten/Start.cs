@@ -39,6 +39,7 @@ namespace PersonenVerwaltung
                 {
                     clearScreen();
                     personenListe.getPersonList();
+                    Console.Write(getScreen(1));
                 }
 
                 //

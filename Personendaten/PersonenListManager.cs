@@ -149,7 +149,7 @@ namespace PersonenVerwaltung
             int intMaxTeilbar = 0;
             int intItemsPerPage = 10;
             int intRest = 0;
-            int intMaxItems = 25;
+            int intAnzItems = personenCollection.Count;
             string strFamStand = "";
             for (int i = 0; i < personenCollection.Count; i++)
             {
@@ -160,12 +160,15 @@ namespace PersonenVerwaltung
                               "|-----|---------------|---------------|------------|-------------|-------------|\n");
                 try
                 {
-                    intRest = (intMaxItems % intItemsPerPage);
-                    intMaxTeilbar = intMaxItems - (intMaxItems % intItemsPerPage);
-                    if (y <= 19)
-                        x = intItemsPerPage;
-                    else
-                        x = intRest;
+                    if (intAnzItems > intItemsPerPage)
+                    {
+                        intRest = (intAnzItems % intItemsPerPage);
+                        intMaxTeilbar = intAnzItems - (intAnzItems % intItemsPerPage);
+                        if (y <= 19)
+                            x = intItemsPerPage;
+                        else
+                            x = intRest; 
+                    }
                     List<Person> itemList = personenCollection.GetRange(y, x);
                     foreach (Person item in itemList)
                     {

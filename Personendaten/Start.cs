@@ -37,6 +37,7 @@ namespace PersonenVerwaltung
                 //
                 if (menuKey.Key == ConsoleKey.D2)
                 {
+                    clearScreen();
                     personenListe.getPersonList();
                 }
 
@@ -91,15 +92,8 @@ namespace PersonenVerwaltung
                               "(E) Programm beenden\n\n";
                     return strMenu;
                 case 2: // Personen auflisten
-                    string tabHead;
-                    string tabRow;
-                    //            4         14               14           11            12            12
-                    tabHead = "| Nr. |     Name      |    Vorname    |  Geb. Dat. |  Fam.-Stand | Anz. Kinder |\n" +
-                              "|-----|---------------|---------------|------------|-------------|-------------|\n";
-                    tabRow  = "| {0}| {1}| {2}| {3}| {4}| {5}|\n";
-                    strMenu = "Personen auflisten\n" +
-                              "-------------------\n\n";
-                    return strMenu;
+                    
+                    break;
             }
             return string.Empty;
         }

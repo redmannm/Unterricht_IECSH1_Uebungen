@@ -75,17 +75,24 @@ namespace PersonenVerwaltung
 
         public void getPersonList()
         {
-            Console.Write("Personen auflisten\n" +
-                         "-------------------\n\n");
+            string strFamStand = "";
+            Console.Write("\n\nPersonen auflisten\n" +
+                         "-------------------\n\n\n");
             Console.Write("| Nr. |     Name      |    Vorname    |  Geb. Dat. |  Fam.-Stand | Anz. Kinder |\n" +
                           "|-----|---------------|---------------|------------|-------------|-------------|\n");
             for (int i = 0; i < personenCollection.Count; i++)
             {
-                Console.WriteLine(personenCollection[i].Name);
-                Console.WriteLine(personenCollection[i].Vorname);
-                Console.WriteLine(personenCollection[i].GebDat.ToString());
-                Console.WriteLine(personenCollection[i].FamilienStand.ToString());
+                if (personenCollection[i].FamilienStand == 1)
+                    strFamStand = "ledig";
+                else if (personenCollection[i].FamilienStand == 2)
+                    strFamStand = "verheiratet";
+                else if (personenCollection[i].FamilienStand == 3)
+                    strFamStand = "geschieden";
+
+                Console.WriteLine("| {0}| {1}| {2}| {3}| {4}| {5}|\n", i, personenCollection[i].Name, personenCollection[i].Vorname, personenCollection[i].GebDat.ToString(), strFamStand, personenCollection[i].AnzKinder.ToString());
+                Console.WriteLine("|-----|---------------|---------------|------------|-------------|-------------|");
                 Console.WriteLine("\n");
+                
             }
         }
     }

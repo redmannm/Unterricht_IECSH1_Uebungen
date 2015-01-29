@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PersonendatenClass;
 
-namespace Personendaten
+namespace PersonenVerwaltung
 {
     class Start
     {
         static void Main(string[] args)
         {
-            List<Person> personen = new List<Person>();
+            PersonenListManager personenListe = new PersonenListManager();
 
-            Console.Write(getMenu(1)); // Hauptmenü aufrufen
+            Console.Write(getScreen(1)); // Hauptmenü aufrufen
 
             ConsoleKeyInfo menuKey;
             do
@@ -25,7 +24,11 @@ namespace Personendaten
                 //
                 if (menuKey.Key == ConsoleKey.D1)
                 {
-                    Console.Write(getMenu("mainMenu"));
+                    clearScreen();
+                    personenListe.addPerson();
+                    Console.Write(getScreen(1));
+                    Console.Write("Person erfolgreich angelegt!");
+                    
 
                 }
 
@@ -34,7 +37,8 @@ namespace Personendaten
                 //
                 if (menuKey.Key == ConsoleKey.D2)
                 {
-                    
+                    clearScreen();
+                    personenListe.getPersonList();
                 }
 
                 //
@@ -72,19 +76,24 @@ namespace Personendaten
             } while (menuKey.Key != ConsoleKey.E);
             
         }
-        public static string getMenu(int type)
+        public static string getScreen(int menuType)
         {
             string strMenu;
 
-            switch (type)
+            switch (menuType)
             {
                 case 1: // Hauptmenü
                     clearScreen();
                     strMenu = "Personenverwaltung\n" +
                               "------------------\n\n" +
                               "(1) Neue Person anlegen\n" +
-                              "(2) Personen auflisten\n";
+                              "(2) Personen auflisten\n" +
+                              "(3) Person suchen\n" +
+                              "(E) Programm beenden\n\n";
                     return strMenu;
+                case 2: // Personen auflisten
+                    
+                    break;
             }
             return string.Empty;
         }

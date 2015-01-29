@@ -34,7 +34,17 @@ namespace PersonenVerwaltung
         public int FamilienStand
         {
             get { return familienStand; }
-            set { familienStand = value; }
+            set 
+            {
+                if ((value < 1) || (value > 3))
+                {
+                    Console.WriteLine("Nur zahlen von 1 bis 3 sind erlaubt!");
+                }
+                else
+                {
+                    familienStand = value;
+                }
+            }
         }
         private int anzKinder;
 

@@ -33,7 +33,7 @@ namespace PersonenVerwaltung
                 }
 
                 //
-                // Fahrzeug-Eigenschaften bearbeiten
+                // Personen Liste anzeigen
                 //
                 if (menuKey.Key == ConsoleKey.D2)
                 {
@@ -42,11 +42,12 @@ namespace PersonenVerwaltung
                 }
 
                 //
-                // Fahrzeugtür öffnen
+                // Personen Liste Test Daten
                 //
                 if (menuKey.Key == ConsoleKey.D3)
                 {
-                    
+                    clearScreen();
+                    personenListe.getTestPersonenList();
                 }
 
                 //

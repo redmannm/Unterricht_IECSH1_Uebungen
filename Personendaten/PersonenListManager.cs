@@ -19,41 +19,75 @@ namespace PersonenVerwaltung
         public void getTestPersonenList()
         {
             Random random = new Random();
-            for (int i = 0; i < 25; i++)
+            int intMaxItems = 25;
+            for (int i = 0; i < intMaxItems; i++)
 			{
-			Person personItem = new Person();
-            personItem.Name = "Nachname_" + i;
-            personItem.Vorname = "Vorname_" + i;
-            personItem.GebDat = Convert.ToDateTime("11.10.74");
-            personItem.FamilienStand = random.Next(1, 3);
-            personItem.AnzKinder = random.Next(0, 4);
-            personenCollection.Add(personItem);
-            personItem = null;
+			    Person personItems = new Person();
+                personItems.Name = "Nachname_" + i;
+                personItems.Vorname = "Vorname_" + i;
+                personItems.GebDat = Convert.ToDateTime("11.10.74");
+                personItems.FamilienStand = random.Next(1, 3);
+                personItems.AnzKinder = random.Next(0, 4);
+                personenCollection.Add(personItems);
+                personItems = null;
 			}
-            string strFamStand = "";
-            Console.Write("\n\nPersonen auflisten\n" +
-                         "-------------------\n\n\n");
-            Console.Write("| Nr. |     Name      |    Vorname    |  Geb. Dat. |  Fam.-Stand | Anz. Kinder |\n" +
-                          "|-----|---------------|---------------|------------|-------------|-------------|\n");
-
-            int i = 0;
+            
+            int y = 0;
+            int x = 0;
             int count = 0;
-            personenCollection.GetRange
-            foreach (Person item in personenCollection)
+            int intMaxTeilbar = 0;
+            int intItemsPerPage = 10;
+            int intRest = 0;
+            string strFamStand = "";
+            for (int i = 0; i < personenCollection.Count; i++)
             {
-                if (item.FamilienStand == 1)
-                    strFamStand = "ledig";
-                else if (item.FamilienStand == 2)
-                    strFamStand = "verheiratet";
-                else if (item.FamilienStand == 3)
-                    strFamStand = "geschieden";
-
-                Console.WriteLine("| {0}| {1}| {2}| {3}| {4}| {5}|\n", count, item.Name, item.Vorname, item.GebDat.ToString(), strFamStand, item.AnzKinder.ToString());
-                Console.WriteLine("|-----|---------------|---------------|------------|-------------|-------------|");
-                Console.WriteLine("\n");
-                i += 10;
+                Console.Write("\n\nPersonen auflisten\n" +
+                              "-------------------\n\n\n");
+                Console.Write("|-----|---------------|---------------|------------|-------------|-------------|\n" +
+                              "| Nr. |     Name      |    Vorname    |  Geb. Dat. |  Fam.-Stand | Anz. Kinder |\n" +
+                              "|-----|---------------|---------------|------------|-------------|-------------|\n");
+                try
+                {
+                    intRest = (intMaxItems % intItemsPerPage);
+                    intMaxTeilbar = intMaxItems - (intMaxItems % intItemsPerPage);
+                    if (y <= 19)
+                        x = intItemsPerPage;
+                    else
+                        x = intRest;
+                    List<Person> itemList = personenCollection.GetRange(y, x);
+                    foreach (Person item in itemList)
+                    {
+                        if (item.FamilienStand == 1)
+                            strFamStand = "ledig";
+                        else if (item.FamilienStand == 2)
+                            strFamStand = "verheiratet";
+                        else if (item.FamilienStand == 3)
+                            strFamStand = "geschieden";
+                        ++count;
+                        Console.Write("| {0}| {1}| {2}| {3}| {4}| {5}|\n", count.ToString().PadRight(4), item.Name.PadRight(14), item.Vorname.PadRight(14), item.GebDat.ToShortDateString().PadRight(11), strFamStand.PadRight(12), item.AnzKinder.ToString().PadRight(12));
+                        Console.Write("|-----|---------------|---------------|------------|-------------|-------------|\n");
+                    }
+                    Console.Write("\n\n(W) - Weiter");
+                    ConsoleKeyInfo menuKey;
+                    do
+                    {
+                        menuKey = Console.ReadKey(true);
+                        if (menuKey.Key == ConsoleKey.W)
+                        {
+                            Start.clearScreen();
+                            break;
+                        }
+                    } while (true);
+                    y += 10;
+                    i += 9;
+                }
+                catch (ArgumentException)
+                {
+                    
+                }
             }
         }
+
         public void addPerson()
         {
             Person personItem = new Person();
@@ -112,27 +146,60 @@ namespace PersonenVerwaltung
 
         public void getPersonList()
         {
-            string strFamStand = "";
-            Console.Write("\n\nPersonen auflisten\n" +
-                         "-------------------\n\n\n");
-            Console.Write("| Nr. |     Name      |    Vorname    |  Geb. Dat. |  Fam.-Stand | Anz. Kinder |\n" +
-                          "|-----|---------------|---------------|------------|-------------|-------------|\n");
-
-            int i = 0;
+            int y = 0;
+            int x = 0;
             int count = 0;
-            foreach (Person item in personenCollection)
+            int intMaxTeilbar = 0;
+            int intItemsPerPage = 10;
+            int intRest = 0;
+            int intMaxItems = 25;
+            string strFamStand = "";
+            for (int i = 0; i < personenCollection.Count; i++)
             {
-                if (item.FamilienStand == 1)
-                    strFamStand = "ledig";
-                else if (item.FamilienStand == 2)
-                    strFamStand = "verheiratet";
-                else if (item.FamilienStand == 3)
-                    strFamStand = "geschieden";
+                Console.Write("\n\nPersonen auflisten\n" +
+                              "-------------------\n\n\n");
+                Console.Write("|-----|---------------|---------------|------------|-------------|-------------|\n" +
+                              "| Nr. |     Name      |    Vorname    |  Geb. Dat. |  Fam.-Stand | Anz. Kinder |\n" +
+                              "|-----|---------------|---------------|------------|-------------|-------------|\n");
+                try
+                {
+                    intRest = (intMaxItems % intItemsPerPage);
+                    intMaxTeilbar = intMaxItems - (intMaxItems % intItemsPerPage);
+                    if (y <= 19)
+                        x = intItemsPerPage;
+                    else
+                        x = intRest;
+                    List<Person> itemList = personenCollection.GetRange(y, x);
+                    foreach (Person item in itemList)
+                    {
+                        if (item.FamilienStand == 1)
+                            strFamStand = "ledig";
+                        else if (item.FamilienStand == 2)
+                            strFamStand = "verheiratet";
+                        else if (item.FamilienStand == 3)
+                            strFamStand = "geschieden";
+                        ++count;
+                        Console.Write("| {0}| {1}| {2}| {3}| {4}| {5}|\n", count.ToString().PadRight(4), item.Name.PadRight(14), item.Vorname.PadRight(14), item.GebDat.ToShortDateString().PadRight(11), strFamStand.PadRight(12), item.AnzKinder.ToString().PadRight(12));
+                        Console.Write("|-----|---------------|---------------|------------|-------------|-------------|\n");
+                    }
+                    Console.Write("\n\n(W) - Weiter");
+                    ConsoleKeyInfo menuKey;
+                    do
+                    {
+                        menuKey = Console.ReadKey(true);
+                        if (menuKey.Key == ConsoleKey.W)
+                        {
+                            Start.clearScreen();
+                            break;
+                        }
+                    } while (true);
+                    y += 10;
+                    i += 9;
+                }
+                catch (ArgumentException)
+                {
 
-                Console.WriteLine("| {0}| {1}| {2}| {3}| {4}| {5}|\n",count , item.Name, item.Vorname, item.GebDat.ToString(), strFamStand, item.AnzKinder.ToString());
-                Console.WriteLine("|-----|---------------|---------------|------------|-------------|-------------|");
-                Console.WriteLine("\n");
-                i += 10;
+                }
             }
         }
     }

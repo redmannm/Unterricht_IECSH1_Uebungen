@@ -42,12 +42,11 @@ namespace PersonenVerwaltung
                 }
 
                 //
-                // Personen Liste Test Daten
+                // Personen suchen
                 //
                 if (menuKey.Key == ConsoleKey.D3)
                 {
-                    clearScreen();
-                    personenListe.getTestPersonenList();
+                    
                 }
 
                 //
@@ -67,11 +66,13 @@ namespace PersonenVerwaltung
                 }
 
                 //
-                // Motor stoppen
+                // Personen Liste Test Daten
                 //
                 if (menuKey.Key == ConsoleKey.D6)
                 {
-                    
+                    clearScreen();
+                    personenListe.getTestPersonenList();
+                    Console.Write(getScreen(1));
                 }
 
             } while (menuKey.Key != ConsoleKey.E);
@@ -90,6 +91,7 @@ namespace PersonenVerwaltung
                               "(1) Neue Person anlegen\n" +
                               "(2) Personen auflisten\n" +
                               "(3) Person suchen\n" +
+                              "(6) (Test) Personen auflisten\n" +
                               "(E) Programm beenden\n\n";
                     return strMenu;
                 case 2: // Personen auflisten

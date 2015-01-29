@@ -13,7 +13,7 @@ namespace Personendaten
         {
             List<Person> personen = new List<Person>();
 
-            Console.Write(getMenu()); // Hauptmenü aufrufen
+            Console.Write(getMenu(1)); // Hauptmenü aufrufen
 
             ConsoleKeyInfo menuKey;
             do
@@ -72,27 +72,21 @@ namespace Personendaten
             } while (menuKey.Key != ConsoleKey.E);
             
         }
-        public static string getMenu(string type)
+        public static string getMenu(int type)
         {
             string strMenu;
 
             switch (type)
             {
-                case "mainMenu": // Hauptmenü
+                case 1: // Hauptmenü
                     clearScreen();
                     strMenu = "Personenverwaltung\n" +
                               "------------------\n\n" +
                               "(1) Neue Person anlegen\n" +
                               "(2) Personen auflisten\n";
                     return strMenu;
-                case "addPerson": // Person hinzufügen
-                    clearScreen();
-                    strMenu = "";
-
-                    return strMenu;
-                default:
-                    return strMenu;
             }
+            return string.Empty;
         }
         public static void clearScreen()
         {

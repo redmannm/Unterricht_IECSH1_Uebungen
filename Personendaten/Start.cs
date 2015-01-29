@@ -12,7 +12,7 @@ namespace PersonenVerwaltung
         {
             PersonenListManager personenListe = new PersonenListManager();
 
-            Console.Write(getMenu(1)); // Hauptmenü aufrufen
+            Console.Write(getScreen(1)); // Hauptmenü aufrufen
 
             ConsoleKeyInfo menuKey;
             do
@@ -26,7 +26,8 @@ namespace PersonenVerwaltung
                 {
                     clearScreen();
                     personenListe.addPerson();
-                    Console.Write(getMenu(1));
+                    Console.Write(getScreen(1));
+                    Console.Write("Person erfolgreich angelegt!");
                     
 
                 }
@@ -36,7 +37,7 @@ namespace PersonenVerwaltung
                 //
                 if (menuKey.Key == ConsoleKey.D2)
                 {
-                    
+                    personenListe.getPersonList();
                 }
 
                 //
@@ -74,7 +75,7 @@ namespace PersonenVerwaltung
             } while (menuKey.Key != ConsoleKey.E);
             
         }
-        public static string getMenu(int menuType)
+        public static string getScreen(int menuType)
         {
             string strMenu;
 
@@ -85,7 +86,19 @@ namespace PersonenVerwaltung
                     strMenu = "Personenverwaltung\n" +
                               "------------------\n\n" +
                               "(1) Neue Person anlegen\n" +
-                              "(2) Personen auflisten\n";
+                              "(2) Personen auflisten\n" +
+                              "(3) Person suchen\n" +
+                              "(E) Programm beenden\n\n";
+                    return strMenu;
+                case 2: // Personen auflisten
+                    string tabHead;
+                    string tabRow;
+                    //            4         14               14           11            12            12
+                    tabHead = "| Nr. |     Name      |    Vorname    |  Geb. Dat. |  Fam.-Stand | Anz. Kinder |\n" +
+                              "|-----|---------------|---------------|------------|-------------|-------------|\n";
+                    tabRow  = "| {0}| {1}| {2}| {3}| {4}| {5}|\n";
+                    strMenu = "Personen auflisten\n" +
+                              "-------------------\n\n";
                     return strMenu;
             }
             return string.Empty;

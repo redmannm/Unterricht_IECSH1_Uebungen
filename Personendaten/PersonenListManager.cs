@@ -8,7 +8,7 @@ namespace PersonenVerwaltung
 {
     class PersonenListManager
     {
-        private List<Person> personenCollection = new List<Person>();
+        List<Person> personenCollection = new List<Person>();
 
         private Person personItem = new Person();
 
@@ -17,11 +17,70 @@ namespace PersonenVerwaltung
 
         }
 
-        public Person addPerson()
+        public void addPerson()
         {
-            Console.Write("Familienname: ");
+            Console.Write("{0}", "Familienname: ".PadRight(15));
             personItem.Name = Console.ReadLine();
-            return personItem;
+
+            Console.Write("{0}", "Vorname: ".PadRight(15));
+            personItem.Vorname = Console.ReadLine();
+
+            do
+            {
+                try
+                {
+                    Console.Write("{0}", "Geb.-Dat.: ".PadRight(15));
+                    personItem.GebDat = Convert.ToDateTime(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Falsches Format! (DD.MM.JJJ)");
+                }
+            } while (true);
+
+            do
+            {
+                try
+                {
+                    Console.Write("{0}", "Fam.-Stand: ".PadRight(15));
+                    Console.Write("{0}", "1 = ledig | 2 = verheiratet | 3 = geschieden".PadRight(15));
+                    personItem.FamilienStand = Convert.ToInt32(Console.ReadLine());
+                    if (personItem.FamilienStand != 0)
+                        break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Falsches Format! Nur Ganzzahlen erlaubt");
+                }
+            } while (true);
+
+            do
+            {
+                try
+                {
+                    Console.Write("{0}", "Anz.-Kinder: ".PadRight(15));
+                    personItem.AnzKinder = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Falsches Format! Nur Ganzzahlen erlaubt");
+                }
+            } while (true);
+            personenCollection.Add(personItem);
+        }
+
+        public void getPersonList()
+        {
+            for (int i = 0; i < personenCollection.Count - 1; i++)
+            {
+                Console.WriteLine(personenCollection[i].Name);
+                Console.WriteLine(personenCollection[i].Vorname);
+                Console.WriteLine(personenCollection[i].GebDat.ToString());
+                Console.WriteLine(personenCollection[i].FamilienStand.ToString());
+                Console.WriteLine("\n");
+            }
         }
     }
 }

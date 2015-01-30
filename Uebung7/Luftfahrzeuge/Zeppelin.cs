@@ -8,6 +8,13 @@ namespace Uebung7
     public class Zeppelin : Luftfahrzeug
     {
         private int gasvolumen;
+        private int gestartet;
+
+        public int Gestartet
+        {
+            get { return gestartet; }
+            set { gestartet = value; }
+        }
 
         public int Gasvolumen
         {
@@ -27,7 +34,7 @@ namespace Uebung7
 
         public void Starten()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

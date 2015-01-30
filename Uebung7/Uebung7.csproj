@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Flugzeug.cs" />
-    <Compile Include="Hubschrauber.cs" />
-    <Compile Include="Luftfahrzeug.cs" />
+    <Compile Include="Luftfahrzeuge\Flugzeug.cs" />
+    <Compile Include="Luftfahrzeuge\Hubschrauber.cs" />
+    <Compile Include="Luftfahrzeuge\Luftfahrzeug.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Zeppelin.cs" />
+    <Compile Include="Luftfahrzeuge\Zeppelin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

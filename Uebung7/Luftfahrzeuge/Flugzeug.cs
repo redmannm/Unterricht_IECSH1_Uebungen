@@ -8,7 +8,6 @@ namespace Uebung7
     public class Flugzeug : Luftfahrzeug
     {
         private int spannweite;
-
         public int Spannweite
         {
             get { return spannweite; }
@@ -37,9 +36,9 @@ namespace Uebung7
             Console.WriteLine(Baujahr.ToString());
         }
 
-        public new void Starten()
+        public void Starten()
         {
-            Console.WriteLine("Flugzeug ist gestartet");
+            
         }
     }
 

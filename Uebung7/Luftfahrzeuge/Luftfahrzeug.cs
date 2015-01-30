@@ -9,26 +9,34 @@ namespace Uebung7
     public abstract class Luftfahrzeug
     {
         private int baujahr;
-
         public int Baujahr
         {
             get { return baujahr; }
             set { baujahr = value; }
         }
-        private string hersteller;
 
+        private string hersteller;
         public string Hersteller
         {
             get { return hersteller; }
             set { hersteller = value; }
         }
 
+        private bool gestartet;
+        public bool Gestartet
+        {
+            get { return gestartet; }
+            set { gestartet = value; }
+        }
+
         public abstract void Ausgabe();
        
-
-        public void Starten()
+        public virtual void Starten()
         {
-
+            if (Gestartet == false)
+                Gestartet = true;
+            else
+                Gestartet = false;
         }
     }
 }

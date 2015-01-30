@@ -9,10 +9,18 @@ namespace Uebung7
     {
         private int rotor;
 
+        private int gestartet;
+
         public int Rotor
         {
             get { return rotor; }
             set { rotor = value; }
+        }
+
+        public int Gestartet
+        {
+            get { return gestartet; }
+            set { gestartet = value; }
         }
 
         public override void Ausgabe()

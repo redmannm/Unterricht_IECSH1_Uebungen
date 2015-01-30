@@ -169,10 +169,10 @@ namespace PersonenVerwaltung
                 int_DatasetPages += 1;
 
             string strFamStand = "";
-            for (int i = 0; i < personenCollection.Count; i++)
+            for (int i = 0; i < int_DatasetPages; i++)
             {
-                Console.Write("\n\nPersonen auflisten\n" +
-                              "-------------------\n\n\n");
+                Console.Write("\n\nPersonen auflisten - Seite {0} von {1}\n" +
+                              "-------------------\n\n\n", i, int_DatasetPages);
                 Console.Write("|-----|---------------|---------------|------------|-------------|-------------|\n" +
                               "| Nr. |     Name      |    Vorname    |  Geb. Dat. |  Fam.-Stand | Anz. Kinder |\n" +
                               "|-----|---------------|---------------|------------|-------------|-------------|\n");
@@ -211,8 +211,7 @@ namespace PersonenVerwaltung
                             break;
                         }
                     } while (true);
-                    y += 10;
-                    i += 9;
+                    y += int_PageDataItems;
                 }
                 catch (ArgumentException)
                 {

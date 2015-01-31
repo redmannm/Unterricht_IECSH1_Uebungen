@@ -29,7 +29,7 @@ namespace Uebung7
             Baujahr = Convert.ToInt32(Console.ReadLine());
         }
 
-        public void Ausgabe()
+        public override void Ausgabe()
         {
             Console.WriteLine(this.Spannweite.ToString());
             Console.WriteLine(Hersteller);

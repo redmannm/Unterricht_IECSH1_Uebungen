@@ -8,6 +8,8 @@ namespace Uebung7
 {
     class Program
     {
+        private const bool DEBUG = true;
+    
         static void Main(string[] args)
         {
             Console.Write("Anzahl der Luftfahrezeuge: ");

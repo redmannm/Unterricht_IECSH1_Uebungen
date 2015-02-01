@@ -48,7 +48,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Auto\AutoClass.csproj">
+    <ProjectReference Include="..\AutoClass\AutoClass.csproj">
       <Project>{05adc63e-6c7d-40a5-8fd2-50a12c9a61bc}</Project>
       <Name>AutoClass</Name>
     </ProjectReference>

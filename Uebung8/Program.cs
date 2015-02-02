@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using Uebung8.Klassen;
+using Uebung8.Klassen;
 
 namespace Uebung8
 {
@@ -44,13 +44,20 @@ namespace Uebung8
         //Arbeitslosenversicherung: 2,8%
 
         //Wenn Sie fertig sind bitte Haken setzen.
+        
         static void Main(string[] args)
         {
+            Menues menues = new Menues();
             Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Title = "Lohnberechnung";
             Console.SetWindowSize(90, 60); // Konsolenfenster auf 90 Zeichen Breite und 50 Zeilen höhe stellen
-            Menues menu
+            
+            menues.Hauptmenu();
+        }
+        public static void ClearScreen()
+        {
+            Console.Clear();
         }
     }
 }

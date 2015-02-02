@@ -168,7 +168,7 @@ namespace Uebung7
             {
                 foreach (Luftfahrzeug item in arr_Luftfahrzeuge)
                 {
-                    ++count;
+                    ++count; 
 
                     // Fahrzeugtyp ermitteln
                     if (item.GetType().ToString().EndsWith("Flugzeug"))

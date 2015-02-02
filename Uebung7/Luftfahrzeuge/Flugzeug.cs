@@ -58,10 +58,11 @@ namespace Uebung7
 
         public override void Ausgabe()
         {
-            Console.WriteLine("Luftfahrzeugtyp: Flugzeug");
-            Console.WriteLine("Spannweite: " + Spannweite.ToString());
-            Console.WriteLine("Hersteller: " + Hersteller);
-            Console.WriteLine(Baujahr.ToString());
+            Console.WriteLine("{0}{1}", "Luftfahrzeugtyp:".PadRight(16), "Flugzeug");
+            Console.WriteLine("{0}{1}", "Spannweite:".PadRight(16), Spannweite.ToString());
+            Console.WriteLine("{0}{1}", "Hersteller:".PadRight(16), Hersteller);
+            Console.WriteLine("{0}{1}", "Baujahr".PadRight(16), Baujahr.ToString());
+            Console.WriteLine("");
         }
 
         //public void Starten()

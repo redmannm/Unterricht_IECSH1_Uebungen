@@ -58,7 +58,11 @@ namespace Uebung7
 
         public override void Ausgabe()
         {
-
+            Console.WriteLine("{0}{1}", "Luftfahrzeugtyp:".PadRight(17), "Zeppelin");
+            Console.WriteLine("{0}{1}", "Gasvolumen:".PadRight(17), Gasvolumen.ToString());
+            Console.WriteLine("{0}{1}", "Hersteller:".PadRight(17), Hersteller);
+            Console.WriteLine("{0}{1}", "Baujahr".PadRight(17), Baujahr.ToString());
+            Console.WriteLine("");
         }
 
         //public void Starten()

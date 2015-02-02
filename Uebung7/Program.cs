@@ -136,10 +136,12 @@ namespace Uebung7
             {
                 ++count;
                 Console.WriteLine("Ausgabe des {0}. Luftfahrzeugs\n" +
-                                  "--------------------------------\n\n", count);
+                                  "--------------------------------\n", count);
                 item.Ausgabe();
+                // Console.WriteLine(item.GetType().ToString());
             }
-            Console.ReadLine();
+            Console.WriteLine("Hauptmenü - Taste drücken");
+            Console.ReadKey(true);
         }
         public static void StartLuftfahrzeuge()
         {

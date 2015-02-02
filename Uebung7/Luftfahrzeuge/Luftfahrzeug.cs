@@ -31,12 +31,12 @@ namespace Uebung7
 
         public abstract void Ausgabe();
        
-        public virtual void Starten()
+        public virtual void StartenStoppen()
         {
-            if (Gestartet == false)
-                Gestartet = true;
-            else
+            if (Gestartet == true)
                 Gestartet = false;
+            else
+                Gestartet = true;
         }
     }
 }

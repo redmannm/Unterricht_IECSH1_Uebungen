@@ -44,7 +44,6 @@
     <Compile Include="Luftfahrzeuge\Flugzeug.cs" />
     <Compile Include="Luftfahrzeuge\Hubschrauber.cs" />
     <Compile Include="Luftfahrzeuge\Luftfahrzeug.cs" />
-    <Compile Include="Sonstige\Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Luftfahrzeuge\Zeppelin.cs" />

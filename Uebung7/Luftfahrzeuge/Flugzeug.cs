@@ -65,7 +65,7 @@ namespace Uebung7
             Console.WriteLine("");
         }
 
-        //public void Starten()
+        //public void StartenStoppen()
         //{
             
         //}

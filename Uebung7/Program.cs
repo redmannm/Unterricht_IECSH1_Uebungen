@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Uebung7
@@ -32,12 +33,13 @@ namespace Uebung7
                 Console.WriteLine("HauptMenü\n" +
                               "---------\n\n" +
                               "F1  - Luftfahrzeuge anlegen\n" +
-                              "F2  - Luftfahrzeuge ausgen\n" +
+                              "F2  - Luftfahrzeuge ausgeben\n" +
                               "F3  - Luftfahrzeuge starten\n" +
+                              "F4  - Luftfahrzeuge stoppen\n" +
                               "ESC - Programm beenden\n\n");
                 if (message.Length > 0)
-                    
                     Console.WriteLine(message);
+                message = "";
                 menuKey = Console.ReadKey(true);
 
                 // Menüauswahl Luftfahrzeuge anlegen
@@ -57,6 +59,12 @@ namespace Uebung7
                 if (menuKey.Key == ConsoleKey.F3)
                 {
                     StartLuftfahrzeuge();
+                }
+
+                // Menüauswahl Luftfahrzeuge stoppen
+                if (menuKey.Key == ConsoleKey.F4)
+                {
+                    StopLuftfahrzeuge();
                 }
             } while (menuKey.Key != ConsoleKey.Escape);
         }
@@ -132,20 +140,119 @@ namespace Uebung7
         {
             int count = 0;
             ClearScreen();
-            foreach (Luftfahrzeug item in arr_Luftfahrzeuge)
+            if (arr_Luftfahrzeuge != null)
             {
-                ++count;
-                Console.WriteLine("Ausgabe des {0}. Luftfahrzeugs\n" +
-                                  "--------------------------------\n", count);
-                item.Ausgabe();
-                // Console.WriteLine(item.GetType().ToString());
+                foreach (Luftfahrzeug item in arr_Luftfahrzeuge)
+                {
+                    ++count;
+                    Console.WriteLine("Ausgabe des {0}. Luftfahrzeugs\n" +
+                                      "--------------------------------\n", count);
+                    item.Ausgabe();
+                    // Console.WriteLine(item.GetType().ToString());
+                }
+            }
+            else
+            {
+                Console.WriteLine("Keine Luftfahrzeuge vorhanden.\n" +
+                                  "------------------------------\n");
             }
             Console.WriteLine("Hauptmenü - Taste drücken");
             Console.ReadKey(true);
         }
         public static void StartLuftfahrzeuge()
         {
-            
+            int count = 0;
+            string typ = "";
+            ClearScreen();
+            if (arr_Luftfahrzeuge != null)
+            {
+                foreach (Luftfahrzeug item in arr_Luftfahrzeuge)
+                {
+                    ++count;
+
+                    // Fahrzeugtyp ermitteln
+                    if (item.GetType().ToString().EndsWith("Flugzeug"))
+                        typ = "Das Flugzeug";
+                    else if (item.GetType().ToString().EndsWith("Hubschrauber"))
+                        typ = "Der Hubschrauber";
+                    else if (item.GetType().ToString().EndsWith("Zeppelin"))
+                        typ = "Der Zeppelin";
+
+
+                    Console.WriteLine("Das {0}. Fahrzeug wird gestartet\n" +
+                                      "--------------------------------\n", count);
+                    if (item.Gestartet)
+                    {
+                        Console.WriteLine("{0} ist bereits gestartet.\n", typ);
+                    }
+                    else
+                    {
+                        Console.Write("{0} wird gestartet", typ);
+                        for (int i = 0; i < 4; i++)
+                        {
+                            Console.Write(" .");
+                            Thread.Sleep(300);
+                        }
+                        Console.WriteLine("\n\n{0} wurde erfolgreich gestartet.\n", typ);
+                        item.StartenStoppen();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Keine Luftfahrzeuge vorhanden.\n" +
+                                  "------------------------------\n");
+            }
+            Console.WriteLine("Hauptmenü - Taste drücken");
+            Console.ReadKey(true);
+        }
+
+        private static void StopLuftfahrzeuge()
+        {
+            int count = 0;
+            string typ = "";
+            ClearScreen();
+            if (arr_Luftfahrzeuge != null)
+            {
+                foreach (Luftfahrzeug item in arr_Luftfahrzeuge)
+                {
+                    ++count;
+
+                    // Fahrzeugtyp ermitteln
+                    if (item.GetType().ToString().EndsWith("Flugzeug"))
+                        typ = "Das Flugzeug";
+                    else if (item.GetType().ToString().EndsWith("Hubschrauber"))
+                        typ = "Der Hubschrauber";
+                    else if (item.GetType().ToString().EndsWith("Zeppelin"))
+                        typ = "Der Zeppelin";
+
+
+                    Console.WriteLine("Das {0}. Fahrzeug wird gestoppt\n" +
+                                      "-------------------------------\n", count);
+                    if (!item.Gestartet)
+                    {
+                        Console.WriteLine("{0} ist bereits gestoppt.\n", typ);
+                    }
+                    else
+                    {
+                        Console.Write("{0} wird gestoppt", typ);
+                        for (int i = 0; i < 4; i++)
+                        {
+                            Console.Write(" .");
+                            Thread.Sleep(300);
+                        }
+                        Console.WriteLine("\n\n{0} wurde erfolgreich gestoppt.\n", typ);
+                        item.StartenStoppen();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Keine Luftfahrzeuge vorhanden.\n" +
+                                  "------------------------------\n");
+            }
+            Console.WriteLine("Hauptmenü - Taste drücken");
+            Console.ReadKey(true);
         }
 
         public static void ClearScreen()

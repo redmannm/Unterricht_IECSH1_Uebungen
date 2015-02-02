@@ -15,9 +15,7 @@ namespace AutoApp
             AutoClassDemo thisApp = new AutoClassDemo();
             
             ConsoleKeyInfo menuKey;
-            
             Console.Write(getMenu(1)); // Hauptmenü aufrufen
-            
             do
             {
                 menuKey = Console.ReadKey(true);

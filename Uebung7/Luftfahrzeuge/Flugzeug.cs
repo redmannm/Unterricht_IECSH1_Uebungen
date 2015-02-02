@@ -16,30 +16,58 @@ namespace Uebung7
 
         public Flugzeug()
         {
+            Gestartet = false;
             Eingabe();
         }
 
         public void Eingabe()
         {
-            Console.Write("Spannweite: ");
-            this.Spannweite = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Hersteller: ");
+            Console.WriteLine("Eigenschaften des Flugzeugs eingeben.\n" +
+                              "-------------------------------------\n");
+            do
+            {
+                try
+                {
+                    Console.Write("Spannweite: ");
+                    Spannweite = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("\nBitte geben Sie nur Ganzzahlen ein.\n");
+                }
+            } while (true);
+
+            Console.Write("Hersteller: ");
             Hersteller = Console.ReadLine();
-            Console.WriteLine("Baujahr: ");
-            Baujahr = Convert.ToInt32(Console.ReadLine());
+
+            do
+            {
+                try
+                {
+                    Console.Write("Baujahr: ");
+                    Baujahr = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("\nBitte geben Sie nur Ganzzahlen ein.\n");
+                }
+            } while (true);
         }
 
         public override void Ausgabe()
         {
-            Console.WriteLine(this.Spannweite.ToString());
-            Console.WriteLine(Hersteller);
+            Console.WriteLine("Luftfahrzeugtyp: Flugzeug");
+            Console.WriteLine("Spannweite: " + Spannweite.ToString());
+            Console.WriteLine("Hersteller: " + Hersteller);
             Console.WriteLine(Baujahr.ToString());
         }
 
-        public void Starten()
-        {
+        //public void Starten()
+        //{
             
-        }
+        //}
     }
 
 

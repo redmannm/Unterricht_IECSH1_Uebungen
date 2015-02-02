@@ -8,34 +8,62 @@ namespace Uebung7
     public class Hubschrauber : Luftfahrzeug
     {
         private int rotor;
-
-        private int gestartet;
-
         public int Rotor
         {
             get { return rotor; }
             set { rotor = value; }
         }
 
-        public int Gestartet
+        public Hubschrauber()
         {
-            get { return gestartet; }
-            set { gestartet = value; }
-        }
-
-        public override void Ausgabe()
-        {
-            throw new System.NotImplementedException();
+            Gestartet = false;
+            Eingabe();
         }
 
         public void Eingabe()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("Eigenschaften des Hubschraubers eingeben.\n" +
+                              "-----------------------------------------\n");
+            do
+            {
+                try
+                {
+                    Console.Write("Rotor-Durchmesser: ");
+                    Rotor = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("\nBitte geben Sie nur Ganzzahlen ein.\n");
+                }
+            } while (true);
+
+            Console.Write("Hersteller: ");
+            Hersteller = Console.ReadLine();
+
+            do
+            {
+                try
+                {
+                    Console.Write("Baujahr: ");
+                    Baujahr = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("\nBitte geben Sie nur Ganzzahlen ein.\n");
+                }
+            } while (true);
         }
 
-        public void Starten()
+        public override void Ausgabe()
         {
-            throw new System.NotImplementedException();
+            
         }
+
+        //public void Starten()
+        //{
+        //    throw new System.NotImplementedException();
+        //}
     }
 }

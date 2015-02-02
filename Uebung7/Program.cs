@@ -14,7 +14,6 @@ namespace Uebung7
 
         static void Main(string[] args)
         {
-            //Program thisApp = new Program();
             Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Title = "Luftfahrzeuge";

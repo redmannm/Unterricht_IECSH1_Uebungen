@@ -30,7 +30,7 @@ namespace Uebung7
             do
             {
                 ClearScreen();
-                Console.WriteLine("HauptMenü\n" +
+                Console.WriteLine("Hauptmenü\n" +
                               "---------\n\n" +
                               "F1  - Luftfahrzeuge anlegen\n" +
                               "F2  - Luftfahrzeuge ausgeben\n" +

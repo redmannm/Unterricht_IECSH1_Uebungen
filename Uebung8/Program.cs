@@ -54,7 +54,13 @@ namespace Uebung8
             Console.SetWindowSize(90, 60); // Konsolenfenster auf 90 Zeichen Breite und 50 Zeilen höhe stellen
             
             menues.Hauptmenu();
+            // Programm ende
         }
+        public static void Mitarbeiteranlegen()
+        {
+
+        }
+
         public static void ClearScreen()
         {
             Console.Clear();

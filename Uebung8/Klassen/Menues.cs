@@ -28,7 +28,7 @@ namespace Uebung8.Klassen
                 // Menüauswahl Mitarbeiter anlegen
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    
+                    Program.
                 }
 
                 // Menüuswahl Mitarbeiterliste anzeigen

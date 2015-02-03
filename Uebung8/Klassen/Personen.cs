@@ -47,6 +47,19 @@ namespace Uebung8.Klassen
             }
         }
 
+        DateTime gebDat;
+        public DateTime GebDat
+        {
+            get
+            {
+                return gebDat;
+            }
+            set
+            {
+                gebDat = value;
+            }
+        }
+
         string strasse;
         public string Strasse
         {
@@ -99,19 +112,6 @@ namespace Uebung8.Klassen
             }
         }
 
-        DateTime gebDat;
-        public DateTime GebDat
-        {
-            get
-            {
-                return gebDat;
-            }
-            set
-            {
-                gebDat = value;
-            }
-        }
-
         string konfession;
         public string Konfession
         {
@@ -123,6 +123,11 @@ namespace Uebung8.Klassen
             {
                 konfession = value;
             }
+        }
+
+        public virtual void Anlegen()
+        {
+
         }
     }
 }

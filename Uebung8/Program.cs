@@ -51,15 +51,15 @@ namespace Uebung8
             Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Title = "Lohnberechnung";
-            Console.SetWindowSize(90, 60); // Konsolenfenster auf 90 Zeichen Breite und 50 Zeilen höhe stellen
+            Console.SetWindowSize(120, 60); // Konsolenfenster auf 90 Zeichen Breite und 50 Zeilen höhe stellen
             
             menues.Hauptmenu();
             // Programm ende
         }
-        public static void Mitarbeiteranlegen()
-        {
+        //public static void Mitarbeiteranlegen()
+        //{
 
-        }
+        //}
 
         public static void ClearScreen()
         {

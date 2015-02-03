@@ -112,8 +112,13 @@ namespace Uebung8.Klassen
             }
         }
 
-        string konfession;
-        public string Konfession
+        int konfession;
+        /// <summary>
+        /// <para>1 = Röm. Katholisch</para>
+        /// <para>2 = Evangelisch</para>
+        /// <para>3 = Orthodox</para>
+        /// </summary>
+        public int Konfession
         {
             get
             {

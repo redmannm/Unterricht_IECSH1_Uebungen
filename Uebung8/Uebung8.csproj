@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Klassen\Menues.cs" />
     <Compile Include="Klassen\Mitarbeiter.cs" />
+    <Compile Include="Klassen\Personen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

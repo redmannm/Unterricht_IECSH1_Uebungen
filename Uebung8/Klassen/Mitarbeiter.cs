@@ -47,7 +47,7 @@ namespace Uebung8.Klassen
             }
         }
         
-        List<Mitarbeiter> testMaDaten = new List<Mitarbeiter>();
+        List<Mitarbeiter> li_MaDaten = new List<Mitarbeiter>();
         public Mitarbeiter()
         {
         
@@ -200,18 +200,18 @@ namespace Uebung8.Klassen
                 Konfession = 1,
                 Status = true
             };
-            testMaDaten.Add(ma1);
-            testMaDaten.Add(ma2);
-            testMaDaten.Add(ma3);
-            testMaDaten.Add(ma4);
-            testMaDaten.Add(ma5);
-            testMaDaten.Add(ma6);
-            testMaDaten.Add(ma7);
-            testMaDaten.Add(ma8);
-            testMaDaten.Add(ma9);
-            testMaDaten.Add(ma10);
-            testMaDaten.Add(ma11);
-            testMaDaten.Add(ma12);
+            li_MaDaten.Add(ma1);
+            li_MaDaten.Add(ma2);
+            li_MaDaten.Add(ma3);
+            li_MaDaten.Add(ma4);
+            li_MaDaten.Add(ma5);
+            li_MaDaten.Add(ma6);
+            li_MaDaten.Add(ma7);
+            li_MaDaten.Add(ma8);
+            li_MaDaten.Add(ma9);
+            li_MaDaten.Add(ma10);
+            li_MaDaten.Add(ma11);
+            li_MaDaten.Add(ma12);
             // Testdaten ende
         }
 
@@ -287,6 +287,7 @@ namespace Uebung8.Klassen
                 Konfession = 1,
                 Status = true
             };
+            li_MaDaten.Add()
         }
 
         public override void Anlegen(List<Mitarbeiter> _testMaDaten)

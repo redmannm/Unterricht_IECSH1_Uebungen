@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoClass", "AutoClass\Auto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung8", "Uebung8\Uebung8.csproj", "{212AD043-7FC4-47B1-BF11-1121D371CE2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BS_Marcus-Redmann", "BS_Marcus-Redmann\BS_Marcus-Redmann.csproj", "{196A2E64-59F5-40AB-BF98-559FCFC51A29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{212AD043-7FC4-47B1-BF11-1121D371CE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{212AD043-7FC4-47B1-BF11-1121D371CE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{212AD043-7FC4-47B1-BF11-1121D371CE2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{196A2E64-59F5-40AB-BF98-559FCFC51A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{196A2E64-59F5-40AB-BF98-559FCFC51A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{196A2E64-59F5-40AB-BF98-559FCFC51A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{196A2E64-59F5-40AB-BF98-559FCFC51A29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

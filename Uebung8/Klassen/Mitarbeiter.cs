@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Uebung8.Klassen
 {
-    class Mitarbeiter : Personen : IEnumerable<Mitarbeiter>
+    class Mitarbeiter : Personen 
     {
-
         int steuerKlasse;
         public int SteuerKlasse
         {
@@ -47,21 +46,180 @@ namespace Uebung8.Klassen
                 bruttoLohn = value;
             }
         }
-
+        
+        List<Mitarbeiter> testMaDaten = new List<Mitarbeiter>();
         public Mitarbeiter()
         {
-
+        
         }
-
-        public Mitarbeiter(Mitarbeiter[] ma)
+        public Mitarbeiter(bool testDaten)
         {
+            // Testdaten 
 
+            Mitarbeiter ma1 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma2 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma3 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma4 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma5 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma6 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma7 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma8 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma9 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma10 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma11 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            Mitarbeiter ma12 = new Mitarbeiter
+            {
+                Name = "Redmann",
+                Vorname = "Marcus",
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
+            testMaDaten.Add(ma1);
+            testMaDaten.Add(ma2);
+            testMaDaten.Add(ma3);
+            testMaDaten.Add(ma4);
+            testMaDaten.Add(ma5);
+            testMaDaten.Add(ma6);
+            testMaDaten.Add(ma7);
+            testMaDaten.Add(ma8);
+            testMaDaten.Add(ma9);
+            testMaDaten.Add(ma10);
+            testMaDaten.Add(ma11);
+            testMaDaten.Add(ma12);
+            // Testdaten ende
         }
-        public Mitarbeiter(string _name, string _vorname, DateTime gebDat, string _strasse, string _hausnummer, string _plz, string _ort, string _konfession, bool _status)
-        {
 
-        }
+        //public Mitarbeiter(string _name, string _vorname, DateTime _gebDat, string _strasse, string _hausnummer, string _plz, string _ort, string _konfession, bool _status)
+        //{
 
+        //}
+                
         public override void Anlegen()
         {
             // Ausgabe vorbereiten
@@ -116,8 +274,28 @@ namespace Uebung8.Klassen
 
             Console.Write("{0}", "Lohn-St.-Klasse:".PadRight(14));
             SteuerKlasse = Convert.ToInt32(Console.ReadLine());
+            
+            Mitarbeiter ma = new Mitarbeiter
+            {
+                Name = this.Name,
+                Vorname = this.Vorname,
+                GebDat = System.DateTime.Parse("11.10.1974"),
+                Strasse = "Willhelm-Raabe-Weg",
+                Hausnummer = "13",
+                Plz = "24159",
+                Ort = "Kiel",
+                Konfession = 1,
+                Status = true
+            };
         }
 
+        public override void Anlegen(List<Mitarbeiter> _testMaDaten)
+        {
+            foreach (Mitarbeiter item in _testMaDaten)
+            {
+                
+            }
+        }
         internal void getList()
         {
             int pos = 0;

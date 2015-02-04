@@ -13,7 +13,8 @@ namespace Uebung8
         {
             ConsoleKeyInfo menuKey;
 
-            Mitarbeiter mitarbeiter = new Mitarbeiter();
+            Mitarbeiter mitarbeiter = null;
+            
             
             do
             {
@@ -21,45 +22,50 @@ namespace Uebung8
                 Console.WriteLine("Hauptmenü\n" +
                                   "---------\n\n" +
                                   "F1  - Mitarbeiter anlegen\n" +
-                                  "F2  - Mitarbeiterliste anzeigen\n" +
-                                  "F3  - Mitarbeiter suchen\n" +
-                                  "F4  - Mitarbeiter deaktivieren\n" +
-                                  "F5  - Lohnkosten anzeigen\n" +
+                                  "F2  - Mitarbeiter Testdaten laden" +
+                                  "F3  - Mitarbeiterliste anzeigen\n" +
+                                  "F4  - Mitarbeiter suchen\n" +
+                                  "F5  - Mitarbeiter deaktivieren\n" +
+                                  "F6  - Lohnkosten anzeigen\n" +
                                   "ESC - Programm beenden");
                 menuKey = Console.ReadKey();
 
                 // Menüauswahl Mitarbeiter anlegen
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    // Testdaten 
-                    List<Mitarbeiter> testMaDaten = new List<Mitarbeiter>();
-                    Mitarbeiter ma1 = new Mitarbeiter { "Redmann", "Marcus", System.DateTime.Parse("11.10.1974"), "Willhelm-Raabe-Weg", "13", "24159", "Kiel", 1, true };
-                    
-                    
+                    if (mitarbeiter == null)
+                        mitarbeiter = new Mitarbeiter();
                     Program.ClearScreen();
                     mitarbeiter.Anlegen();
                 }
 
-                // Menüuswahl Mitarbeiterliste anzeigen
+                // Menüauswahl Testdaten laden
                 if (menuKey.Key == ConsoleKey.F2)
+                {
+                    Program.ClearScreen();
+                    mitarbeiter = new Mitarbeiter(true);
+                }
+
+                // Menüuswahl Mitarbeiterliste anzeigen
+                if (menuKey.Key == ConsoleKey.F3)
                 {
                     Program.ClearScreen();
                     mitarbeiter.getList();
                 }
 
                 // Menüauswahl Mitarbeiter suchen
-                if (menuKey.Key == ConsoleKey.F3)
+                if (menuKey.Key == ConsoleKey.F4)
                 {
                     
                 }
 
                 // Menüauswahl Mitarbeiter deaktivieren
-                if (menuKey.Key == ConsoleKey.F4)
+                if (menuKey.Key == ConsoleKey.F5)
                 {
                     
                 }
                 // Menüauswahl Lohnkosten anzeigen
-                if (menuKey.Key == ConsoleKey.F4)
+                if (menuKey.Key == ConsoleKey.F6)
                 {
 
                 }

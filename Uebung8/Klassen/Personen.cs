@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uebung8.Klassen
 {
-    class Personen
+    class Personen : IEnumerable<Personen>
     {
         bool status; // Mitarbeiter aktiviert / deaktiviert
         public bool Status

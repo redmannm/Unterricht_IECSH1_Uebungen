@@ -63,6 +63,8 @@ namespace Uebung8
 
         public static void ClearScreen()
         {
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
         }
     }

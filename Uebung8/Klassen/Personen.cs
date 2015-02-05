@@ -134,5 +134,15 @@ namespace Uebung8.Klassen
         {
 
         }
+
+        IEnumerator<Personen> IEnumerable<Personen>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

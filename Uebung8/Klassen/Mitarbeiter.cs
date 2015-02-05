@@ -287,16 +287,16 @@ namespace Uebung8.Klassen
                 Konfession = 1,
                 Status = true
             };
-            li_MaDaten.Add()
+            li_MaDaten.Add(ma);
         }
 
-        public override void Anlegen(List<Mitarbeiter> _testMaDaten)
-        {
-            foreach (Mitarbeiter item in _testMaDaten)
-            {
+        //public override void Anlegen(List<Mitarbeiter> _testMaDaten)
+        //{
+        //    foreach (Mitarbeiter item in _testMaDaten)
+        //    {
                 
-            }
-        }
+        //    }
+        //}
         internal void getList()
         {
             int pos = 0;

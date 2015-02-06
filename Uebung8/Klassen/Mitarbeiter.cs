@@ -46,15 +46,32 @@ namespace Uebung8.Klassen
                 bruttoLohn = value;
             }
         }
+
+        bool testDatenGeladen;
+
+        public bool TestDatenGeladen
+        {
+            get
+            {
+                return testDatenGeladen;
+            }
+            set
+            {
+                testDatenGeladen = value;
+            }
+        }
+
         
         List<Mitarbeiter> li_MaDaten = new List<Mitarbeiter>();
         public Mitarbeiter()
         {
-        
+            TestDatenGeladen = false;
         }
 
         public override void Anlegen()
         {
+            if (TestDatenGeladen)
+                li_MaDaten.Clear();
             // Ausgabe vorbereiten
             Console.WriteLine("Mitarbeiter anlegen\n" +
                               "-------------------\n\n" +
@@ -150,6 +167,8 @@ namespace Uebung8.Klassen
         }
         public void getTestData()
         {
+            if (li_MaDaten.Count > 0)
+                li_MaDaten.Clear();
             // Testdaten 
             Mitarbeiter ma1 = new Mitarbeiter
             {
@@ -309,6 +328,7 @@ namespace Uebung8.Klassen
             li_MaDaten.Add(ma11);
             li_MaDaten.Add(ma12);
             // Testdaten ende
+            TestDatenGeladen = true;
         }
         IEnumerator<Mitarbeiter> IEnumerable<Mitarbeiter>.GetEnumerator()
         {

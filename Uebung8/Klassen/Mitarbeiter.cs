@@ -49,7 +49,7 @@ namespace Uebung8.Klassen
 
         bool testDatenGeladen;
 
-        public bool TestDatenGeladen
+        private bool TestDatenGeladen
         {
             get
             {
@@ -90,7 +90,7 @@ namespace Uebung8.Klassen
                     GebDat = Convert.ToDateTime(Console.ReadLine());
                     break;
                 }
-                catch (FormatException)
+                catch (FormatException e)
                 {
                     Console.Write("\n");
                     Console.BackgroundColor = ConsoleColor.Red;
@@ -101,6 +101,8 @@ namespace Uebung8.Klassen
                     Console.Write("\n");
                 }
             } while (true);
+
+            Console.Write("{0}", "Konfession:");
 
             Console.Write("{0}", "Straße:".PadRight(14));
             Strasse = Console.ReadLine();
@@ -129,12 +131,12 @@ namespace Uebung8.Klassen
             {
                 Name = this.Name,
                 Vorname = this.Vorname,
-                GebDat = System.DateTime.Parse("11.10.1974"),
-                Strasse = "Willhelm-Raabe-Weg",
-                Hausnummer = "13",
-                Plz = "24159",
-                Ort = "Kiel",
-                Konfession = 1,
+                GebDat = this.GebDat,
+                Strasse = this.Strasse,
+                Hausnummer = this.Hausnummer,
+                Plz = this.Plz,
+                Ort = this.Ort,
+                Konfession = this.Konfession,
                 Status = true
             };
             li_MaDaten.Add(ma);

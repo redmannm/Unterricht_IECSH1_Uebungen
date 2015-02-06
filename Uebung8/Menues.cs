@@ -34,7 +34,6 @@ namespace Uebung8
                 // Menüauswahl Mitarbeiter anlegen
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    mitarbeiter = new Mitarbeiter();
                     Program.ClearScreen();
                     mitarbeiter.Anlegen();
                 }
@@ -43,7 +42,7 @@ namespace Uebung8
                 if (menuKey.Key == ConsoleKey.F2)
                 {
                     Program.ClearScreen();
-                    Mitarbeiter mitarbeiter = new Mitarbeiter(true);
+                    mitarbeiter.getTestData();
                 }
 
                 // Menüuswahl Mitarbeiterliste anzeigen

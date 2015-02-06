@@ -40,8 +40,33 @@ namespace Uebung9_Bibliothek
         
         static void Main(string[] args)
         {
-            Menues menues = new Menues();
+            VerleihVerwaltung verleihVerwaltung = new VerleihVerwaltung();
+            ConsoleKeyInfo menuKey;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Hauptmenü\n" +
+                                  "---------\n\n" +
+                                  "F1  - Artikel Verwalten\n" +
+                                  "F2  - Verleih Verwaltung\n" +
+                                  "---------------------------\n" +
+                                  "ESC - Programm beenden");
+                menuKey = Console.ReadKey();
 
+                // Menüauswahl Mitarbeiter anlegen
+                if (menuKey.Key == ConsoleKey.F1)
+                {
+                    Console.Clear();
+                    verleihVerwaltung.MediumHinzufuegen();
+                }
+
+                // Menüauswahl Testdaten laden
+                if (menuKey.Key == ConsoleKey.F2)
+                {
+                    Console.Clear();
+
+                }
+            } while (menuKey.Key != ConsoleKey.Escape);
         }
     }
 }

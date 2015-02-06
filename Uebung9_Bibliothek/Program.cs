@@ -37,10 +37,10 @@ namespace Uebung9_Bibliothek
     //};							};
     class Program
     {
-        static List<VerleihArtikel> ArtikelListe = new List<VerleihArtikel>();
+        
         static void Main(string[] args)
         {
-            Menues menues = new Menues(ArtikelListe);
+            Menues menues = new Menues();
 
         }
     }

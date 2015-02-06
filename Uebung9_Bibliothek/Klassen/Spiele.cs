@@ -7,7 +7,6 @@ namespace Uebung9_Bibliothek.Klassen
     class Spiele : VerleihArtikel
     {
         string _publisher;
-
         public string Publisher
         {
             get
@@ -21,7 +20,6 @@ namespace Uebung9_Bibliothek.Klassen
         }
 
         string _isbn;
-
         public string Isbn
         {
             get
@@ -33,5 +31,20 @@ namespace Uebung9_Bibliothek.Klassen
             //    _isbn = value;
             //}
         }
+
+        string _ean;
+
+        public string Ean
+        {
+            get
+            {
+                return _ean;
+            }
+            set
+            {
+                _ean = value;
+            }
+        }
+
     }
 }

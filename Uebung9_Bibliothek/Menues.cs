@@ -8,11 +8,9 @@ namespace Uebung9_Bibliothek
     class Menues
     {
         ConsoleKeyInfo menuKey;
-        List<VerleihArtikel> ArtikelListe;
-
-        public Menues(List<VerleihArtikel> _ArtikelListe)
+        VerleihVerwaltung verleihVerwaltung = new VerleihVerwaltung();
+        public Menues()
         {
-            this.ArtikelListe = _ArtikelListe;
             Hauptmenue();
         }
         public void Hauptmenue()
@@ -32,7 +30,7 @@ namespace Uebung9_Bibliothek
                 if (menuKey.Key == ConsoleKey.F1)
                 {
                     Console.Clear();
-                    
+                    verleihVerwaltung.MediumHinzufuegen();
                 }
 
                 // Menüauswahl Testdaten laden

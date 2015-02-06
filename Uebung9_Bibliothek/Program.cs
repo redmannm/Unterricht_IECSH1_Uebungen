@@ -37,11 +37,11 @@ namespace Uebung9_Bibliothek
     //};							};
     class Program
     {
+        static List<VerleihArtikel> ArtikelListe = new List<VerleihArtikel>();
         static void Main(string[] args)
         {
-            Dvd dvd = new Dvd();
-            Console.WriteLine(dvd);
-            Console.ReadLine();
+            Menues menues = new Menues(ArtikelListe);
+
         }
     }
 }

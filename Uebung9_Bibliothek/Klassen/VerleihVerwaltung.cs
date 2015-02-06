@@ -6,9 +6,11 @@ namespace Uebung9_Bibliothek.Klassen
 {
     class VerleihVerwaltung
     {
-        public void MediumHinzufuegen()
+        
+        public List<VerleihArtikel> MediumHinzufuegen(List<VerleihArtikel> ArtikelListe)
         {
-            VerleihArtikel artikel = new VerleihArtikel();
+            
+            return ArtikelListe;
         }
     }
 }

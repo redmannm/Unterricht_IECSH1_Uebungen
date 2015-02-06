@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uebung8.Klassen
 {
-    class Mitarbeiter : Personen 
+    class Mitarbeiter : Personen, IEnumerable<Mitarbeiter>
     {
         int steuerKlasse;
         public int SteuerKlasse
@@ -200,6 +200,7 @@ namespace Uebung8.Klassen
                 Konfession = 1,
                 Status = true
             };
+            
             li_MaDaten.Add(ma1);
             li_MaDaten.Add(ma2);
             li_MaDaten.Add(ma3);
@@ -306,10 +307,25 @@ namespace Uebung8.Klassen
             Console.Write("================================================================================\n" + 
                           "| Pos. | Famielienname       | Vorname             | Geb.-Datum   | Bruttolohn |\n" +
                           "================================================================================\n");
-            Console.Write("| {0} | {1} | {2} | {3} | {4} |", pos.ToString().PadRight(4), Name.PadRight(19), Vorname.PadRight(19), GebDat.ToShortDateString().PadRight(10), BruttoLohn.ToString().PadRight(10));
-            Console.Write("--------------------------------------------------------------------------------\n");
+
+            foreach (Mitarbeiter item in li_MaDaten)
+	        {
+                pos++;
+		        Console.Write("| {0} | {1} | {2} | {3} | {4} |\n", pos.ToString().PadRight(4), item.Name.PadRight(19), item.Vorname.PadRight(19), item.GebDat.ToShortDateString().PadRight(12), item.BruttoLohn.ToString().PadRight(10));
+                Console.Write("--------------------------------------------------------------------------------\n"); 
+	        }
             Console.ReadKey();
 
+        }
+
+        IEnumerator<Mitarbeiter> IEnumerable<Mitarbeiter>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -9,20 +9,21 @@ namespace Uebung8
 {
     public class Menues
     {
+        Mitarbeiter mitarbeiter = new Mitarbeiter();
+        public Menues()
+        {
+
+        }
         public void Hauptmenu()
         {
             ConsoleKeyInfo menuKey;
-
-            Mitarbeiter mitarbeiter = null;
-            
-            
             do
             {
                 Program.ClearScreen();
                 Console.WriteLine("Hauptmenü\n" +
                                   "---------\n\n" +
                                   "F1  - Mitarbeiter anlegen\n" +
-                                  "F2  - Mitarbeiter Testdaten laden" +
+                                  "F2  - Mitarbeiter Testdaten laden\n" +
                                   "F3  - Mitarbeiterliste anzeigen\n" +
                                   "F4  - Mitarbeiter suchen\n" +
                                   "F5  - Mitarbeiter deaktivieren\n" +
@@ -33,8 +34,7 @@ namespace Uebung8
                 // Menüauswahl Mitarbeiter anlegen
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    if (mitarbeiter == null)
-                        mitarbeiter = new Mitarbeiter();
+                    mitarbeiter = new Mitarbeiter();
                     Program.ClearScreen();
                     mitarbeiter.Anlegen();
                 }
@@ -43,7 +43,7 @@ namespace Uebung8
                 if (menuKey.Key == ConsoleKey.F2)
                 {
                     Program.ClearScreen();
-                    mitarbeiter = new Mitarbeiter(true);
+                    Mitarbeiter mitarbeiter = new Mitarbeiter(true);
                 }
 
                 // Menüuswahl Mitarbeiterliste anzeigen

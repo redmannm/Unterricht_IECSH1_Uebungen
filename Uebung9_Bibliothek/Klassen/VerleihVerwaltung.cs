@@ -70,16 +70,13 @@ namespace Uebung9_Bibliothek.Klassen
                     Console.Write("{0}", "Titel: ".PadRight(14));
                     artikel.Titel = Console.ReadLine();
 
-                    Console.Write("{0}", "Autor: ".PadRight(14));
+                    Console.Write("{0}", "Publisher: ".PadRight(14));
                     artikel.Publisher = Console.ReadLine();
 
                     Console.Write("{0}", "Kategorie: ".PadRight(14));
                     artikel.Kategorie = Console.ReadLine();
 
-                    Console.Write("{0}", "Verlag: ".PadRight(14));
-                    artikel.Verlag = Console.ReadLine();
-
-                    Console.Write("{0}", "ISBN: ".PadRight(14));
+                    Console.Write("{0}", "EAN: ".PadRight(14));
                     artikel.Ean = Console.ReadLine();
 
                     try

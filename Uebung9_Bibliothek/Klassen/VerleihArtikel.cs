@@ -16,19 +16,7 @@ namespace Uebung9_Bibliothek.Klassen
     //};
     class VerleihArtikel
     {
-        string _isbn;
-        public string Isbn
-        {
-            get
-            {
-                return _isbn;
-            }
-            set
-            {
-                _isbn = value;
-            }
-        }
-
+        
         string _titel;
         public string Titel
         {
@@ -52,19 +40,6 @@ namespace Uebung9_Bibliothek.Klassen
             set
             {
                 _kategorie = value;
-            }
-        }
-
-        string _verlag;
-        public string Verlag
-        {
-            get
-            {
-                return _verlag;
-            }
-            set
-            {
-                _verlag = value;
             }
         }
 

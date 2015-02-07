@@ -19,19 +19,6 @@ namespace Uebung9_Bibliothek.Klassen
             }
         }
 
-        string _isbn;
-        public string Isbn
-        {
-            get
-            {
-                return _isbn;
-            }
-            //set
-            //{
-            //    _isbn = value;
-            //}
-        }
-
         string _ean;
 
         public string Ean

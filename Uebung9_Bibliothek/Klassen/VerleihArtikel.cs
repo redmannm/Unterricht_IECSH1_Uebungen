@@ -56,6 +56,20 @@ namespace Uebung9_Bibliothek.Klassen
             }
         }
 
+        private static int _id;
+
+        public static string Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
+
         //public abstract void 
     }
 }

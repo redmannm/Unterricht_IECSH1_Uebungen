@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Uebung9_Bibliothek.Klassen
 {
     class VerleihVerwaltung
@@ -11,20 +12,20 @@ namespace Uebung9_Bibliothek.Klassen
         /// Status ob derzeit Testdaten geladen sind;
         /// </summary>
         private bool testDaten = false;
-        char boxDrawChars;
+        
 
         // Speicher Artikellist
-        List<VerleihArtikel> artikelListe = new List<VerleihArtikel>();
+        List<VerleihArtikel> _artikelListe = new List<VerleihArtikel>();
 
         private List<VerleihArtikel> ArtikelListe
         {
             get
             {
-                return artikelListe;
+                return _artikelListe;
             }
             set
             {
-                artikelListe = value;
+                _artikelListe = value;
             }
         }
         
@@ -145,6 +146,8 @@ namespace Uebung9_Bibliothek.Klassen
                     Console.Clear();
                     ArtikelSuchen();
                 }
+                
+                
             } while (menuKey.Key != ConsoleKey.Tab);
         }
 
@@ -167,12 +170,6 @@ namespace Uebung9_Bibliothek.Klassen
         /// <summary>
         /// Eine Auflistung aller Artikel 
         /// </summary>
-        
-        private char getChar(byte _code) 
-        {
-            char c = Encoding.GetEncoding(437).GetChars(new byte[] {_code})[0];
-            return c;
-        }
         private void ArtikelAuflisten()
         {
             Console.Clear();
@@ -185,7 +182,7 @@ namespace Uebung9_Bibliothek.Klassen
             Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
             Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Autor           ║ Verlag          ║ Kategorie       ║ Bestand  ║ ISBN               ║");
             Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-            Console.WriteLine(" ║          ║                 ║                 ║                 ║                 ║          ║                    ║");
+            Console.WriteLine(" ║      {0} ║ {1}             ║ {2}             ║ {3}             ║ {4}             ║      {5} ║ {6}                ║");
             Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
 
             
@@ -242,6 +239,8 @@ namespace Uebung9_Bibliothek.Klassen
                     // Objekt für den nächsten Artikel anlegen
                     Buch artikel = new Buch();
 
+                    // TODO: PadRight() kleiner machen
+
                     // Artikel Eingeben
                     Console.Write("{0}", "Titel: ".PadRight(14));
                     artikel.Titel = Console.ReadLine();
@@ -271,6 +270,9 @@ namespace Uebung9_Bibliothek.Klassen
                         Console.BackgroundColor = ConsoleColor.Black;
                         Console.ForegroundColor = ConsoleColor.White;
                     }
+
+                    // Artikel ID generieren
+
 
                     // Artikel in Liste speichern
                     ArtikelListe.Add(artikel);
@@ -379,6 +381,8 @@ namespace Uebung9_Bibliothek.Klassen
                             Console.ForegroundColor = ConsoleColor.White;
                         } 
                     } while (true);
+
+
 
                     // Artikel in Liste speichern
                     ArtikelListe.Add(artikel);

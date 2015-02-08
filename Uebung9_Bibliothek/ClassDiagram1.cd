@@ -1,35 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Uebung9_Bibliothek.Klassen.VerleihVerwaltung">
-    <Position X="7.75" Y="0.75" Width="1.5" />
+    <Position X="9.75" Y="0.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAQAAAAQAQAAgABAAAMAAAAAABAAAAAQ=</HashCode>
+      <HashCode>AAACAAAAAIAAAQAAAAQAQAAgABAAAMAAAAAAAAAAAAQ=</HashCode>
       <FileName>Klassen\VerleihVerwaltung.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Uebung9_Bibliothek.Klassen.VerleihArtikel">
-    <Position X="3" Y="0.75" Width="1.5" />
+    <Position X="3.5" Y="0.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAQCAAAAAAAAAAAIBAAAAAAAAAAAAQAAA=</HashCode>
+      <HashCode>EAACAAAAAAAAQCAAAABAAAAAAIBAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Klassen\VerleihArtikel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Uebung9_Bibliothek.Klassen.Spiele">
-    <Position X="3" Y="3.75" Width="1.5" />
+    <Position X="3.5" Y="4.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Klassen\Spiele.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Uebung9_Bibliothek.Klassen.Dvd">
-    <Position X="5.25" Y="3.75" Width="1.5" />
+    <Position X="6.5" Y="4.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAEAAAAEAAAAAAQAAAQAABAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Dvd.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Uebung9_Bibliothek.Klassen.Buch">
-    <Position X="0.75" Y="3.75" Width="1.5" />
+    <Position X="0.75" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAABABAAAEAAgAAAAAAAAQAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>Klassen\Buch.cs</FileName>

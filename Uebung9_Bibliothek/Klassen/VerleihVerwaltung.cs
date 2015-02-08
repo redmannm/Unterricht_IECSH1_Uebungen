@@ -15,17 +15,17 @@ namespace Uebung9_Bibliothek.Klassen
         
 
         // Speicher Artikellist
-        List<VerleihArtikel> _artikelListe = new List<VerleihArtikel>();
+        List<VerleihArtikel> _artikelCollection = new List<VerleihArtikel>();
 
-        private List<VerleihArtikel> ArtikelListe
+        private List<VerleihArtikel> ArtikelCollection
         {
             get
             {
-                return _artikelListe;
+                return _artikelCollection;
             }
             set
             {
-                _artikelListe = value;
+                _artikelCollection = value;
             }
         }
         
@@ -51,7 +51,7 @@ namespace Uebung9_Bibliothek.Klassen
                     artikel.Verlag = "Verlag_" + i;
                     artikel.Isbn = "12345678901_" + i;
                     artikel.Bestand = 5 + i;
-                    ArtikelListe.Add(artikel);
+                    ArtikelCollection.Add(artikel);
                 }
 
                 // Test Spiele anlegen
@@ -66,7 +66,7 @@ namespace Uebung9_Bibliothek.Klassen
                     artikel.Kategorie = "Kategorie_" + i;
                     artikel.Ean = "12345678901_" + i;
                     artikel.Bestand = 5 + i;
-                    ArtikelListe.Add(artikel);
+                    ArtikelCollection.Add(artikel);
                 }
 
                 // Test DVD's anlegen
@@ -84,7 +84,7 @@ namespace Uebung9_Bibliothek.Klassen
                     artikel.Verlag = "Verlag_" + i;
                     artikel.Isbn = "12345678901_" + i;
                     artikel.Bestand = 5 + i;
-                    ArtikelListe.Add(artikel);
+                    ArtikelCollection.Add(artikel);
                 }
             }
             testDaten = true;
@@ -110,6 +110,8 @@ namespace Uebung9_Bibliothek.Klassen
                                   "F5  - Artikel suchen\n\n" +
                                   "---------------------------\n\n" +
                                   "TAB - Zurück zum Hauptmenü");
+                
+                menuKey = Console.ReadKey(true);
 
                 // Menüauswahl Artikel hinzufügen
                 if (menuKey.Key == ConsoleKey.F1)
@@ -181,8 +183,15 @@ namespace Uebung9_Bibliothek.Klassen
             // Coursor Start 3, 10
             Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
             Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Autor           ║ Verlag          ║ Kategorie       ║ Bestand  ║ ISBN               ║");
-            Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-            Console.WriteLine(" ║      {0} ║ {1}             ║ {2}             ║ {3}             ║ {4}             ║      {5} ║ {6}                ║");
+
+
+            foreach (VerleihArtikel item in ArtikelCollection)
+            {
+                Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
+                Console.WriteLine(" ║      {0} ║ {1}             ║ {2}             ║ {3}             ║ {4}             ║      {5} ║ {6}                ║", item.Id); 
+            }
+
+
             Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
 
             
@@ -206,7 +215,7 @@ namespace Uebung9_Bibliothek.Klassen
             // Testdaten löschen
             if (testDaten)
             {
-                ArtikelListe = null;
+                ArtikelCollection = null;
                 testDaten = false;
             }
 
@@ -275,7 +284,7 @@ namespace Uebung9_Bibliothek.Klassen
 
 
                     // Artikel in Liste speichern
-                    ArtikelListe.Add(artikel);
+                    ArtikelCollection.Add(artikel);
                 }
 
                 // Spiel hinzufügen
@@ -320,7 +329,7 @@ namespace Uebung9_Bibliothek.Klassen
                     } while (true);
 
                     // Artikel in Liste speichern
-                    ArtikelListe.Add(artikel);
+                    ArtikelCollection.Add(artikel);
                 }
 
                 // DVD hinzufügen
@@ -382,10 +391,17 @@ namespace Uebung9_Bibliothek.Klassen
                         } 
                     } while (true);
 
-
+                    int artikelMaxIndex = 0;
+                    int letzteArtikelId = 0;
+                    if (ArtikelCollection.Count == 0)
+                    {
+                        artikelMaxIndex = ArtikelCollection.Count - 1;
+                        letzteArtikelId = ArtikelCollection[artikelMaxIndex].Id;
+                    }
+                    artikel.Id = letzteArtikelId + 1;
 
                     // Artikel in Liste speichern
-                    ArtikelListe.Add(artikel);
+                    ArtikelCollection.Add(artikel);
                 }
             } while (menuKey.Key != ConsoleKey.Tab);
         }

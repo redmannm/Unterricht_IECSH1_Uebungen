@@ -16,7 +16,19 @@ namespace Uebung9_Bibliothek.Klassen
     //};
     class VerleihArtikel
     {
-        
+        private int _id;
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
+
         string _titel;
         public string Titel
         {
@@ -55,21 +67,5 @@ namespace Uebung9_Bibliothek.Klassen
                 _bestand = value;
             }
         }
-
-        private static int _id;
-
-        public static string Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
-
-        //public abstract void 
     }
 }

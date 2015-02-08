@@ -40,18 +40,24 @@ namespace Uebung9_Bibliothek
         
         static void Main(string[] args)
         {
+            Console.WindowWidth = 120;
+            Console.WindowHeight = 65;
             VerleihVerwaltung verleihVerwaltung = new VerleihVerwaltung();
             
             ConsoleKeyInfo menuKey;
             do
             {
                 Console.Clear();
+                Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
+                                  "========================================\n\n");
                 Console.WriteLine("Hauptmenü\n" +
                                   "---------\n\n" +
                                   "F1  - TESTDATEN LADEN\n\n" +
                                   "F2  - Artikel Verwalten\n\n" +
                                   "---------------------------\n\n" +
-                                  "TAB - Programm beenden");
+                                  "TAB - Programm beenden\n");
+
+                // Menüauswahl einlesen und an 'menuKey' übergeben
                 menuKey = Console.ReadKey(true);
 
                 // Menüauswahl Artikel anlegen

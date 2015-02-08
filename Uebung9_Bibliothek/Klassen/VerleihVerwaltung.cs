@@ -11,6 +11,7 @@ namespace Uebung9_Bibliothek.Klassen
         /// Status ob derzeit Testdaten geladen sind;
         /// </summary>
         private bool testDaten = false;
+        char boxDrawChars;
 
         // Speicher Artikellist
         List<VerleihArtikel> artikelListe = new List<VerleihArtikel>();
@@ -97,8 +98,10 @@ namespace Uebung9_Bibliothek.Klassen
             do
             {
                 Console.Clear();
+                Console.WriteLine("Bibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
+                                  "========================================\n\n");
                 Console.WriteLine("Artikel verwalten\n" +
-                                  "---------\n\n" +
+                                  "-----------------\n\n" +
                                   "F1  - Artikel hinzufügen\n\n" +
                                   "F2  - Artikel bearbeiten\n\n" +
                                   "F3  - Artikel löschen\n\n" +
@@ -106,7 +109,6 @@ namespace Uebung9_Bibliothek.Klassen
                                   "F5  - Artikel suchen\n\n" +
                                   "---------------------------\n\n" +
                                   "TAB - Zurück zum Hauptmenü");
-                menuKey = Console.ReadKey(true);
 
                 // Menüauswahl Artikel hinzufügen
                 if (menuKey.Key == ConsoleKey.F1)
@@ -134,6 +136,7 @@ namespace Uebung9_Bibliothek.Klassen
                 {
                     Console.Clear();
                     ArtikelAuflisten();
+                    Console.ReadKey();
                 }
 
                 // Menüauswahl Artikel suchen
@@ -164,9 +167,29 @@ namespace Uebung9_Bibliothek.Klassen
         /// <summary>
         /// Eine Auflistung aller Artikel 
         /// </summary>
+        
+        private char getChar(byte _code) 
+        {
+            char c = Encoding.GetEncoding(437).GetChars(new byte[] {_code})[0];
+            return c;
+        }
         private void ArtikelAuflisten()
         {
+            Console.Clear();
+            Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
+                              "========================================\n");
+            Console.WriteLine("Artikelliste anzeigen\n" +
+                              "---------------------\n\n");
             
+            // Coursor Start 2, 7
+            Console.WriteLine("╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
+            Console.WriteLine("║ Art.-Id. ║ Titel           ║ Autor           ║ Verlag          ║ Kategorie       ║ Bestand  ║ ISBN               ║");
+            Console.WriteLine("╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
+            Console.WriteLine("║          ║                 ║                 ║                 ║                 ║          ║                    ║");
+            Console.WriteLine("╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+
+            
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -177,11 +200,10 @@ namespace Uebung9_Bibliothek.Klassen
             throw new NotImplementedException();
         }
 
+        // TODO: Dateneingabemaske von Methode 'ArtikelHinzufuegen' noch gestalten
         /// <summary>
         /// Einen Verleihartikel hinzufügen
-        /// </summary> 
-
-        // TODO: Dateneingabemaske noch gestalten
+        /// </summary>
         private void ArtikelHinzufuegen()
         {
             // Testdaten löschen
@@ -194,11 +216,13 @@ namespace Uebung9_Bibliothek.Klassen
             // Feld zum speichern der gedrückten Menütaste
             ConsoleKeyInfo menuKey;
 
-            // Hauptmenüschleife
+            // Menüschleife Artikel hinzufügen
             do
             {
                 // Bildschirm aufräumen
                 Console.Clear();
+                Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
+                                  "========================================\n\n");
                 Console.WriteLine("Artikel hinzufügen\n" +
                                   "-----------------\n\n" +
                                   "F1  - Buch hinzufügen\n\n" +
@@ -209,6 +233,7 @@ namespace Uebung9_Bibliothek.Klassen
                 menuKey = Console.ReadKey(true);
 
                 // Buch hinzufügen
+                //=============================
                 if (menuKey.Key == ConsoleKey.F1)
                 {
                     // Bildschirm aufräumen
@@ -252,6 +277,7 @@ namespace Uebung9_Bibliothek.Klassen
                 }
 
                 // Spiel hinzufügen
+                //=============================
                 if (menuKey.Key == ConsoleKey.F2)
                 {
                     // Bildschirm aufräumen
@@ -296,6 +322,7 @@ namespace Uebung9_Bibliothek.Klassen
                 }
 
                 // DVD hinzufügen
+                //=============================
                 if (menuKey.Key == ConsoleKey.F3)
                 {
                     // Bildschirm aufräumen

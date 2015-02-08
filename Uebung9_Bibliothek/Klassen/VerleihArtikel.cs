@@ -14,7 +14,8 @@ namespace Uebung9_Bibliothek.Klassen
     //Eingabe() {
 
     //};
-    class VerleihArtikel
+
+    abstract class VerleihArtikel
     {
         private int _id;
         public int Id
@@ -67,5 +68,7 @@ namespace Uebung9_Bibliothek.Klassen
                 _bestand = value;
             }
         }
+
+        public abstract string[] GetProbertys();
     }
 }

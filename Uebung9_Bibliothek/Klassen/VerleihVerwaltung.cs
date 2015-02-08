@@ -174,6 +174,7 @@ namespace Uebung9_Bibliothek.Klassen
         /// </summary>
         private void ArtikelAuflisten()
         {
+            
             Console.Clear();
             Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
                               "========================================\n");
@@ -187,8 +188,34 @@ namespace Uebung9_Bibliothek.Klassen
 
             foreach (VerleihArtikel item in ArtikelCollection)
             {
+                string[] Eigenschaften = item.GetProbertys();
+
+                string t0 = Eigenschaften[0];
+                string t1, t2, t3, t4;
+                if (Eigenschaften[1].Length > 12)
+                    t1 = Eigenschaften[1].Substring(0, 12);
+                else
+                    t1 = Eigenschaften[1];
+
+                if (Eigenschaften[2].Length > 12)
+                    t2 = Eigenschaften[2].Substring(0, 12);
+                else
+                    t2 = Eigenschaften[2];
+
+                if (Eigenschaften[3].Length > 12)
+                    t3 = Eigenschaften[3].Substring(0, 12);
+                else
+                    t3 = Eigenschaften[3];
+
+                if (Eigenschaften[4].Length > 12)
+                    t4 = Eigenschaften[4].Substring(0, 12);
+                else
+                    t4 = Eigenschaften[4];
+
+                string t5 = Eigenschaften[5];
+                string t6 = Eigenschaften[6];
                 Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-                Console.WriteLine(" ║      {0} ║ {1}             ║ {2}             ║ {3}             ║ {4}             ║      {5} ║ {6}                ║", item.Id); 
+                Console.WriteLine(" ║      {0} ║ {1}             ║ {2}             ║ {3}             ║ {4}             ║      {5} ║ {6}                ║", t0, t1, t2, t3, t4, t5, t6);
             }
 
 

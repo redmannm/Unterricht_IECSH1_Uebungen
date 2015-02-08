@@ -46,5 +46,11 @@ namespace Uebung9_Bibliothek.Klassen
             }
         }
 
+
+        public override string[] GetProbertys()
+        {
+            string[] Eigenschaften;
+            return Eigenschaften = new string[7] { Id.ToString(), Titel, Laufzeit.ToShortTimeString(), Verlag, Kategorie, Bestand.ToString(), Isbn };
+        }
     }
 }

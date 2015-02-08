@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Uebung9_Bibliothek.Klassen
 {
+    public struct Eigenschaften
+    {
+
+    }
     class Buch : VerleihArtikel
     {
         string _author;
@@ -46,5 +51,11 @@ namespace Uebung9_Bibliothek.Klassen
             }
         }
 
+
+        public override string[] GetProbertys()
+        {
+            string[] Eigenschaften;
+            return Eigenschaften = new string[7]{ Id.ToString(), Titel, Author, Verlag, Kategorie, Bestand.ToString(), Isbn };
+        }
     }
 }

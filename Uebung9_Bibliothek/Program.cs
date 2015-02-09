@@ -42,7 +42,9 @@ namespace Uebung9_Bibliothek
         {
             Console.WindowWidth = 120;
             Console.WindowHeight = 65;
+            string message = "";
             VerleihVerwaltung verleihVerwaltung = new VerleihVerwaltung();
+
             
             ConsoleKeyInfo menuKey;
             do
@@ -55,7 +57,20 @@ namespace Uebung9_Bibliothek
                                   "F1  - TESTDATEN LADEN\n\n" +
                                   "F2  - Artikel Verwalten\n\n" +
                                   "---------------------------\n\n" +
-                                  "TAB - Programm beenden\n");
+                                  "TAB - Programm beenden\n\n");
+                if (message.Length > 0)
+	            {
+		            Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.Write("  ");
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.Write(message);
+                    message = "";
+	            }
 
                 // Menüauswahl einlesen und an 'menuKey' übergeben
                 menuKey = Console.ReadKey(true);
@@ -65,6 +80,7 @@ namespace Uebung9_Bibliothek
                 {
                     Console.Clear();
                     verleihVerwaltung.TestdatenLaden();
+                    message = " Testdaten wurden erfolgreich in den Speicher geladen. ";
                 }
 
                 // Menüauswahl Testdaten laden

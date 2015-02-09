@@ -52,40 +52,40 @@ namespace Uebung9_Bibliothek.Klassen
         }
 
 
-        public override string[] Ausgabe()
+        public override string Ausgabe()
         {
-            string[] Eigenschaften = item.Ausgabe();
+            string t0, t1, t2, t3, t4, t5, t6;
 
-            string t0 = Eigenschaften[0];
-            string t1, t2, t3, t4;
-            if (Eigenschaften[1].Length > 12)
-                t1 = Eigenschaften[1].Substring(0, 12);
+            // Art.-Id.
+            t0 = Id.ToString();
+
+            // Title
+            if (Titel.Length > 12)
+                t1 = Titel.Substring(0,12) + "...";
             else
-                t1 = Eigenschaften[1];
+                t1 = Titel;
 
-            if (Eigenschaften[2].Length > 12)
-                t2 = Eigenschaften[2].Substring(0, 12);
+            if (Author.Length > 12)
+                t2 = Author.Substring(0, 12);
             else
-                t2 = Eigenschaften[2];
+                t2 = Author;
 
-            if (Eigenschaften[3].Length > 12)
-                t3 = Eigenschaften[3].Substring(0, 12);
+            if (Verlag.Length > 12)
+                t3 = Verlag.Substring(0, 12);
             else
-                t3 = Eigenschaften[3];
+                t3 = Verlag;
 
-            if (Eigenschaften[4].Length > 12)
-                t4 = Eigenschaften[4].Substring(0, 12);
+            if (Kategorie.Length > 12)
+                t4 = Kategorie.Substring(0, 12);
             else
-                t4 = Eigenschaften[4];
+                t4 = Kategorie;
 
-            string t5 = Eigenschaften[5];
-            string t6 = Eigenschaften[6];
-            
+            t5 = Bestand.ToString();
+            t6 = Isbn;
 
-            Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-            Console.WriteLine(" ║      {0} ║ {1}             ║ {2}             ║ {3}             ║ {4}             ║      {5} ║ {6}                ║", t0, t1, t2, t3, t4, t5, t6);
-            string[] Eigenschaften;
-            return Eigenschaften = new string[7]{ Id.ToString(), Titel, Author, Verlag, Kategorie, Bestand.ToString(), Isbn };
+            string rowData = String.Format(" ║ {0} ║ {1} ║ {2} ║ {3} ║ {4} ║ {5} ║ {6} ║", t0.PadRight(8), t1.PadRight(15), t2.PadRight(15), t3.PadRight(15), t4.PadRight(15), t5.PadRight(8), t6.PadRight(18));
+
+            return rowData;
         }
     }
 }

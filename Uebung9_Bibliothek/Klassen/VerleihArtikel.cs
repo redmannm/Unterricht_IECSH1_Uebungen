@@ -69,6 +69,6 @@ namespace Uebung9_Bibliothek.Klassen
             }
         }
 
-        public abstract string[] Ausgabe();
+        public abstract string Ausgabe();
     }
 }

@@ -180,21 +180,91 @@ namespace Uebung9_Bibliothek.Klassen
                               "========================================\n");
             Console.WriteLine("Artikelliste anzeigen\n" +
                               "---------------------\n\n");
+
+            ConsoleKeyInfo menuKey;
+            string artikelArt;
+            string rowData;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Bibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
+                                  "========================================\n\n");
+                Console.WriteLine("Welche Art von Medien wollen Sie auflisten?\n" +
+                                  "-------------------------------------------\n\n" +
+                                  "F1  - Bücher\n\n" +
+                                  "F2  - Spiele\n\n" +
+                                  "F3  - DVD's\n\n" +
+                                  "---------------------------\n\n" +
+                                  "TAB - Zurück zum Hauptmenü");
+
+                menuKey = Console.ReadKey(true);
+
+                if (menuKey.Key == ConsoleKey.F1)
+                {
+                    // Header Buch
+                    Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
+                    Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Autor           ║ Verlag          ║ Kategorie       ║ Bestand  ║ ISBN               ║");
+                    Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
+                    artikelArt = "Uebung9_Bibliothek.Klassen.Buch";
+                    break;
+                }
+
+                if (menuKey.Key == ConsoleKey.F2)
+                {
+                    // Header Spiele
+                    Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
+                    Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Publisher       ║ Kategorie       ║ Bestand  ║ EAN                ║");
+                    Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
+                    artikelArt = "Uebung9_Bibliothek.Klassen.Spiele";
+                    break;
+                }
+
+                if (menuKey.Key == ConsoleKey.F3)
+                {
+                    // Header DVD's
+                    Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
+                    Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Verlag          ║ Laufzeit        ║ Kategorie       ║ Bestand  ║ ISBN               ║");
+                    Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
+                    artikelArt = "Uebung9_Bibliothek.Klassen.Dvd";
+                    break;
+                }
+
+            } while (true);
             
-            // Coursor Start 3, 10
-            Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
-            Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Autor           ║ Verlag          ║ Kategorie       ║ Bestand  ║ ISBN               ║");
-
-
             foreach (VerleihArtikel item in ArtikelCollection)
             {
-                
+
+                if (item.GetType().ToString() == artikelArt)
+                {
+                    rowData = item.Ausgabe();
+                    Console.WriteLine(rowData);
+                }
+                if (item.GetType().ToString() == artikelArt)
+                {
+                    rowData = item.Ausgabe();
+                    Console.WriteLine(rowData);
+                }
+                if (item.GetType().ToString() == artikelArt)
+                {
+                    rowData = item.Ausgabe();
+                    Console.WriteLine(rowData);
+                }
             }
 
-
-            Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+            if (artikelArt == "Uebung9_Bibliothek.Klassen.Spiele") 
+            {
+                // Footer Spiele
+                Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+            }
+            else if (artikelArt == "Uebung9_Bibliothek.Klassen.Buch" || artikelArt == "Uebung9_Bibliothek.Klassen.Dvd")
+            {
+                // Footer Buch und DVD's
+                Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+            }
+            
 
             
+
             Console.ReadKey();
         }
 

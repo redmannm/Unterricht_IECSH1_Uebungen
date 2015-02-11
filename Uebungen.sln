@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung1", "Uebung1\Uebung1.csproj", "{75C7779C-6EEB-4401-8F88-B61B276151BF}"
 EndProject
@@ -26,8 +26,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BS_Marcus-Redmann", "BS_Marcus-Redmann\BS_Marcus-Redmann.csproj", "{196A2E64-59F5-40AB-BF98-559FCFC51A29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung9_Bibliothek", "Uebung9_Bibliothek\Uebung9_Bibliothek.csproj", "{FB49A522-446F-4588-94B4-39F8D3ABBF0E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung9_Bibliothek_Workflow", "Uebung9_Bibliothek_Workflow\Uebung9_Bibliothek_Workflow.csproj", "{97DC5E35-DF81-46B7-9875-502D8EDEEC18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,16 +157,6 @@ Global
 		{FB49A522-446F-4588-94B4-39F8D3ABBF0E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{FB49A522-446F-4588-94B4-39F8D3ABBF0E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{FB49A522-446F-4588-94B4-39F8D3ABBF0E}.Release|x86.ActiveCfg = Release|Any CPU
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Debug|x86.ActiveCfg = Debug|x86
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Debug|x86.Build.0 = Debug|x86
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Release|Any CPU.ActiveCfg = Release|x86
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Release|Mixed Platforms.Build.0 = Release|x86
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Release|x86.ActiveCfg = Release|x86
-		{97DC5E35-DF81-46B7-9875-502D8EDEEC18}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

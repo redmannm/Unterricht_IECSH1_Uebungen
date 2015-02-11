@@ -34,7 +34,22 @@ namespace Uebung9_Bibliothek
     //Eingabe() { 				Eingabe() {
     //  Base.Eingabe();			  Base.Eingabe();
     //  Frage nach Author;		  Frage nach EAN;
-    //};							};
+    //};						};
+
+    //Folgende Funktionalität sollte Ihre Software am Ende haben:
+    //- neue Medien in den Bestand aufnehmen
+    //- Medien aus dem Bestand löschen
+    //- Medien verleihen
+    //- Bestand verändern
+    //- Medien aus der ausleihe zurück bekommen
+    //- Informationen zu den Medien ausgeben lassen
+    //- nach Medien suchen
+
+
+    //Als Erweiterung implementieren Sie bitte folgende Funktionalität:
+    //- für jeden Kunden soll es ein Kundenkonto geben
+    //- ein ausgeliehenes Medium soll einen Kunden zugeordnet werden können
+    //- die Kundendaten sollen verändert und angezeigt werden können
     class Program
     {
         
@@ -55,9 +70,10 @@ namespace Uebung9_Bibliothek
                 Console.WriteLine("Hauptmenü\n" +
                                   "---------\n\n" +
                                   "F1  - TESTDATEN LADEN\n\n" +
-                                  "F2  - Artikel Verwalten\n\n" +
+                                  "F2  - Artikel verwalten\n\n" +
+                                  "F3  - Kunden verwalten\n\n" +
                                   "---------------------------\n\n" +
-                                  "TAB - Programm beenden\n\n");
+                                  "ESC - Programm beenden\n\n");
                 if (message.Length > 0)
 	            {
                     Console.BackgroundColor = ConsoleColor.Green;
@@ -84,7 +100,7 @@ namespace Uebung9_Bibliothek
                     Console.Clear();
                     verleihVerwaltung.Menue();
                 }
-            } while (menuKey.Key != ConsoleKey.Tab);
+            } while (menuKey.Key != ConsoleKey.Escape);
         }
     }
 }

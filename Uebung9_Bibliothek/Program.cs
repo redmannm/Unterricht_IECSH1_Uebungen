@@ -60,16 +60,11 @@ namespace Uebung9_Bibliothek
                                   "TAB - Programm beenden\n\n");
                 if (message.Length > 0)
 	            {
-		            Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.WriteLine("");
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.Write("  ");
                     Console.BackgroundColor = ConsoleColor.Green;
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    Console.WriteLine("");
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.Write(message);
                     message = "";
+                    Console.ResetColor();
 	            }
 
                 // Menüauswahl einlesen und an 'menuKey' übergeben

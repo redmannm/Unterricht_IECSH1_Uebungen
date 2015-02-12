@@ -36,10 +36,10 @@ namespace Uebung9_Bibliothek.Klassen
         public void TestdatenLaden()
         {
             // 5 x je 1 Artikel anlegen
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 // Test Bücher anlegen
-                for (int j = 0; j < 1; j++)
+                for (int j = 0; j < 2; j++)
                 {
                     // Objekt für den nächsten Artikel anlegen
                     Buch artikel = new Buch();
@@ -56,7 +56,7 @@ namespace Uebung9_Bibliothek.Klassen
                 }
 
                 // Test Spiele anlegen
-                for (int j = 0; j < 1; j++)
+                for (int j = 0; j < 2; j++)
                 {
                     // Objekt für den nächsten Artikel anlegen
                     Spiele artikel = new Spiele();
@@ -73,7 +73,7 @@ namespace Uebung9_Bibliothek.Klassen
 
                 // Test DVD's anlegen
                 int k = 3 + i;
-                for (int j = 0; j < 1; j++)
+                for (int j = 0; j < 2; j++)
                 {
                     // Objekt für den nächsten Artikel anlegen
                     Dvd artikel = new Dvd();
@@ -371,20 +371,22 @@ namespace Uebung9_Bibliothek.Klassen
         private void ArtikelAuflisten()
         {
             List<VerleihArtikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
-            
+            ConsoleKeyInfo menuKey;
+            string rowData;
+
+            // Pagination
+            int limit;
+            int total = sortiert.Count;
+
+
             Console.Clear();
             Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
                               "========================================\n");
             Console.WriteLine("Artikelliste anzeigen\n" +
                               "---------------------\n\n");
 
-            ConsoleKeyInfo menuKey;
-            string rowData;
             do
             {
-                Console.Clear();
-                Console.WriteLine("Bibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
-                                  "========================================\n\n");
                 Console.WriteLine("Welche Art von Medien wollen Sie auflisten?\n" +
                                   "-------------------------------------------\n\n" +
                                   "F1  - Bücher\n\n" +
@@ -410,6 +412,7 @@ namespace Uebung9_Bibliothek.Klassen
                         }
                     }
                     Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+                    Console.WriteLine("F1 - Nächste Seite")
                 }
 
                 if (menuKey.Key == ConsoleKey.F2)

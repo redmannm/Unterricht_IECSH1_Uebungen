@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Klassen\Buch.cs" />
     <Compile Include="Klassen\Dvd.cs" />
+    <Compile Include="Klassen\KundenVerwaltung.cs" />
     <Compile Include="Klassen\SetInsertKeyOn.cs" />
     <Compile Include="Klassen\Spiele.cs" />
     <Compile Include="Klassen\VerleihArtikel.cs" />

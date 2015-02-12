@@ -375,9 +375,15 @@ namespace Uebung9_Bibliothek.Klassen
             string rowData;
 
             // Pagination
-            int limit;
             int total = sortiert.Count;
+            int limit = 10;
+            int pages = (total - (total % limit)) / limit;
+            int rest = total % limit;
+            if (rest > 0)
+                pages += 1;
+            int startIndex = 0;
 
+            Console.WriteLine("Seiten: " + pages + " / Rest: " + rest);
 
             Console.Clear();
             Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
@@ -399,20 +405,26 @@ namespace Uebung9_Bibliothek.Klassen
 
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    // Header Buch
-                    Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
-                    Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Autor           ║ Verlag          ║ Kategorie       ║ Bestand  ║ ISBN               ║");
-                    Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-                    foreach (VerleihArtikel item in sortiert)
+                    for (int i = 0; i < pages; i++)
                     {
-                        if (item is Buch)
+                        // Header Buch
+                        Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
+                        Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Autor           ║ Verlag          ║ Kategorie       ║ Bestand  ║ ISBN               ║");
+                        Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
+                        if ((rest > 0) && (i == pages - 1))
+                            limit = rest;
+                        foreach (VerleihArtikel item in sortiert.GetRange(startIndex, limit))
                         {
-                            rowData = item.Ausgabe();
-                            Console.WriteLine(rowData);
+                            if (item is Buch)
+                            {
+                                rowData = item.Ausgabe();
+                                Console.WriteLine(rowData);
+                            }
                         }
+                        Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+                        Console.WriteLine("F1 - Nächste Seite");
+                        startIndex += 10;
                     }
-                    Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
-                    Console.WriteLine("F1 - Nächste Seite")
                 }
 
                 if (menuKey.Key == ConsoleKey.F2)

@@ -150,8 +150,7 @@ namespace Uebung9_Bibliothek.Klassen
                     Console.Clear();
                     ArtikelSuchen();
                 }
-                
-                
+
             } while (menuKey.Key != ConsoleKey.Escape);
         }
 
@@ -352,9 +351,9 @@ namespace Uebung9_Bibliothek.Klassen
         /// <summary>
         /// Einen Verleihartikel bearbeiten
         /// </summary>
-        private void ArtikelBearbeiten()
+        private bool ArtikelBearbeiten(int id = -1)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         /// <summary>
@@ -372,6 +371,7 @@ namespace Uebung9_Bibliothek.Klassen
         {
             ConsoleKeyInfo menuKey;
             string rowData;
+            bool resStatus;
 
             // Pagination
             int total;
@@ -402,7 +402,7 @@ namespace Uebung9_Bibliothek.Klassen
                 if (menuKey.Key == ConsoleKey.F1)
                 {
                     List<VerleihArtikel> buecher = new List<VerleihArtikel>();
-
+                    
                     // Bücher filtern
                     foreach (VerleihArtikel item in ArtikelCollection)
                     {
@@ -411,6 +411,7 @@ namespace Uebung9_Bibliothek.Klassen
                             buecher.Add(item);
                         }
                     }
+
                     // Pagination Variablen
                     total = buecher.Count;
                     pages = (total - (total % limit)) / limit;
@@ -423,9 +424,9 @@ namespace Uebung9_Bibliothek.Klassen
                     {
                         Console.Clear();
                         Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
-                                          "========================================\n");
+                                            "========================================\n");
                         Console.WriteLine("Artikelliste anzeigen\n" +
-                                          "---------------------\n\n");
+                                            "---------------------\n\n");
                         // Tabellen Header für Bücher ausgeben
                         Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
                         Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Autor           ║ Verlag          ║ Kategorie       ║ Bestand  ║ ISBN               ║");
@@ -440,23 +441,34 @@ namespace Uebung9_Bibliothek.Klassen
                             Console.WriteLine(rowData);
                         }
                         Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+                        Console.WriteLine("\n F1 - Nächste Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
                         // Startindex für die nächsten 'limit' Ergebnisse
                         startIndex += limit;
                         currentPage += 1;
+                        do
+                        {
+                            menuKey = Console.ReadKey(true);
+                            if (menuKey.Key == ConsoleKey.F1)
+                            {
+                                break;
+                            }
+                            if (menuKey.Key == ConsoleKey.F2)
+                            {
+                                Console.Write(" Geben Sie die zu bearbeitende Art.-Id. ein: ");
+                                int id = Convert.ToInt32(Console.ReadLine());
+                                resStatus = ArtikelBearbeiten(id);
+                                Console.BackgroundColor = ConsoleColor.Green;
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.WriteLine(" Art.-Id: {0} erfolgreich bearbeitet ", id.ToString());
+                                Console.ResetColor();
+                            }
+                            if (menuKey.Key == ConsoleKey.Escape)
+                            {
+                                i = pages - 1;
+                                break;
+                            }
+                        } while (true);
                     }
-                    do
-                    {
-                        Console.WriteLine("F1 - Nächste Seite | ESC - Auflistung beenden");
-                        Console.ReadKey(true);
-                        if (menuKey.Key == ConsoleKey.F1)
-                        {
-                            
-                        }
-                        if (menuKey.Key == ConsoleKey.Escape)
-                        {
-                            Menue();
-                        }
-                    } while (true);
                 }
 
                 if (menuKey.Key == ConsoleKey.F2)

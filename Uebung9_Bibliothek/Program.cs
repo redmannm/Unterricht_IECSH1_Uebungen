@@ -36,7 +36,7 @@ namespace Uebung9_Bibliothek
     //  Frage nach Author;		  Frage nach EAN;
     //};						};
 
-    //Folgende Funktionalität sollte Ihre Software am Ende haben:
+    // Folgende Funktionalität sollte Ihre Software am Ende haben:
     //- neue Medien in den Bestand aufnehmen
     //- Medien aus dem Bestand löschen
     //- Medien verleihen
@@ -44,9 +44,10 @@ namespace Uebung9_Bibliothek
     //- Medien aus der ausleihe zurück bekommen
     //- Informationen zu den Medien ausgeben lassen
     //- nach Medien suchen
+    //- XML-Export in eine Datei
 
 
-    //Als Erweiterung implementieren Sie bitte folgende Funktionalität:
+    // Als Erweiterung implementieren Sie bitte folgende Funktionalität:
     //- für jeden Kunden soll es ein Kundenkonto geben
     //- ein ausgeliehenes Medium soll einen Kunden zugeordnet werden können
     //- die Kundendaten sollen verändert und angezeigt werden können
@@ -58,7 +59,7 @@ namespace Uebung9_Bibliothek
             Console.WindowWidth = 120;
             Console.WindowHeight = 65;
             string message = "";
-            VerleihVerwaltung verleihVerwaltung = new VerleihVerwaltung();
+            VerleihVerwaltung artikelVerwaltung = new VerleihVerwaltung();
 
             
             ConsoleKeyInfo menuKey;
@@ -86,19 +87,24 @@ namespace Uebung9_Bibliothek
                 // Menüauswahl einlesen und an 'menuKey' übergeben
                 menuKey = Console.ReadKey(true);
 
-                // Menüauswahl Artikel anlegen
+                // Menüauswahl Testdaten laden
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    Console.Clear();
-                    verleihVerwaltung.TestdatenLaden();
+                    artikelVerwaltung.TestdatenLaden();
                     message = " Testdaten wurden erfolgreich in den Speicher geladen. ";
                 }
 
-                // Menüauswahl Testdaten laden
+                // Menüauswahl Artikelverwaltung
                 if (menuKey.Key == ConsoleKey.F2)
                 {
-                    Console.Clear();
-                    verleihVerwaltung.Menue();
+                    artikelVerwaltung.Menue();
+                }
+
+                // Menüauswahl Kundenverwaltung
+                if (menuKey.Key == ConsoleKey.F3)
+                {
+                    KundenVerwaltung kundenVerwaltung = new KundenVerwaltung();
+                    kundenVerwaltung.Menue();
                 }
             } while (menuKey.Key != ConsoleKey.Escape);
         }

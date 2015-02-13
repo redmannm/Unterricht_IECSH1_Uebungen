@@ -7,5 +7,9 @@ namespace Uebung9_Bibliothek.Klassen
 {
     class KundenVerwaltung
     {
+        internal void Menue()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -195,7 +195,7 @@ namespace Uebung9_Bibliothek.Klassen
 
                     // Objekt für den nächsten Artikel anlegen
                     Buch artikel = new Buch();
-
+                    artikel.Eingabe();
                     // TODO: PadRight() kleiner machen
 
                     // Artikel Eingeben
@@ -350,7 +350,44 @@ namespace Uebung9_Bibliothek.Klassen
 
         private void ArtikelEingeben(Buch item)
         {
-            throw new NotImplementedException();
+            // Objekt für den nächsten Artikel anlegen
+            item = new Buch();
+
+            // TODO: PadRight() kleiner machen
+
+            // Artikel Eingeben
+            Console.Write("{0}", "Titel: ".PadRight(14));
+            item.Titel = Console.ReadLine();
+
+            Console.Write("{0}", "Autor: ".PadRight(14));
+            item.Author = Console.ReadLine();
+
+            Console.Write("{0}", "Kategorie: ".PadRight(14));
+            item.Kategorie = Console.ReadLine();
+
+            Console.Write("{0}", "Verlag: ".PadRight(14));
+            item.Verlag = Console.ReadLine();
+
+            Console.Write("{0}", "ISBN: ".PadRight(14));
+            item.Isbn = Console.ReadLine();
+
+            try
+            {
+                Console.Write("{0}", "Bestand: ".PadRight(14));
+                item.Bestand = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException e)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Es sind nur Ganzzahlen erlaubt.");
+                Console.ResetColor();
+            }
+
+            // Artikel ID generieren
+            item.Id = ArtikelIdCounter();
+            // Artikel in Liste speichern
+            ArtikelCollection.Add(item);
         }
 
         private void ArtikelEingeben(Spiele item)

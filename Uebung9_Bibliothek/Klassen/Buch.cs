@@ -87,5 +87,42 @@ namespace Uebung9_Bibliothek.Klassen
 
             return rowData;
         }
+
+        public override void Eingabe()
+        {
+            // TODO: PadRight() kleiner machen
+
+            // Artikel Eingeben
+            Console.Write("{0}", "Titel: ".PadRight(14));
+            Titel = Console.ReadLine();
+
+            Console.Write("{0}", "Autor: ".PadRight(14));
+            Author = Console.ReadLine();
+
+            Console.Write("{0}", "Kategorie: ".PadRight(14));
+            Kategorie = Console.ReadLine();
+
+            Console.Write("{0}", "Verlag: ".PadRight(14));
+            Verlag = Console.ReadLine();
+
+            Console.Write("{0}", "ISBN: ".PadRight(14));
+            Isbn = Console.ReadLine();
+
+            try
+            {
+                Console.Write("{0}", "Bestand: ".PadRight(14));
+                Bestand = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException e)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Es sind nur Ganzzahlen erlaubt.");
+                Console.ResetColor();
+            }
+
+            // Artikel ID generieren
+            Id = ArtikelIdCounter();
+        }
     }
 }

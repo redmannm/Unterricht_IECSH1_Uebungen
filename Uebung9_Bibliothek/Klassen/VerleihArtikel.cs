@@ -70,5 +70,23 @@ namespace Uebung9_Bibliothek.Klassen
         }
 
         public abstract string Ausgabe();
+
+        public abstract void Eingabe();
+
+        /// <summary>
+        /// Artikel Id ermitteln.
+        /// </summary>
+        /// <returns>int Eine neue Artikel Id</returns>
+        protected int ArtikelIdCounter()
+        {
+            int lastId;
+            List<VerleihArtikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
+
+            if (sortiert.Count == 0)
+                lastId = 0;
+            else
+                lastId = sortiert[sortiert.Count - 1].Id;
+            return lastId + 1;
+        }
     }
 }

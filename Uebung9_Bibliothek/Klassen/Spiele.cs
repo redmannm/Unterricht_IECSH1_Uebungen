@@ -64,5 +64,10 @@ namespace Uebung9_Bibliothek.Klassen
 
             return rowData;
         }
+
+        public override void Eingabe()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

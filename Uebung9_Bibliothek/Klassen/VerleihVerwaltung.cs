@@ -348,6 +348,20 @@ namespace Uebung9_Bibliothek.Klassen
             } while (menuKey.Key != ConsoleKey.Escape);
         }
 
+        private void ArtikelEingeben(Buch item)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ArtikelEingeben(Spiele item)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ArtikelEingebnen(Dvd item)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Einen Verleihartikel bearbeiten
         /// </summary>

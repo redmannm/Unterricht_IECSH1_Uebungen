@@ -46,11 +46,11 @@ namespace Uebung9_Bibliothek.Klassen
 
                     // Artikel in Liste ablegen
                     artikel.Id = ArtikelIdCounter();
-                    artikel.Titel = "Buch_" + i;
-                    artikel.Author = "Autor_" + i;
-                    artikel.Kategorie = "Kategorie_" + i;
-                    artikel.Verlag = "Verlag_" + i;
-                    artikel.Isbn = "12345678901_" + i;
+                    artikel.Titel = "Buch_" + i + " " + j;
+                    artikel.Author = "Autor_" + i + " " + j;
+                    artikel.Kategorie = "Kategorie_" + i + " " + j;
+                    artikel.Verlag = "Verlag_" + i + " " + j;
+                    artikel.Isbn = "12345678901_" + i + " " + j;
                     artikel.Bestand = 5 + i;
                     ArtikelCollection.Add(artikel);
                 }
@@ -63,10 +63,10 @@ namespace Uebung9_Bibliothek.Klassen
 
                     // Artikel im Objekt ablegen
                     artikel.Id = ArtikelIdCounter();
-                    artikel.Titel = "Spiel_" + i;
-                    artikel.Publisher = "Publisher_" + i;
-                    artikel.Kategorie = "Kategorie_" + i;
-                    artikel.Ean = "12345678901_" + i;
+                    artikel.Titel = "Spiel_" + i + " " + j;
+                    artikel.Publisher = "Publisher_" + i + " " + j;
+                    artikel.Kategorie = "Kategorie_" + i + " " + j;
+                    artikel.Ean = "12345678901_" + i + " " + j;
                     artikel.Bestand = 5 + i;
                     ArtikelCollection.Add(artikel);
                 }
@@ -80,12 +80,12 @@ namespace Uebung9_Bibliothek.Klassen
 
                     // Artikel im Objekt ablegen
                     artikel.Id = ArtikelIdCounter();
-                    artikel.Titel = "DVD_" + i;
+                    artikel.Titel = "DVD_" + i + " " + j;
                     k += j; // <-- Laufzeit Stunden hochzählen
                     artikel.Laufzeit = DateTime.Parse("01.01.0001 " + k.ToString() + ":00");
-                    artikel.Kategorie = "Kategorie_" + i;
-                    artikel.Verlag = "Verlag_" + i;
-                    artikel.Isbn = "12345678901_" + i;
+                    artikel.Kategorie = "Kategorie_" + i + " " + j;
+                    artikel.Verlag = "Verlag_" + i + " " + j;
+                    artikel.Isbn = "12345678901_" + i + " " + j;
                     artikel.Bestand = 5 + i;
                     ArtikelCollection.Add(artikel);
                 }
@@ -379,6 +379,7 @@ namespace Uebung9_Bibliothek.Klassen
             int pages;
             int rest;
             int startIndex = 0;
+            int currentPage = 0;
 
             Console.Clear();
             Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
@@ -439,12 +440,23 @@ namespace Uebung9_Bibliothek.Klassen
                             Console.WriteLine(rowData);
                         }
                         Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
-                        do
-                        {
-                            Console.WriteLine("F1 - Nächste Seite"); 
-                        } while (menuKey);
-                        startIndex += 10;
+                        // Startindex für die nächsten 'limit' Ergebnisse
+                        startIndex += limit;
+                        currentPage += 1;
                     }
+                    do
+                    {
+                        Console.WriteLine("F1 - Nächste Seite | ESC - Auflistung beenden");
+                        Console.ReadKey(true);
+                        if (menuKey.Key == ConsoleKey.F1)
+                        {
+                            
+                        }
+                        if (menuKey.Key == ConsoleKey.Escape)
+                        {
+                            Menue();
+                        }
+                    } while (true);
                 }
 
                 if (menuKey.Key == ConsoleKey.F2)

@@ -88,29 +88,29 @@ namespace Uebung9_Bibliothek.Klassen
             return rowData;
         }
 
-        public override void Eingabe()
+        public override void Eingabe(List<VerleihArtikel> _artikelCollection)
         {
             // TODO: PadRight() kleiner machen
 
             // Artikel Eingeben
-            Console.Write("{0}", "Titel: ".PadRight(14));
+            Console.Write("{0}", "Titel: ".PadRight(10));
             Titel = Console.ReadLine();
 
-            Console.Write("{0}", "Autor: ".PadRight(14));
+            Console.Write("{0}", "Autor: ".PadRight(10));
             Author = Console.ReadLine();
 
-            Console.Write("{0}", "Kategorie: ".PadRight(14));
+            Console.Write("{0}", "Kategorie: ".PadRight(10));
             Kategorie = Console.ReadLine();
 
-            Console.Write("{0}", "Verlag: ".PadRight(14));
+            Console.Write("{0}", "Verlag: ".PadRight(10));
             Verlag = Console.ReadLine();
 
-            Console.Write("{0}", "ISBN: ".PadRight(14));
+            Console.Write("{0}", "ISBN: ".PadRight(10));
             Isbn = Console.ReadLine();
 
             try
             {
-                Console.Write("{0}", "Bestand: ".PadRight(14));
+                Console.Write("{0}", "Bestand: ".PadRight(10));
                 Bestand = Convert.ToInt32(Console.ReadLine());
             }
             catch (FormatException e)
@@ -120,9 +120,7 @@ namespace Uebung9_Bibliothek.Klassen
                 Console.WriteLine("Es sind nur Ganzzahlen erlaubt.");
                 Console.ResetColor();
             }
-
-            // Artikel ID generieren
-            Id = ArtikelIdCounter();
+            Id = ArtikelIdCounter(_artikelCollection);
         }
     }
 }

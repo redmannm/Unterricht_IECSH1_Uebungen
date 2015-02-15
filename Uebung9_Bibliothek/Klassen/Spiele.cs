@@ -65,7 +65,7 @@ namespace Uebung9_Bibliothek.Klassen
             return rowData;
         }
 
-        public override void Eingabe()
+        public override void Eingabe(List<VerleihArtikel> _artikelCollection)
         {
             throw new NotImplementedException();
         }

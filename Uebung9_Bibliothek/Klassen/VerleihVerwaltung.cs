@@ -45,7 +45,7 @@ namespace Uebung9_Bibliothek.Klassen
                     Buch artikel = new Buch();
 
                     // Artikel in Liste ablegen
-                    artikel.Id = ArtikelIdCounter();
+                    artikel.Id = GetArtikelId();
                     artikel.Titel = "Buch_" + i + " " + j;
                     artikel.Author = "Autor_" + i + " " + j;
                     artikel.Kategorie = "Kategorie_" + i + " " + j;
@@ -62,7 +62,7 @@ namespace Uebung9_Bibliothek.Klassen
                     Spiele artikel = new Spiele();
 
                     // Artikel im Objekt ablegen
-                    artikel.Id = ArtikelIdCounter();
+                    artikel.Id = GetArtikelId();
                     artikel.Titel = "Spiel_" + i + " " + j;
                     artikel.Publisher = "Publisher_" + i + " " + j;
                     artikel.Kategorie = "Kategorie_" + i + " " + j;
@@ -79,7 +79,7 @@ namespace Uebung9_Bibliothek.Klassen
                     Dvd artikel = new Dvd();
 
                     // Artikel im Objekt ablegen
-                    artikel.Id = ArtikelIdCounter();
+                    artikel.Id = GetArtikelId();
                     artikel.Titel = "DVD_" + i + " " + j;
                     k += j; // <-- Laufzeit Stunden hochzählen
                     artikel.Laufzeit = DateTime.Parse("01.01.0001 " + k.ToString() + ":00");
@@ -195,41 +195,9 @@ namespace Uebung9_Bibliothek.Klassen
 
                     // Objekt für den nächsten Artikel anlegen
                     Buch artikel = new Buch();
-                    artikel.Eingabe();
-                    // TODO: PadRight() kleiner machen
-
-                    // Artikel Eingeben
-                    Console.Write("{0}", "Titel: ".PadRight(14));
-                    artikel.Titel = Console.ReadLine();
-
-                    Console.Write("{0}", "Autor: ".PadRight(14));
-                    artikel.Author = Console.ReadLine();
-
-                    Console.Write("{0}", "Kategorie: ".PadRight(14));
-                    artikel.Kategorie = Console.ReadLine();
-
-                    Console.Write("{0}", "Verlag: ".PadRight(14));
-                    artikel.Verlag = Console.ReadLine();
-
-                    Console.Write("{0}", "ISBN: ".PadRight(14));
-                    artikel.Isbn = Console.ReadLine();
-
-                    try
-                    {
-                        Console.Write("{0}", "Bestand: ".PadRight(14));
-                        artikel.Bestand = Convert.ToInt32(Console.ReadLine());
-                    }
-                    catch (FormatException e)
-                    {
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("Es sind nur Ganzzahlen erlaubt.");
-                        Console.BackgroundColor = ConsoleColor.Black;
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-
-                    // Artikel ID generieren
-                    artikel.Id = ArtikelIdCounter();
+                    artikel.Eingabe(GetArtikelId());
+                    //ArtikelEingeben(artikel);
+                    
                     // Artikel in Liste speichern
                     ArtikelCollection.Add(artikel);
                 }
@@ -276,7 +244,7 @@ namespace Uebung9_Bibliothek.Klassen
                     } while (true);
 
                     // Artikel ID generieren
-                    artikel.Id = ArtikelIdCounter();
+                    artikel.Id = GetArtikelId();
                     // Artikel in Liste speichern
                     ArtikelCollection.Add(artikel);
                 }
@@ -341,7 +309,7 @@ namespace Uebung9_Bibliothek.Klassen
                     } while (true);
 
                     // Artikel ID generieren
-                    artikel.Id = ArtikelIdCounter();
+                    artikel.Id = GetArtikelId();
                     // Artikel in Liste speichern
                     ArtikelCollection.Add(artikel);
                 }
@@ -350,30 +318,26 @@ namespace Uebung9_Bibliothek.Klassen
 
         private void ArtikelEingeben(Buch item)
         {
-            // Objekt für den nächsten Artikel anlegen
-            item = new Buch();
-
-            // TODO: PadRight() kleiner machen
 
             // Artikel Eingeben
-            Console.Write("{0}", "Titel: ".PadRight(14));
+            Console.Write("{0}", "Titel: ".PadRight(12));
             item.Titel = Console.ReadLine();
 
-            Console.Write("{0}", "Autor: ".PadRight(14));
+            Console.Write("{0}", "Autor: ".PadRight(12));
             item.Author = Console.ReadLine();
 
-            Console.Write("{0}", "Kategorie: ".PadRight(14));
+            Console.Write("{0}", "Kategorie: ".PadRight(12));
             item.Kategorie = Console.ReadLine();
 
-            Console.Write("{0}", "Verlag: ".PadRight(14));
+            Console.Write("{0}", "Verlag: ".PadRight(12));
             item.Verlag = Console.ReadLine();
 
-            Console.Write("{0}", "ISBN: ".PadRight(14));
+            Console.Write("{0}", "ISBN: ".PadRight(12));
             item.Isbn = Console.ReadLine();
 
             try
             {
-                Console.Write("{0}", "Bestand: ".PadRight(14));
+                Console.Write("{0}", "Bestand: ".PadRight(12));
                 item.Bestand = Convert.ToInt32(Console.ReadLine());
             }
             catch (FormatException e)
@@ -385,7 +349,8 @@ namespace Uebung9_Bibliothek.Klassen
             }
 
             // Artikel ID generieren
-            item.Id = ArtikelIdCounter();
+            item.Id = GetArtikelId();
+
             // Artikel in Liste speichern
             ArtikelCollection.Add(item);
         }
@@ -395,7 +360,7 @@ namespace Uebung9_Bibliothek.Klassen
             throw new NotImplementedException();
         }
 
-        private void ArtikelEingebnen(Dvd item)
+        private void ArtikelEingeben(Dvd item)
         {
             throw new NotImplementedException();
         }
@@ -571,7 +536,7 @@ namespace Uebung9_Bibliothek.Klassen
         /// Artikel Id ermitteln.
         /// </summary>
         /// <returns>int Eine neue Artikel Id</returns>
-        private int ArtikelIdCounter() {
+        private int GetArtikelId() {
             int lastId;
             List<VerleihArtikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
             

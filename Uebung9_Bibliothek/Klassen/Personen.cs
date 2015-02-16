@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uebung8.Klassen
+namespace Uebung9_Bibliothek.Klassen
 {
-    class Personen : IEnumerable<Personen>
+    class Personen
     {
         bool status; // Mitarbeiter aktiviert / deaktiviert
         public bool Status
@@ -133,16 +133,6 @@ namespace Uebung8.Klassen
         public virtual void Anlegen()
         {
 
-        }
-
-        IEnumerator<Personen> IEnumerable<Personen>.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
         }
     }
 }

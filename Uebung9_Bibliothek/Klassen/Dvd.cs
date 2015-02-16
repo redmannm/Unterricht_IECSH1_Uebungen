@@ -80,7 +80,7 @@ namespace Uebung9_Bibliothek.Klassen
             return rowData;
         }
 
-        public override void Eingabe()
+        public override void Eingabe(int id)
         {
             throw new NotImplementedException();
         }

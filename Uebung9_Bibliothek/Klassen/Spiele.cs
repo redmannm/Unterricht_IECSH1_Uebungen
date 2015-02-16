@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Uebung9_Bibliothek.Klassen
+namespace Uebung9_Bibliothek.Artikel
 {
     class Spiele : VerleihArtikel
     {
@@ -48,12 +48,12 @@ namespace Uebung9_Bibliothek.Klassen
                 t1 = Titel;
 
             if (Publisher.Length > 12)
-                t2 = Publisher.Substring(0, 12);
+                t2 = Publisher.Substring(0, 12) + "...";
             else
                 t2 = Publisher;
 
             if (Kategorie.Length > 12)
-                t3 = Kategorie.Substring(0, 12);
+                t3 = Kategorie.Substring(0, 12) + "...";
             else
                 t3 = Kategorie;
 
@@ -65,9 +65,39 @@ namespace Uebung9_Bibliothek.Klassen
             return rowData;
         }
 
-        public override void Eingabe(List<VerleihArtikel> _artikelCollection)
+        public override void Eingabe(int id)
         {
-            throw new NotImplementedException();
+            // Artikel Eingeben
+            base.Id = id;
+
+            Console.Write("{0}", "Titel: ".PadRight(12));
+            Titel = Console.ReadLine();
+
+            Console.Write("{0}", "Publisher: ".PadRight(12));
+            Publisher = Console.ReadLine();
+
+            Console.Write("{0}", "Kategorie: ".PadRight(12));
+            Kategorie = Console.ReadLine();
+
+            Console.Write("{0}", "EAN: ".PadRight(12));
+            Ean = Console.ReadLine();
+
+            do
+            {
+                try
+                {
+                    Console.Write("{0}", "Bestand: ".PadRight(12));
+                    Bestand = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException e)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("Es sind nur Ganzzahlen erlaubt.");
+                    Console.ResetColor();
+                }
+            } while (true);
         }
     }
 }

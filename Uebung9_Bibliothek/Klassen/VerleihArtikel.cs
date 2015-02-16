@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
 
-namespace Uebung9_Bibliothek.Klassen
+namespace Uebung9_Bibliothek.Artikel
 {
     //VerleihArtikel:
     //- ISBN
@@ -72,22 +71,7 @@ namespace Uebung9_Bibliothek.Klassen
 
         public abstract string Ausgabe();
 
-        public abstract void Eingabe(List<VerleihArtikel> _artikelCollection);
+        public abstract void Eingabe(int id);
 
-        /// <summary>
-        /// Artikel Id ermitteln.
-        /// </summary>
-        /// <returns>int Eine neue Artikel Id</returns>
-        protected int ArtikelIdCounter(List<VerleihArtikel> _artikelCollection)
-        {
-            int lastId;
-            List<VerleihArtikel> sortiert = _artikelCollection.OrderBy(x => x.Id).ToList();
-
-            if (sortiert.Count == 0)
-                lastId = 0;
-            else
-                lastId = sortiert[sortiert.Count - 1].Id;
-            return lastId + 1;
-        }
     }
 }

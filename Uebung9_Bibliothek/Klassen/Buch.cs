@@ -117,7 +117,9 @@ namespace Uebung9_Bibliothek.Artikel
             {
                 Console.BackgroundColor = ConsoleColor.Red;
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Es sind nur Ganzzahlen erlaubt.");
+                Console.WriteLine("                                 ");
+                Console.WriteLine(" Es sind nur Ganzzahlen erlaubt. ");
+                Console.WriteLine("                                 ");
                 Console.ResetColor();
             }
         }

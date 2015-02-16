@@ -184,7 +184,6 @@ namespace Uebung9_Bibliothek
         /// </summary>
         private void ArtikelHinzufuegen()
         {
-
             // Testdaten löschen
             if (testDaten)
             {
@@ -205,16 +204,13 @@ namespace Uebung9_Bibliothek
                                   "F2  - Spiel hinzufügen\n\n" +
                                   "F3  - DVD hinzufügen\n\n" +
                                   "---------------------------\n\n" +
-                                  "ESC - Zurück zum Hauptmenü");
+                                  "ESC - Zurück zum Hauptmenü\n\n");
                 menuKey = Console.ReadKey(true);
 
                 // Buch hinzufügen
                 //=============================
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    // Bildschirm aufräumen
-                    Console.Clear();
-
                     // Objekt für den nächsten Artikel anlegen
                     Buch artikel = new Buch();
 
@@ -229,9 +225,6 @@ namespace Uebung9_Bibliothek
                 //=============================
                 if (menuKey.Key == ConsoleKey.F2)
                 {
-                    // Bildschirm aufräumen
-                    Console.Clear();
-
                     // Objekt für den nächsten Artikel anlegen
                     Spiele artikel = new Spiele();
 
@@ -246,11 +239,11 @@ namespace Uebung9_Bibliothek
                 //=============================
                 if (menuKey.Key == ConsoleKey.F3)
                 {
-                    // Bildschirm aufräumen
-                    Console.Clear();
-
                     // Objekt für den nächsten Artikel anlegen
                     Dvd artikel = new Dvd();
+
+                    // Artikel Eigenschaften eingeben
+                    artikel.Eingabe(GetArtikelId());
 
                     // Artikel in Liste speichern
                     ArtikelCollection.Add(artikel);

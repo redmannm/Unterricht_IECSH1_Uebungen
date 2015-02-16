@@ -30,7 +30,7 @@ namespace Uebung9_Bibliothek
                 _artikelCollection = value;
             }
         }
-        
+
         /// <summary>
         /// <para>Laden von Testdaten für die Entwicklungs-</para>
         /// <para>phase in den Speicher.</para>
@@ -54,69 +54,83 @@ namespace Uebung9_Bibliothek
                     if (menuKey.Key == ConsoleKey.J)
                     {
                         ArtikelCollection = null;
-                        // 5 x je 1 Artikel anlegen
-                        for (int i = 0; i < 6; i++)
-                        {
-                            // Test Bücher anlegen
-                            for (int j = 0; j < 2; j++)
-                            {
-                                // Objekt für den nächsten Artikel anlegen
-                                Buch artikel = new Buch();
-
-                                // Artikel in Liste ablegen
-                                artikel.Id = GetArtikelId();
-                                artikel.Titel = "Buch_" + i + " " + j;
-                                artikel.Author = "Autor_" + i + " " + j;
-                                artikel.Kategorie = "Kategorie_" + i + " " + j;
-                                artikel.Verlag = "Verlag_" + i + " " + j;
-                                artikel.Isbn = "12345678901_" + i + " " + j;
-                                artikel.Bestand = 5 + i;
-                                ArtikelCollection.Add(artikel);
-                            }
-
-                            // Test Spiele anlegen
-                            for (int j = 0; j < 2; j++)
-                            {
-                                // Objekt für den nächsten Artikel anlegen
-                                Spiele artikel = new Spiele();
-
-                                // Artikel im Objekt ablegen
-                                artikel.Id = GetArtikelId();
-                                artikel.Titel = "Spiel_" + i + " " + j;
-                                artikel.Publisher = "Publisher_" + i + " " + j;
-                                artikel.Kategorie = "Kategorie_" + i + " " + j;
-                                artikel.Ean = "12345678901_" + i + " " + j;
-                                artikel.Bestand = 5 + i;
-                                ArtikelCollection.Add(artikel);
-                            }
-
-                            // Test DVD's anlegen
-                            int k = 3 + i;
-                            for (int j = 0; j < 2; j++)
-                            {
-                                // Objekt für den nächsten Artikel anlegen
-                                Dvd artikel = new Dvd();
-
-                                // Artikel im Objekt ablegen
-                                artikel.Id = GetArtikelId();
-                                artikel.Titel = "DVD_" + i + " " + j;
-                                k += j; // <-- Laufzeit Stunden hochzählen
-                                artikel.Laufzeit = DateTime.Parse("01.01.0001 " + k.ToString() + ":00");
-                                artikel.Kategorie = "Kategorie_" + i + " " + j;
-                                artikel.Verlag = "Verlag_" + i + " " + j;
-                                artikel.Isbn = "12345678901_" + i + " " + j;
-                                artikel.Bestand = 5 + i;
-                                ArtikelCollection.Add(artikel);
-                            }
-                        }
+                        GetTestDaten();
                         testDaten = true;
                         return true;
                     }
+                    else if (menuKey.Key == ConsoleKey.N)
+                    {
+                        break;
+                    }
                 } while (menuKey.Key != ConsoleKey.N);
-            }            
+            }
+            else
+            {
+                GetTestDaten();
+                testDaten = true;
+                return true;
+            }
             return false;
         }
+        private void GetTestDaten()
+        {
+            
+            // 5 x je 1 Artikel anlegen
+            for (int i = 0; i < 6; i++)
+            {
+                // Test Bücher anlegen
+                for (int j = 0; j < 2; j++)
+                {
+                    // Objekt für den nächsten Artikel anlegen
+                    Buch artikel = new Buch();
 
+                    // Artikel in Liste ablegen
+                    artikel.Id = GetArtikelId();
+                    artikel.Titel = "Buch_" + i + " " + j;
+                    artikel.Author = "Autor_" + i + " " + j;
+                    artikel.Kategorie = "Kategorie_" + i + " " + j;
+                    artikel.Verlag = "Verlag_" + i + " " + j;
+                    artikel.Isbn = "12345678901_" + i + " " + j;
+                    artikel.Bestand = 5 + i;
+                    ArtikelCollection.Add(artikel);
+                }
+
+                // Test Spiele anlegen
+                for (int j = 0; j < 2; j++)
+                {
+                    // Objekt für den nächsten Artikel anlegen
+                    Spiele artikel = new Spiele();
+
+                    // Artikel im Objekt ablegen
+                    artikel.Id = GetArtikelId();
+                    artikel.Titel = "Spiel_" + i + " " + j;
+                    artikel.Publisher = "Publisher_" + i + " " + j;
+                    artikel.Kategorie = "Kategorie_" + i + " " + j;
+                    artikel.Ean = "12345678901_" + i + " " + j;
+                    artikel.Bestand = 5 + i;
+                    ArtikelCollection.Add(artikel);
+                }
+
+                // Test DVD's anlegen
+                int k = 3 + i;
+                for (int j = 0; j < 2; j++)
+                {
+                    // Objekt für den nächsten Artikel anlegen
+                    Dvd artikel = new Dvd();
+
+                    // Artikel im Objekt ablegen
+                    artikel.Id = GetArtikelId();
+                    artikel.Titel = "DVD_" + i + " " + j;
+                    k += j; // <-- Laufzeit Stunden hochzählen
+                    artikel.Laufzeit = DateTime.Parse("01.01.0001 " + k.ToString() + ":00");
+                    artikel.Kategorie = "Kategorie_" + i + " " + j;
+                    artikel.Verlag = "Verlag_" + i + " " + j;
+                    artikel.Isbn = "12345678901_" + i + " " + j;
+                    artikel.Bestand = 5 + i;
+                    ArtikelCollection.Add(artikel);
+                }
+            }
+        }
         /// <summary>
         /// Menü der Verleihverwaltung
         /// </summary>
@@ -137,7 +151,7 @@ namespace Uebung9_Bibliothek
                                   "F5  - Artikel suchen\n\n" +
                                   "---------------------------\n\n" +
                                   "ESC - Zurück zum Hauptmenü");
-                
+
                 menuKey = Console.ReadKey(true);
 
                 // Menüauswahl Artikel hinzufügen
@@ -216,7 +230,7 @@ namespace Uebung9_Bibliothek
 
                     // Artikel Eigenschaften eingeben
                     artikel.Eingabe(GetArtikelId());
-                    
+
                     // Artikel in Liste speichern
                     ArtikelCollection.Add(artikel);
                 }
@@ -354,7 +368,7 @@ namespace Uebung9_Bibliothek
                 if (menuKey.Key == ConsoleKey.F1)
                 {
                     List<VerleihArtikel> buecher = new List<VerleihArtikel>();
-                    
+
                     // Bücher filtern
                     foreach (VerleihArtikel item in ArtikelCollection)
                     {
@@ -467,21 +481,30 @@ namespace Uebung9_Bibliothek
             throw new NotImplementedException();
         }
 
-        
+
         /// <summary>
         /// Ermittelt anhand der letzten Artikel Id eine neu und gibt sie zurück.
         /// </summary>
         /// <returns>int Gibt eine neue Artikel Id zurück</returns>
-        private int GetArtikelId() {
+        private int GetArtikelId()
+        {
             int lastId;
-            List<VerleihArtikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
-            
-            if (sortiert.Count == 0)
-                lastId = 0;
+
+            if (ArtikelCollection == null)
+            {
+                List<VerleihArtikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
+
+                if (sortiert.Count == 0)
+                    lastId = 0;
+                else
+                    lastId = sortiert[sortiert.Count - 1].Id;
+                lastId += 1;
+                return lastId;
+            }
             else
-                lastId = sortiert[sortiert.Count - 1].Id;
-            lastId += 1;
-            return lastId;
+            {
+                return 1;
+            }
         }
 
         private List<VerleihArtikel> ArtikelSortieren()

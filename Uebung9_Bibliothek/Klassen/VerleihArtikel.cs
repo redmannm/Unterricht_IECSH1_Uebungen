@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Uebung9_Bibliothek.Klassen
+namespace Uebung9_Bibliothek.Artikel
 {
     //VerleihArtikel:
     //- ISBN

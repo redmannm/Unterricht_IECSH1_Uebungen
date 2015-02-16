@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uebung9_Bibliothek.Klassen
+namespace Uebung9_Bibliothek.Kunden
 {
     class Personen
     {

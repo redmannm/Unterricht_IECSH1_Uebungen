@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Uebung9_Bibliothek.Klassen
+namespace Uebung9_Bibliothek.Artikel
 {
     public struct Eigenschaften
     {
@@ -38,7 +38,6 @@ namespace Uebung9_Bibliothek.Klassen
         }
 
         string _verlag;
-
         public string Verlag
         {
             get
@@ -90,8 +89,10 @@ namespace Uebung9_Bibliothek.Klassen
 
         public override void Eingabe(int id)
         {
-            base.Id = id;
+            
             // Artikel Eingeben
+            base.Id = id;
+            
             Console.Write("{0}", "Titel: ".PadRight(12));
             Titel = Console.ReadLine();
 

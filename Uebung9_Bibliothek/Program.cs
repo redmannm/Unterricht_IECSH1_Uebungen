@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Uebung9_Bibliothek.Klassen;
+using Uebung9_Bibliothek.Artikel;
 
 namespace Uebung9_Bibliothek
 {
@@ -59,7 +59,7 @@ namespace Uebung9_Bibliothek
             Console.WindowWidth = 120;
             Console.WindowHeight = 65;
             string message = "";
-            VerleihVerwaltung artikelVerwaltung = new VerleihVerwaltung();
+            VerwaltungVerleih artikelVerwaltung = new VerwaltungVerleih();
 
             
             ConsoleKeyInfo menuKey;
@@ -90,8 +90,10 @@ namespace Uebung9_Bibliothek
                 // Menüauswahl Testdaten laden
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    artikelVerwaltung.TestdatenLaden();
-                    message = " Testdaten wurden erfolgreich in den Speicher geladen. ";
+                    if (artikelVerwaltung.TestdatenLaden())
+                        message = " Testdaten wurden erfolgreich in den Speicher geladen. ";
+                    else
+                        message = " Testdaten wurden NICHT geladen. ";
                 }
 
                 // Menüauswahl Artikelverwaltung
@@ -103,7 +105,7 @@ namespace Uebung9_Bibliothek
                 // Menüauswahl Kundenverwaltung
                 if (menuKey.Key == ConsoleKey.F3)
                 {
-                    KundenVerwaltung kundenVerwaltung = new KundenVerwaltung();
+                    VerwaltungKunden kundenVerwaltung = new VerwaltungKunden();
                     kundenVerwaltung.Menue();
                 }
             } while (menuKey.Key != ConsoleKey.Escape);

@@ -37,7 +37,8 @@ namespace Uebung9_Bibliothek
         /// </summary>
         public bool TestdatenLaden()
         {
-            if ((ArtikelCollection.Count > 0) & (!testDaten))
+            if ((ArtikelCollection.Count != 0) & (!testDaten))
+            //if (!testDaten)
             {
                 Console.BackgroundColor = ConsoleColor.Red;
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -53,7 +54,7 @@ namespace Uebung9_Bibliothek
                 {
                     if (menuKey.Key == ConsoleKey.J)
                     {
-                        ArtikelCollection = null;
+                        ArtikelCollection = new List<VerleihArtikel>();
                         GetTestDaten();
                         testDaten = true;
                         return true;
@@ -62,7 +63,7 @@ namespace Uebung9_Bibliothek
                     {
                         break;
                     }
-                } while (menuKey.Key != ConsoleKey.N);
+                } while (true);
             }
             else
             {
@@ -201,7 +202,7 @@ namespace Uebung9_Bibliothek
             // Testdaten löschen
             if (testDaten)
             {
-                ArtikelCollection = null;
+                ArtikelCollection = new List<VerleihArtikel>();
                 testDaten = false;
             }
 
@@ -490,7 +491,7 @@ namespace Uebung9_Bibliothek
         {
             int lastId;
 
-            if (ArtikelCollection == null)
+            if (ArtikelCollection.Count == 0)
             {
                 List<VerleihArtikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
 

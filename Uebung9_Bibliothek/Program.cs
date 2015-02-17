@@ -18,7 +18,7 @@ namespace Uebung9_Bibliothek
     //Es soll möglich sein Medien zu verleihen und wieder zurück zu nehmen.
     //Es soll möglich sein den Bestand anzupassen.
 
-    //VerleihArtikel:
+    //Artikel:
     //- ISBN
     //- Titel
     //- Kategorie
@@ -29,7 +29,7 @@ namespace Uebung9_Bibliothek
 
     //};
 
-    //Buch : VerleihArtikel		Spiele : VerleihArtikel		DVD's : VerleihArtikel
+    //Buch : Artikel		Spiele : Artikel		DVD's : Artikel
     //- Author					- EAN						- Laufzeit
     //Eingabe() { 				Eingabe() {
     //  Base.Eingabe();			  Base.Eingabe();

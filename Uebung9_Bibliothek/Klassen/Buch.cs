@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Uebung9_Bibliothek.Artikel
 {
-    class Buch : VerleihArtikel
+    class Buch : Artikel
     {
         string _author;
         public string Author

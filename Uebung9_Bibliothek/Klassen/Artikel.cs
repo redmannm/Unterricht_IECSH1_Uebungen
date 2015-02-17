@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Uebung9_Bibliothek.Artikel
 {
-    //VerleihArtikel:
+    //Artikel:
     //- ISBN
     //- Titel
     //- Kategorie
@@ -15,7 +15,7 @@ namespace Uebung9_Bibliothek.Artikel
 
     //};
 
-    abstract class VerleihArtikel
+    abstract class Artikel
     {
         private int _id;
         public int Id

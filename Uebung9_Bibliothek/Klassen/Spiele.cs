@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Uebung9_Bibliothek.Artikel
 {
-    class Spiele : VerleihArtikel
+    class Spiele : Artikel
     {
         string _publisher;
         public string Publisher

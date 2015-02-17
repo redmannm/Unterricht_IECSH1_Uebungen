@@ -18,9 +18,9 @@ namespace Uebung9_Bibliothek
         private ConsoleKeyInfo menuKey;
         private string message = "";
         // Speicher Artikellist
-        List<VerleihArtikel> _artikelCollection = new List<VerleihArtikel>();
+        List<Artikel> _artikelCollection = new List<Artikel>();
 
-        private List<VerleihArtikel> ArtikelCollection
+        private List<Artikel> ArtikelCollection
         {
             get
             {
@@ -45,7 +45,7 @@ namespace Uebung9_Bibliothek
                                   "========================================\n\n");
                 Console.WriteLine("Artikel verwalten\n" +
                                   "-----------------\n\n" +
-                                  "F1  - Test Artikel laden\n" +
+                                  "F1  - Test Artikel laden\n\n" +
                                   "------------------------------\n\n" +
                                   "F2  - Artikel hinzufügen\n\n" +
                                   "F3  - Artikel bearbeiten\n\n" +
@@ -140,7 +140,7 @@ namespace Uebung9_Bibliothek
                 {
                     if (menuKey.Key == ConsoleKey.J)
                     {
-                        ArtikelCollection = new List<VerleihArtikel>();
+                        ArtikelCollection = new List<Artikel>();
                         GetTestDaten();
                         testDaten = true;
                         return true;
@@ -229,7 +229,7 @@ namespace Uebung9_Bibliothek
             // Testdaten löschen
             if (testDaten)
             {
-                ArtikelCollection = new List<VerleihArtikel>();
+                ArtikelCollection = new List<Artikel>();
                 testDaten = false;
             }
 
@@ -380,16 +380,25 @@ namespace Uebung9_Bibliothek
         /// <summary>
         /// Einen Verleihartikel bearbeiten
         /// </summary>
-        private bool ArtikelBearbeiten(int id = -1)
-        {
-            if (id == -1)
-            {
 
+        private void ArtikelBearbeiten()
+        {
+            int id;
+            Console.WriteLine("\n Bibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
+                              " ========================================\n\n");
+            Console.WriteLine(" Welchen Artikel möchten Sie bearbeiten?\n" +
+                              " ---------------------------------------\n\n");
+
+            Console.Write(" Geben Sie die Artikel-Id. ein: ");
+            id = Convert.ToInt32(Console.ReadLine());
+            foreach(Artikel element in ArtikelCollection){
+                if (id == )
             }
-            else
-            {
-                
-            }
+            
+        }
+        private bool ArtikelBearbeiten(int id)
+        {
+            
             return true;
         }
 
@@ -438,10 +447,10 @@ namespace Uebung9_Bibliothek
 
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    List<VerleihArtikel> buecher = new List<VerleihArtikel>();
+                    List<Artikel> buecher = new List<Artikel>();
 
                     // Bücher filtern
-                    foreach (VerleihArtikel item in ArtikelCollection)
+                    foreach (Artikel item in ArtikelCollection)
                     {
                         if (item is Buch)
                         {
@@ -472,7 +481,7 @@ namespace Uebung9_Bibliothek
                         if ((rest > 0) & (i == pages - 1))
                             limit = rest;
                         // Tabellen Datenzeilen ausgeben
-                        foreach (VerleihArtikel item in buecher.GetRange(startIndex, limit))
+                        foreach (Artikel item in buecher.GetRange(startIndex, limit))
                         {
                             rowData = item.Ausgabe();
                             Console.WriteLine(rowData);
@@ -514,7 +523,7 @@ namespace Uebung9_Bibliothek
                     //Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
                     //Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Publisher       ║ Kategorie       ║ Bestand  ║ EAN                ║");
                     //Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-                    //foreach (VerleihArtikel item in sortiert)
+                    //foreach (Artikel item in sortiert)
                     //{
                     //    if (item is Spiele)
                     //    {
@@ -531,7 +540,7 @@ namespace Uebung9_Bibliothek
                     //Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
                     //Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Verlag          ║ Laufzeit        ║ Kategorie       ║ Bestand  ║ ISBN               ║");
                     //Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-                    //foreach (VerleihArtikel item in sortiert)
+                    //foreach (Artikel item in sortiert)
                     //{
                     //    if (item is Dvd)
                     //    {
@@ -563,7 +572,7 @@ namespace Uebung9_Bibliothek
 
             if (ArtikelCollection.Count == 0)
             {
-                List<VerleihArtikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
+                List<Artikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
 
                 if (sortiert.Count == 0)
                     lastId = 0;
@@ -578,9 +587,9 @@ namespace Uebung9_Bibliothek
             }
         }
 
-        private List<VerleihArtikel> ArtikelSortieren()
+        private List<Artikel> ArtikelSortieren()
         {
-            List<VerleihArtikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
+            List<Artikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
             return sortiert;
         }
     }

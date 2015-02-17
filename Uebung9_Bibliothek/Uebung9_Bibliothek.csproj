@@ -63,7 +63,7 @@
     <Compile Include="VerwaltungKunden.cs" />
     <Compile Include="Klassen\Personen.cs" />
     <Compile Include="Klassen\Spiele.cs" />
-    <Compile Include="Klassen\VerleihArtikel.cs" />
+    <Compile Include="Klassen\Artikel.cs" />
     <Compile Include="VerwaltungVerleih.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

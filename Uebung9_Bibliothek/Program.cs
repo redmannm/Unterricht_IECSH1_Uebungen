@@ -70,9 +70,9 @@ namespace Uebung9_Bibliothek
                                   "========================================\n\n");
                 Console.WriteLine("Hauptmenü\n" +
                                   "---------\n\n" +
-                                  "F1  - TESTDATEN LADEN\n\n" +
-                                  "F2  - Artikel verwalten\n\n" +
-                                  "F3  - Kunden verwalten\n\n" +
+                                  "F1  - Artikel verwalten\n\n" +
+                                  "F2  - Kunden verwalten\n\n" +
+                                  "F3  - Verleih und Rückgabe\n\n" +
                                   "---------------------------\n\n" +
                                   "ESC - Programm beenden\n\n");
                 if (message.Length > 0)
@@ -87,22 +87,22 @@ namespace Uebung9_Bibliothek
                 // Menüauswahl einlesen und an 'menuKey' übergeben
                 menuKey = Console.ReadKey(true);
 
-                // Menüauswahl Testdaten laden
-                if (menuKey.Key == ConsoleKey.F1)
-                {
-                    if (artikelVerwaltung.TestdatenLaden())
-                        message = " Testdaten wurden erfolgreich in den Speicher geladen. ";
-                    else
-                        message = " Testdaten wurden NICHT geladen. ";
-                }
+                
 
                 // Menüauswahl Artikelverwaltung
-                if (menuKey.Key == ConsoleKey.F2)
+                if (menuKey.Key == ConsoleKey.F1)
                 {
                     artikelVerwaltung.Menue();
                 }
 
                 // Menüauswahl Kundenverwaltung
+                if (menuKey.Key == ConsoleKey.F2)
+                {
+                    VerwaltungKunden kundenVerwaltung = new VerwaltungKunden();
+                    kundenVerwaltung.Menue();
+                }
+
+                // Menüauswahl Verleih und Verwaltung
                 if (menuKey.Key == ConsoleKey.F3)
                 {
                     VerwaltungKunden kundenVerwaltung = new VerwaltungKunden();

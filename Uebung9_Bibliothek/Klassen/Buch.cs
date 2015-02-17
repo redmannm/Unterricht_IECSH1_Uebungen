@@ -5,10 +5,6 @@ using System.Text;
 
 namespace Uebung9_Bibliothek.Artikel
 {
-    public struct Eigenschaften
-    {
-
-    }
     class Buch : VerleihArtikel
     {
         string _author;

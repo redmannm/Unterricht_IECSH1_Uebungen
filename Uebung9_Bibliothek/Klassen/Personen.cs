@@ -112,27 +112,5 @@ namespace Uebung9_Bibliothek.Kunden
             }
         }
 
-        int konfession;
-        /// <summary>
-        /// <para>1 = Röm. Katholisch</para>
-        /// <para>2 = Evangelisch</para>
-        /// <para>3 = Orthodox</para>
-        /// </summary>
-        public int Konfession
-        {
-            get
-            {
-                return konfession;
-            }
-            set
-            {
-                konfession = value;
-            }
-        }
-
-        public virtual void Anlegen()
-        {
-
-        }
     }
 }

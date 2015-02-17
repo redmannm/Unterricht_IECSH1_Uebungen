@@ -16,6 +16,7 @@ namespace Uebung9_Bibliothek
         /// </summary>
         private bool testDaten = false;
         private ConsoleKeyInfo menuKey;
+        private string message = "";
         // Speicher Artikellist
         List<VerleihArtikel> _artikelCollection = new List<VerleihArtikel>();
 
@@ -29,6 +30,91 @@ namespace Uebung9_Bibliothek
             {
                 _artikelCollection = value;
             }
+        }
+
+        /// <summary>
+        /// Menü der Verleihverwaltung
+        /// </summary>
+        public void Menue()
+        {
+            ConsoleKeyInfo menuKey;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
+                                  "========================================\n\n");
+                Console.WriteLine("Artikel verwalten\n" +
+                                  "-----------------\n\n" +
+                                  "F1  - Test Artikel laden\n" +
+                                  "------------------------------\n\n" +
+                                  "F2  - Artikel hinzufügen\n\n" +
+                                  "F3  - Artikel bearbeiten\n\n" +
+                                  "F4  - Artikel löschen\n\n" +
+                                  "F5  - Artikel auflisten\n\n" +
+                                  "F6  - Artikel suchen\n\n" +
+                                  "---------------------------\n\n" +
+                                  "ESC - Zurück zum Hauptmenü\n\n");
+
+                if (message.Length > 0)
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write(message);
+                    message = "";
+                    Console.ResetColor();
+                }
+
+                menuKey = Console.ReadKey(true);
+
+                // Menüauswahl Testdaten laden
+                if (menuKey.Key == ConsoleKey.F1)
+                {
+                    if (TestdatenLaden())
+                        message = "                                                       \n" +
+                                  " Testdaten wurden erfolgreich in den Speicher geladen. \n" +
+                                  "                                                       ";
+                    else
+                        message = "                                 \n" +
+                                  " Testdaten wurden NICHT geladen. \n" +
+                                  "                                 ";
+                }
+
+                // Menüauswahl Artikel hinzufügen
+                if (menuKey.Key == ConsoleKey.F2)
+                {
+                    Console.Clear();
+                    ArtikelHinzufuegen();
+                }
+
+                // Menüauswahl Artikel bearbeiten
+                if (menuKey.Key == ConsoleKey.F3)
+                {
+                    Console.Clear();
+                    ArtikelBearbeiten();
+                }
+
+                // Menüauswahl Artikel löschen
+                if (menuKey.Key == ConsoleKey.F4)
+                {
+                    Console.Clear();
+                    ArtikelLöschen();
+                }
+
+                // Menüauswahl Artikel auflisten
+                if (menuKey.Key == ConsoleKey.F5)
+                {
+                    Console.Clear();
+                    ArtikelAuflisten();
+                }
+
+                // Menüauswahl Artikel suchen
+                if (menuKey.Key == ConsoleKey.F6)
+                {
+                    Console.Clear();
+                    ArtikelSuchen();
+                }
+
+            } while (menuKey.Key != ConsoleKey.Escape);
         }
 
         /// <summary>
@@ -132,66 +218,7 @@ namespace Uebung9_Bibliothek
                 }
             }
         }
-        /// <summary>
-        /// Menü der Verleihverwaltung
-        /// </summary>
-        public void Menue()
-        {
-            ConsoleKeyInfo menuKey;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
-                                  "========================================\n\n");
-                Console.WriteLine("Artikel verwalten\n" +
-                                  "-----------------\n\n" +
-                                  "F1  - Artikel hinzufügen\n\n" +
-                                  "F2  - Artikel bearbeiten\n\n" +
-                                  "F3  - Artikel löschen\n\n" +
-                                  "F4  - Artikel auflisten\n\n" +
-                                  "F5  - Artikel suchen\n\n" +
-                                  "---------------------------\n\n" +
-                                  "ESC - Zurück zum Hauptmenü");
 
-                menuKey = Console.ReadKey(true);
-
-                // Menüauswahl Artikel hinzufügen
-                if (menuKey.Key == ConsoleKey.F1)
-                {
-                    Console.Clear();
-                    ArtikelHinzufuegen();
-                }
-
-                // Menüauswahl Artikel bearbeiten
-                if (menuKey.Key == ConsoleKey.F2)
-                {
-                    Console.Clear();
-                    ArtikelBearbeiten();
-                }
-
-                // Menüauswahl Artikel löschen
-                if (menuKey.Key == ConsoleKey.F3)
-                {
-                    Console.Clear();
-                    ArtikelLöschen();
-                }
-
-                // Menüauswahl Artikel auflisten
-                if (menuKey.Key == ConsoleKey.F4)
-                {
-                    Console.Clear();
-                    ArtikelAuflisten();
-                }
-
-                // Menüauswahl Artikel suchen
-                if (menuKey.Key == ConsoleKey.F5)
-                {
-                    Console.Clear();
-                    ArtikelSuchen();
-                }
-
-            } while (menuKey.Key != ConsoleKey.Escape);
-        }
 
         // TODO: Dateneingabemaske von Methode 'ArtikelHinzufuegen' noch gestalten
         /// <summary>
@@ -211,6 +238,8 @@ namespace Uebung9_Bibliothek
             {
                 // Bildschirm aufräumen
                 Console.Clear();
+
+                // Menü ausgeben
                 Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
                                   "========================================\n\n");
                 Console.WriteLine("Artikel hinzufügen\n" +
@@ -220,6 +249,18 @@ namespace Uebung9_Bibliothek
                                   "F3  - DVD hinzufügen\n\n" +
                                   "---------------------------\n\n" +
                                   "ESC - Zurück zum Hauptmenü\n\n");
+
+                // Message ausgeben
+                if (message.Length > 0)
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write(message);
+                    message = "";
+                    Console.ResetColor();
+                }
+
+                // Menüauswahl abfragen
                 menuKey = Console.ReadKey(true);
 
                 // Buch hinzufügen
@@ -229,11 +270,18 @@ namespace Uebung9_Bibliothek
                     // Objekt für den nächsten Artikel anlegen
                     Buch artikel = new Buch();
 
+                    Console.WriteLine("Informationen zum Buch eingeben\n" +
+                                      "-------------------------------\n\n");
+
                     // Artikel Eigenschaften eingeben
                     artikel.Eingabe(GetArtikelId());
 
                     // Artikel in Liste speichern
                     ArtikelCollection.Add(artikel);
+
+                    message = "                           \n" + 
+                              " Buch erfolgreich angelegt \n" +
+                              "                           \n";
                 }
 
                 // Spiel hinzufügen
@@ -243,11 +291,18 @@ namespace Uebung9_Bibliothek
                     // Objekt für den nächsten Artikel anlegen
                     Spiele artikel = new Spiele();
 
+                    Console.WriteLine("Informationen zum Spiel eingeben\n" +
+                                      "--------------------------------\n\n");
+
                     // Artikel Eigenschaften eingeben
                     artikel.Eingabe(GetArtikelId());
 
                     // Artikel in Liste speichern
                     ArtikelCollection.Add(artikel);
+
+                    message = "                            \n" +
+                              " Speil erfolgreich angelegt \n" +
+                              "                            \n";
                 }
 
                 // DVD hinzufügen
@@ -257,69 +312,84 @@ namespace Uebung9_Bibliothek
                     // Objekt für den nächsten Artikel anlegen
                     Dvd artikel = new Dvd();
 
+                    Console.WriteLine("Informationen zur Dvd eingeben\n" +
+                                      "------------------------------\n\n");
+
                     // Artikel Eigenschaften eingeben
                     artikel.Eingabe(GetArtikelId());
 
                     // Artikel in Liste speichern
                     ArtikelCollection.Add(artikel);
+
+                    message = "                          \n" +
+                              " DVD erfolgreich angelegt \n" +
+                              "                          \n";
                 }
             } while (menuKey.Key != ConsoleKey.Escape);
         }
 
-        private void ArtikelEingeben(Buch item)
-        {
+        //private void ArtikelEingeben(Buch item)
+        //{
 
-            // Artikel Eingeben
-            Console.Write("{0}", "Titel: ".PadRight(12));
-            item.Titel = Console.ReadLine();
+        //    // Artikel Eingeben
+        //    Console.Write("{0}", "Titel: ".PadRight(12));
+        //    item.Titel = Console.ReadLine();
 
-            Console.Write("{0}", "Autor: ".PadRight(12));
-            item.Author = Console.ReadLine();
+        //    Console.Write("{0}", "Autor: ".PadRight(12));
+        //    item.Author = Console.ReadLine();
 
-            Console.Write("{0}", "Kategorie: ".PadRight(12));
-            item.Kategorie = Console.ReadLine();
+        //    Console.Write("{0}", "Kategorie: ".PadRight(12));
+        //    item.Kategorie = Console.ReadLine();
 
-            Console.Write("{0}", "Verlag: ".PadRight(12));
-            item.Verlag = Console.ReadLine();
+        //    Console.Write("{0}", "Verlag: ".PadRight(12));
+        //    item.Verlag = Console.ReadLine();
 
-            Console.Write("{0}", "ISBN: ".PadRight(12));
-            item.Isbn = Console.ReadLine();
+        //    Console.Write("{0}", "ISBN: ".PadRight(12));
+        //    item.Isbn = Console.ReadLine();
 
-            try
-            {
-                Console.Write("{0}", "Bestand: ".PadRight(12));
-                item.Bestand = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (FormatException e)
-            {
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Es sind nur Ganzzahlen erlaubt.");
-                Console.ResetColor();
-            }
+        //    try
+        //    {
+        //        Console.Write("{0}", "Bestand: ".PadRight(12));
+        //        item.Bestand = Convert.ToInt32(Console.ReadLine());
+        //    }
+        //    catch (FormatException e)
+        //    {
+        //        Console.BackgroundColor = ConsoleColor.Red;
+        //        Console.ForegroundColor = ConsoleColor.Yellow;
+        //        Console.WriteLine("Es sind nur Ganzzahlen erlaubt.");
+        //        Console.ResetColor();
+        //    }
 
-            // Artikel ID generieren
-            item.Id = GetArtikelId();
+        //    // Artikel ID generieren
+        //    item.Id = GetArtikelId();
 
-            // Artikel in Liste speichern
-            ArtikelCollection.Add(item);
-        }
+        //    // Artikel in Liste speichern
+        //    ArtikelCollection.Add(item);
+        //}
 
-        private void ArtikelEingeben(Spiele item)
-        {
-            throw new NotImplementedException();
-        }
+        //private void ArtikelEingeben(Spiele item)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        private void ArtikelEingeben(Dvd item)
-        {
-            throw new NotImplementedException();
-        }
+        //private void ArtikelEingeben(Dvd item)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         /// <summary>
         /// Einen Verleihartikel bearbeiten
         /// </summary>
         private bool ArtikelBearbeiten(int id = -1)
         {
+            if (id == -1)
+            {
+
+            }
+            else
+            {
+                
+            }
             return true;
         }
 

@@ -3,27 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung1_Grössere_Zahl_ermitteln", "Uebung1\Uebung1_Grössere_Zahl_ermitteln.csproj", "{75C7779C-6EEB-4401-8F88-B61B276151BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung1_Grössere_Zahl_ermitteln", "Uebung1_Grössere_Zahl_ermitteln\Uebung1_Grössere_Zahl_ermitteln.csproj", "{75C7779C-6EEB-4401-8F88-B61B276151BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung2_Anrede_Formulieren", "Uebung2\Uebung2_Anrede_Formulieren.csproj", "{998581CC-424F-4190-B95B-6DE0F7780E43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung2_Anrede_Formulieren", "Uebung2_Anrede_Formulieren\Uebung2_Anrede_Formulieren.csproj", "{998581CC-424F-4190-B95B-6DE0F7780E43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung3", "Uebung3\Uebung3.csproj", "{65D5DD7F-1277-4615-87B6-BF4418E1717E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung4_Sonntage-des-Vorjahres", "Uebung4\Uebung4_Sonntage-des-Vorjahres.csproj", "{64C5344A-2B2A-4E13-A34F-D9D37B46B77C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung4_Sonntage-des-Vorjahres", "Uebung4_Sonntage-des-Vorjahres\Uebung4_Sonntage-des-Vorjahres.csproj", "{64C5344A-2B2A-4E13-A34F-D9D37B46B77C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung5_Primzahlen", "Uebung5\Uebung5_Primzahlen.csproj", "{8365FA5C-D81E-46F0-84E1-06403F5C1BA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung5_Primzahlen", "Uebung5_Primzahlen\Uebung5_Primzahlen.csproj", "{8365FA5C-D81E-46F0-84E1-06403F5C1BA9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoApp", "AutoApp\AutoApp.csproj", "{38478586-4341-412F-9F74-765B19668DC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung6_Autoverleih", "Uebung6\Uebung6_Autoverleih.csproj", "{A831A691-916D-45F7-BAF1-398141C1D711}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung6_Autoverleih", "Uebung6_Autoverleih\Uebung6_Autoverleih.csproj", "{A831A691-916D-45F7-BAF1-398141C1D711}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung7_Luftfahrzeuge", "Uebung7\Uebung7_Luftfahrzeuge.csproj", "{4E9DF897-69D1-4632-9356-35B1A9525064}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung7_Luftfahrzeuge", "Uebung7_Luftfahrzeuge\Uebung7_Luftfahrzeuge.csproj", "{4E9DF897-69D1-4632-9356-35B1A9525064}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoClass", "AutoClass\AutoClass.csproj", "{05ADC63E-6C7D-40A5-8FD2-50A12C9A61BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung8_Lohnrechner", "Uebung8\Uebung8_Lohnrechner.csproj", "{212AD043-7FC4-47B1-BF11-1121D371CE2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung8_Lohnrechner", "Uebung8_Lohnrechner\Uebung8_Lohnrechner.csproj", "{212AD043-7FC4-47B1-BF11-1121D371CE2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BS_IECSH1_Marcus-Redmann", "BS_Marcus-Redmann\BS_IECSH1_Marcus-Redmann.csproj", "{196A2E64-59F5-40AB-BF98-559FCFC51A29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BS_IECSH1_Marcus-Redmann", "BS_IECSH1_Marcus-Redmann\BS_IECSH1_Marcus-Redmann.csproj", "{196A2E64-59F5-40AB-BF98-559FCFC51A29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung9_Bibliothek", "Uebung9_Bibliothek\Uebung9_Bibliothek.csproj", "{FB49A522-446F-4588-94B4-39F8D3ABBF0E}"
 EndProject

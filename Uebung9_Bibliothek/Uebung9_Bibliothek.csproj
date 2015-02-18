@@ -57,14 +57,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Klassen\Buch.cs" />
-    <Compile Include="Klassen\Dvd.cs" />
+    <Compile Include="ArtikelKlassen\Buch.cs" />
+    <Compile Include="ArtikelKlassen\Dvd.cs" />
+    <Compile Include="KundenKlassen\Kunde.cs" />
     <Compile Include="Pagination.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="VerwaltungKunden.cs" />
-    <Compile Include="Klassen\Personen.cs" />
-    <Compile Include="Klassen\Spiele.cs" />
-    <Compile Include="Klassen\Artikel.cs" />
+    <Compile Include="KundenKlassen\Personen.cs" />
+    <Compile Include="ArtikelKlassen\Spiele.cs" />
+    <Compile Include="ArtikelKlassen\Artikel.cs" />
     <Compile Include="VerwaltungVerleih.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

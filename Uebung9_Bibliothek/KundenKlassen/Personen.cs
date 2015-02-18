@@ -7,19 +7,7 @@ using System.Threading.Tasks;
 namespace Uebung9_Bibliothek.Kunden
 {
     class Personen
-    {
-        bool status; // Mitarbeiter aktiviert / deaktiviert
-        public bool Status
-        {
-            get
-            {
-                return status;
-            }
-            set
-            {
-                status = value;
-            }
-        }
+    { // Mitarbeiter aktiviert / deaktiviert
 
         string name;
         public string Name

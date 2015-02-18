@@ -9,20 +9,116 @@ namespace Uebung9_Bibliothek
 {
     public class Pagination
     {
-        public int total;
-        public int limit;
-        public int pages;
-        public int rest;
-        public int startIndex;
-        public int currentPage;
+        private int _total;
 
-        public int editId;
+        public int Total
+        {
+            get
+            {
+                return _total;
+            }
+            set
+            {
+                _total = value;
+            }
+        }
+        private int _limit;
 
-        public List<ArtikelObj> sortedResult = new List<ArtikelObj>();
+        public int Limit
+        {
+            get
+            {
+                return _limit;
+            }
+            set
+            {
+                _limit = value;
+            }
+        }
+        private int _pages;
+
+        public int Pages
+        {
+            get
+            {
+                return _pages;
+            }
+            set
+            {
+                _pages = value;
+            }
+        }
+        private int _rest;
+
+        public int Rest
+        {
+            get
+            {
+                return _rest;
+            }
+            set
+            {
+                _rest = value;
+            }
+        }
+        private int _startIndex;
+
+        public int StartIndex
+        {
+            get
+            {
+                return _startIndex;
+            }
+            set
+            {
+                _startIndex = value;
+            }
+        }
+        private int _currentPage;
+
+        public int CurrentPage
+        {
+            get
+            {
+                return _currentPage;
+            }
+            set
+            {
+                _currentPage = value;
+            }
+        }
+
+        private int _editId;
+
+        public int EditId
+        {
+            get
+            {
+                return _editId;
+            }
+            set
+            {
+                _editId = value;
+            }
+        }
+
+        private List<ArtikelObj> _sortedResult = new List<ArtikelObj>();
+
+        public List<ArtikelObj> SortedResult
+        {
+            get
+            {
+                return _sortedResult;
+            }
+            set
+            {
+                _sortedResult = value;
+            }
+        }
 
         public Pagination()
         {
-            limit = 10;
+            _limit = 10;
         }
 
         public List<ArtikelObj> GetSortetList(List<ArtikelObj> _artikelCollection, string type)
@@ -33,7 +129,7 @@ namespace Uebung9_Bibliothek
                 {
                     if (element is Buch)
                     {
-                        sortedResult.Add(element);
+                        SortedResult.Add(element);
                     }
                 }   
             }
@@ -44,7 +140,7 @@ namespace Uebung9_Bibliothek
                 {
                     if (element is Spiele)
                     {
-                        sortedResult.Add(element);
+                        SortedResult.Add(element);
                     }
                 } 
             }
@@ -55,28 +151,28 @@ namespace Uebung9_Bibliothek
                 {
                     if (element is Dvd)
                     {
-                        sortedResult.Add(element);
+                        SortedResult.Add(element);
                     }
                 } 
             }
             CalculatePageingVars();
-            return sortedResult;
+            return SortedResult;
         }
 
         public void CalculatePageingVars(){
             // Pagination Variablen
-            total = sortedResult.Count;
-            pages = (total - (total % limit)) / limit;
-            rest = total % limit;
-            if (rest > 0)
-                pages += 1;
+            Total = SortedResult.Count;
+            Pages = (Total - (Total % Limit)) / Limit;
+            Rest = Total % Limit;
+            if (Rest > 0)
+                Pages += 1;
         }
 
-        public void setNextRange()
+        public void SetNextRange()
         {
-            // Startindex für die nächsten 'limit' Ergebnisse
-            startIndex += limit;
-            currentPage += 1;
+            // Startindex für die nächsten 'Limit' Ergebnisse
+            StartIndex += Limit;
+            CurrentPage += 1;
         }
 
         
@@ -89,9 +185,9 @@ namespace Uebung9_Bibliothek
                 ConsoleKeyInfo menuKey = Console.ReadKey(true);
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    //if (currentPage != pages)
+                    //if (CurrentPage != Pages)
                     //{
-                        setNextRange();
+                        SetNextRange();
                     //}
                     
                     return;
@@ -99,11 +195,11 @@ namespace Uebung9_Bibliothek
                 if (menuKey.Key == ConsoleKey.F2)
                 {
                     Console.Write(" Geben Sie die zu bearbeitende Art.-Id. ein: ");
-                    editId = Convert.ToInt32(Console.ReadLine());
+                    EditId = Convert.ToInt32(Console.ReadLine());
                 }
                 if (menuKey.Key == ConsoleKey.Escape)
                 {
-                    //i = pages - 1;
+                    //i = Pages - 1;
                     return;
                 }
             } while (true);

@@ -464,7 +464,7 @@ namespace Uebung9_Bibliothek
                     List<ArtikelObj> list = paginationMaker.GetSortetList(ArtikelCollection, "Buch");
                     
                     // Bücher Seitenweise ausgeben
-                    for (int i = 0; i < paginationMaker.pages; i++)
+                    for (int i = 0; i < paginationMaker.Pages; i++)
                     {
                         Console.Clear();
                         Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
@@ -480,22 +480,22 @@ namespace Uebung9_Bibliothek
 
                         
 
-                        if ((paginationMaker.rest > 0) & (i == paginationMaker.pages - 1))
-                            paginationMaker.limit = paginationMaker.rest;
+                        if ((paginationMaker.Rest > 0) & (i == paginationMaker.Pages - 1))
+                            paginationMaker.Limit = paginationMaker.Rest;
 
-                        foreach (ArtikelObj element in list.GetRange(paginationMaker.startIndex, paginationMaker.limit))
+                        foreach (ArtikelObj element in list.GetRange(paginationMaker.StartIndex, paginationMaker.Limit))
                         {
                             rowData = element.Ausgabe();
                             Console.WriteLine(rowData);
                         }
                         Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
-                        if (paginationMaker.currentPage != i)
+                        if (paginationMaker.CurrentPage != i)
                             Console.WriteLine("\n F1 - Nächste Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
                         else
                             Console.WriteLine("\n Letzte Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
                         
                         paginationMaker.GetListMenueControler();
-                        //ArtikelBearbeiten(true, paginationMaker.editId);
+                        //ArtikelBearbeiten(true, paginationMaker.EditId);
                     }
                 }
 
@@ -503,14 +503,14 @@ namespace Uebung9_Bibliothek
                 {
                     
                 //    // Pagination Variablen
-                //    total = sortedResult.Count;
-                //    pages = (total - (total % limit)) / limit;
-                //    rest = total % limit;
-                //    if (rest > 0)
-                //        pages += 1;
+                //    Total = SortedResult.Count;
+                //    Pages = (Total - (Total % Limit)) / Limit;
+                //    Rest = Total % Limit;
+                //    if (Rest > 0)
+                //        Pages += 1;
 
                 //    // Bücher Seitenweise ausgeben
-                //    for (int i = 0; i < pages; i++)
+                //    for (int i = 0; i < Pages; i++)
                 //    {
                 //        Console.Clear();
                 //        Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
@@ -524,11 +524,11 @@ namespace Uebung9_Bibliothek
                 //        Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
 
                 //        // Limit der letzte Seite mit den restlichen Items setzen
-                //        if ((rest > 0) & (i == pages - 1))
-                //            limit = rest;
+                //        if ((Rest > 0) & (i == Pages - 1))
+                //            Limit = Rest;
 
 
-                //        foreach (ArtikelObj element in sortedResult.GetRange(startIndex, limit))
+                //        foreach (ArtikelObj element in SortedResult.GetRange(StartIndex, Limit))
                 //        {
                 //            rowData = element.Ausgabe();
                 //            Console.WriteLine(rowData);
@@ -536,9 +536,9 @@ namespace Uebung9_Bibliothek
                 //        Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
                 //        Console.WriteLine("\n F1 - Nächste Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
 
-                //        // Startindex für die nächsten 'limit' Ergebnisse
-                //        startIndex += limit;
-                //        currentPage += 1;
+                //        // Startindex für die nächsten 'Limit' Ergebnisse
+                //        StartIndex += Limit;
+                //        CurrentPage += 1;
 
                 //        // Listenmenü ausgeben
                 //        do
@@ -560,7 +560,7 @@ namespace Uebung9_Bibliothek
                 //            }
                 //            if (menuKey.Key == ConsoleKey.Escape)
                 //            {
-                //                i = pages - 1;
+                //                i = Pages - 1;
                 //                break;
                 //            }
                 //        } while (true);
@@ -569,26 +569,26 @@ namespace Uebung9_Bibliothek
 
                 if (menuKey.Key == ConsoleKey.F3)
                 {
-                    //List<ArtikelObj> sortedResult = new List<ArtikelObj>();
+                    //List<ArtikelObj> SortedResult = new List<ArtikelObj>();
 
                     //// Bücher filtern
                     //foreach (ArtikelObj element in ArtikelCollection)
                     //{
                     //    if (element is Dvd)
                     //    {
-                    //        sortedResult.Add(element);
+                    //        SortedResult.Add(element);
                     //    }
                     //}
 
                     //// Pagination Variablen
-                    //total = sortedResult.Count;
-                    //pages = (total - (total % limit)) / limit;
-                    //rest = total % limit;
-                    //if (rest > 0)
-                    //    pages += 1;
+                    //Total = SortedResult.Count;
+                    //Pages = (Total - (Total % Limit)) / Limit;
+                    //Rest = Total % Limit;
+                    //if (Rest > 0)
+                    //    Pages += 1;
 
                     //// Bücher Seitenweise ausgeben
-                    //for (int i = 0; i < pages; i++)
+                    //for (int i = 0; i < Pages; i++)
                     //{
                     //    Console.Clear();
                     //    Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
@@ -602,10 +602,10 @@ namespace Uebung9_Bibliothek
                     //    Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
 
                     //    // Limit der letzte Seite mit den restlichen Items setzen
-                    //    if ((rest > 0) & (i == pages - 1))
-                    //        limit = rest;
+                    //    if ((Rest > 0) & (i == Pages - 1))
+                    //        Limit = Rest;
 
-                    //    foreach (ArtikelObj item in sortedResult.GetRange(startIndex, limit))
+                    //    foreach (ArtikelObj item in SortedResult.GetRange(StartIndex, Limit))
                     //    {
                     //        rowData = item.Ausgabe();
                     //        Console.WriteLine(rowData);
@@ -613,9 +613,9 @@ namespace Uebung9_Bibliothek
                     //    Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
                     //    Console.WriteLine("\n F1 - Nächste Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
 
-                    //    // Startindex für die nächsten 'limit' Ergebnisse
-                    //    startIndex += limit;
-                    //    currentPage += 1;
+                    //    // Startindex für die nächsten 'Limit' Ergebnisse
+                    //    StartIndex += Limit;
+                    //    CurrentPage += 1;
 
                     //    // Listenmenü ausgeben
                     //    do
@@ -637,7 +637,7 @@ namespace Uebung9_Bibliothek
                     //        }
                     //        if (menuKey.Key == ConsoleKey.Escape)
                     //        {
-                    //            i = pages - 1;
+                    //            i = Pages - 1;
                     //            break;
                     //        }
                     //    } while (true);

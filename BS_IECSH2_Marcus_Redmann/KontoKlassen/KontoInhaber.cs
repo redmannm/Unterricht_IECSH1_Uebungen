@@ -1,102 +1,88 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Uebung9_Bibliothek.Kunden
+namespace BS_IECSH2_Marcus_Redmann.Konten
 {
-    class Person
+    class KontoInhaber
     { // Mitarbeiter aktiviert / deaktiviert
 
-        string name;
+        string _name;
         public string Name
         {
             get
             {
-                return name;
+                return _name;
             }
             set
             {
-                name = value;
+                _name = value;
             }
         }
 
-        string vorname;
+        string _vorname;
         public string Vorname
         {
             get
             {
-                return vorname;
+                return _vorname;
             }
             set
             {
-                vorname = value;
+                _vorname = value;
             }
         }
 
-        DateTime gebDat;
+        DateTime _gebDat;
         public DateTime GebDat
         {
             get
             {
-                return gebDat;
+                return _gebDat;
             }
             set
             {
-                gebDat = value;
+                _gebDat = value;
             }
         }
 
-        string strasse;
+        string _strasse;
         public string Strasse
         {
             get
             {
-                return strasse;
+                return _strasse;
             }
             set
             {
-                strasse = value;
+                _strasse = value;
             }
         }
 
-        string hausnummer;
-        public string Hausnummer
-        {
-            get
-            {
-                return hausnummer;
-            }
-            set
-            {
-                hausnummer = value;
-            }
-        }
 
-        string plz;
+        string _plz;
         public string Plz
         {
             get
             {
-                return plz;
+                return _plz;
             }
             set
             {
-                plz = value;
+                _plz = value;
             }
         }
 
-        string ort;
+        string _ort;
         public string Ort
         {
             get
             {
-                return ort;
+                return _ort;
             }
             set
             {
-                ort = value;
+                _ort = value;
             }
         }
 

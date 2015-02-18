@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Uebung9_Bibliothek.Kunden
 {
-    public class Kunde
+    public class Kunde : Person
     {
     }
 }

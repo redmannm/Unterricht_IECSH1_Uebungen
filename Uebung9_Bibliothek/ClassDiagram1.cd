@@ -28,7 +28,7 @@
       <FileName>ArtikelKlassen\Artikel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Uebung9_Bibliothek.Kunden.Personen">
+  <Class Name="Uebung9_Bibliothek.Kunden.Person">
     <Position X="0.5" Y="5.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAiEAAAIgAAAAAAAAAAAAQAACAEAABgAAAAUAAAABA=</HashCode>
@@ -71,7 +71,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Uebung9_Bibliothek.Kunden.Kunde">
-    <Position X="6.25" Y="8" Width="1.5" />
+    <Position X="0.5" Y="9.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>KundenKlassen\Kunde.cs</FileName>

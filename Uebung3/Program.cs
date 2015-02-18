@@ -10,8 +10,9 @@ namespace Uebung3
     {
         //Aufgabe 3:
 
-        //Schreiben Sie ein Programm, das zu einer eingelesenen Integer-Zahl ermittelt, wie oft mit dieser Zahl eine Division durch 5 durchgeführt werden kann. Die ermittelte Anzahl wird ausgegeben.
-        //Frage: warum ist die Verwendung einer Fußgesteuerten Schleife für diese Aufgabe ungünstig?
+        // Schreiben Sie ein Programm, das zu einer eingelesenen Integer-Zahl ermittelt, wie oft mit dieser 
+        // Zahl eine Division durch 5 durchgeführt werden kann. Die ermittelte Anzahl wird ausgegeben.
+        // Frage: warum ist die Verwendung einer Fußgesteuerten Schleife für diese Aufgabe ungünstig?
         static void Main(string[] args)
         {
 

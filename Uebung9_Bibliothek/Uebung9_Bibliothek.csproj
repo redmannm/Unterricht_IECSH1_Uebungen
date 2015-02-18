@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Klassen\Buch.cs" />
     <Compile Include="Klassen\Dvd.cs" />
+    <Compile Include="Pagination.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="VerwaltungKunden.cs" />
     <Compile Include="Klassen\Personen.cs" />

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Uebung9_Bibliothek.Artikel
 {
-    class Dvd : Artikel
+    class Dvd : ArtikelObj
     {
         DateTime _laufzeit;
         public DateTime Laufzeit

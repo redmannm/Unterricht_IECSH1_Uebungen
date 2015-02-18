@@ -15,7 +15,7 @@ namespace Uebung9_Bibliothek.Artikel
 
     //};
 
-    abstract class Artikel
+    public abstract class ArtikelObj
     {
         private int _id;
         public int Id

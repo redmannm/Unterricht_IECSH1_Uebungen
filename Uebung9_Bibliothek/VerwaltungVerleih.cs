@@ -18,9 +18,9 @@ namespace Uebung9_Bibliothek
         private ConsoleKeyInfo menuKey;
         private string message = "";
         // Speicher Artikellist
-        List<Artikel> _artikelCollection = new List<Artikel>();
+        List<ArtikelObj> _artikelCollection = new List<ArtikelObj>();
 
-        private List<Artikel> ArtikelCollection
+        private List<ArtikelObj> ArtikelCollection
         {
             get
             {
@@ -90,7 +90,7 @@ namespace Uebung9_Bibliothek
                 if (menuKey.Key == ConsoleKey.F3)
                 {
                     Console.Clear();
-                    ArtikelBearbeiten();
+                    ArtikelBearbeiten(false);
                 }
 
                 // Menüauswahl Artikel löschen
@@ -140,7 +140,7 @@ namespace Uebung9_Bibliothek
                 {
                     if (menuKey.Key == ConsoleKey.J)
                     {
-                        ArtikelCollection = new List<Artikel>();
+                        ArtikelCollection = new List<ArtikelObj>();
                         GetTestDaten();
                         testDaten = true;
                         return true;
@@ -162,7 +162,7 @@ namespace Uebung9_Bibliothek
 
         private void GetTestDaten()
         {
-            
+
             // 5 x je 1 Artikel anlegen
             for (int i = 0; i < 6; i++)
             {
@@ -230,7 +230,7 @@ namespace Uebung9_Bibliothek
             // Testdaten löschen
             if (testDaten)
             {
-                ArtikelCollection = new List<Artikel>();
+                ArtikelCollection = new List<ArtikelObj>();
                 testDaten = false;
             }
 
@@ -280,7 +280,7 @@ namespace Uebung9_Bibliothek
                     // Artikel in Liste speichern
                     ArtikelCollection.Add(artikel);
 
-                    message = "                           \n" + 
+                    message = "                           \n" +
                               " Buch erfolgreich angelegt \n" +
                               "                           \n";
                 }
@@ -329,29 +329,29 @@ namespace Uebung9_Bibliothek
             } while (menuKey.Key != ConsoleKey.Escape);
         }
 
-        //private void ArtikelEingeben(Buch item)
+        //private void ArtikelEingeben(Buch element)
         //{
 
         //    // Artikel Eingeben
         //    Console.Write("{0}", "Titel: ".PadRight(12));
-        //    item.Titel = Console.ReadLine();
+        //    element.Titel = Console.ReadLine();
 
         //    Console.Write("{0}", "Autor: ".PadRight(12));
-        //    item.Author = Console.ReadLine();
+        //    element.Author = Console.ReadLine();
 
         //    Console.Write("{0}", "Kategorie: ".PadRight(12));
-        //    item.Kategorie = Console.ReadLine();
+        //    element.Kategorie = Console.ReadLine();
 
         //    Console.Write("{0}", "Verlag: ".PadRight(12));
-        //    item.Verlag = Console.ReadLine();
+        //    element.Verlag = Console.ReadLine();
 
         //    Console.Write("{0}", "ISBN: ".PadRight(12));
-        //    item.Isbn = Console.ReadLine();
+        //    element.Isbn = Console.ReadLine();
 
         //    try
         //    {
         //        Console.Write("{0}", "Bestand: ".PadRight(12));
-        //        item.Bestand = Convert.ToInt32(Console.ReadLine());
+        //        element.Bestand = Convert.ToInt32(Console.ReadLine());
         //    }
         //    catch (FormatException e)
         //    {
@@ -362,46 +362,63 @@ namespace Uebung9_Bibliothek
         //    }
 
         //    // Artikel ID generieren
-        //    item.Id = GetArtikelId();
+        //    element.Id = GetArtikelId();
 
         //    // Artikel in Liste speichern
-        //    ArtikelCollection.Add(item);
+        //    ArtikelCollection.Add(element);
         //}
 
-        //private void ArtikelEingeben(Spiele item)
+        //private void ArtikelEingeben(Spiele element)
         //{
         //    throw new NotImplementedException();
         //}
 
-        //private void ArtikelEingeben(Dvd item)
+        //private void ArtikelEingeben(Dvd element)
         //{
         //    throw new NotImplementedException();
         //}
 
         /// <summary>
         /// Einen Verleihartikel bearbeiten
+        /// <param name="fromList"><para>bool Artikel aus Auflistungen können direkt bearbeitet
+        /// werden da die Artikel-Id aus einer Auflistung übergeben wird.</para>
+        /// <para>Standardwert: true</para></param>
+        /// <param name="id">Artikel-Id des Artikels der bearbeitet werden soll.</param>
         /// </summary>
 
-        private void ArtikelBearbeiten()
+        private bool ArtikelBearbeiten(bool fromList = true, int id = 0)
         {
-            int id;
+
             Console.WriteLine("\n Bibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
                               " ========================================\n\n");
-            Console.WriteLine(" Welchen Artikel möchten Sie bearbeiten?\n" +
-                              " ---------------------------------------\n\n");
 
-            Console.Write(" Geben Sie die Artikel-Id. ein: ");
-            id = Convert.ToInt32(Console.ReadLine());
-            foreach(Artikel element in ArtikelCollection){
-                if (id == )
+            if (fromList == false)
+            {
+                Console.WriteLine(" Welchen Artikel möchten Sie bearbeiten?\n" +
+                                  " ---------------------------------------\n\n");
+                Console.Write(" Geben Sie die Artikel-Id. ein: ");
+                id = Convert.ToInt32(Console.ReadLine());
+                foreach (ArtikelObj element in ArtikelCollection)
+                {
+                    if (id == element.Id)
+                    {
+                        element.Eingabe(element.Id);
+                        return true;
+                    }
+                }
             }
-            
+            else
+            {
+                ArtikelCollection[id - 1].Eingabe(id);
+                return true;
+            }
+            return false;
         }
-        private bool ArtikelBearbeiten(int id)
-        {
-            
-            return true;
-        }
+        //private bool ArtikelBearbeiten(int id)
+        //{
+
+        //    return true;
+        //}
 
         /// <summary>
         /// Einen Verleihartikel löschen
@@ -418,15 +435,9 @@ namespace Uebung9_Bibliothek
         {
             ConsoleKeyInfo menuKey;
             string rowData;
-            bool resStatus;
-
-            // Pagination
-            int total;
-            int limit = 10;
-            int pages;
-            int rest;
-            int startIndex = 0;
-            int currentPage = 0;
+            
+            Pagination paginationMaker = new Pagination();
+            
 
             Console.Clear();
             Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
@@ -448,112 +459,193 @@ namespace Uebung9_Bibliothek
 
                 if (menuKey.Key == ConsoleKey.F1)
                 {
-                    List<Artikel> buecher = new List<Artikel>();
-
-                    // Bücher filtern
-                    foreach (Artikel item in ArtikelCollection)
-                    {
-                        if (item is Buch)
-                        {
-                            buecher.Add(item);
-                        }
-                    }
-
-                    // Pagination Variablen
-                    total = buecher.Count;
-                    pages = (total - (total % limit)) / limit;
-                    rest = total % limit;
-                    if (rest > 0)
-                        pages += 1;
-
+                    
+                    // Tabellen Datenzeilen ausgeben
+                    List<ArtikelObj> list = paginationMaker.GetSortetList(ArtikelCollection, "Buch");
+                    
                     // Bücher Seitenweise ausgeben
-                    for (int i = 0; i < pages; i++)
+                    for (int i = 0; i < paginationMaker.pages; i++)
                     {
                         Console.Clear();
                         Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
                                             "========================================\n");
                         Console.WriteLine("Artikelliste anzeigen\n" +
                                             "---------------------\n\n");
-                        // Tabellen Header für Bücher ausgeben
+                        // Tabellen Header ausgeben
                         Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
                         Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Autor           ║ Verlag          ║ Kategorie       ║ Bestand  ║ ISBN               ║");
                         Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-                        // Limit der letzte Seite mit den restlichen Items setzen
-                        if ((rest > 0) & (i == pages - 1))
-                            limit = rest;
-                        // Tabellen Datenzeilen ausgeben
-                        foreach (Artikel item in buecher.GetRange(startIndex, limit))
+
+                        
+
+                        
+
+                        if ((paginationMaker.rest > 0) & (i == paginationMaker.pages - 1))
+                            paginationMaker.limit = paginationMaker.rest;
+
+                        foreach (ArtikelObj element in list.GetRange(paginationMaker.startIndex, paginationMaker.limit))
                         {
-                            rowData = item.Ausgabe();
+                            rowData = element.Ausgabe();
                             Console.WriteLine(rowData);
                         }
                         Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
-                        Console.WriteLine("\n F1 - Nächste Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
-                        // Startindex für die nächsten 'limit' Ergebnisse
-                        startIndex += limit;
-                        currentPage += 1;
-                        do
-                        {
-                            menuKey = Console.ReadKey(true);
-                            if (menuKey.Key == ConsoleKey.F1)
-                            {
-                                break;
-                            }
-                            if (menuKey.Key == ConsoleKey.F2)
-                            {
-                                Console.Write(" Geben Sie die zu bearbeitende Art.-Id. ein: ");
-                                int id = Convert.ToInt32(Console.ReadLine());
-                                resStatus = ArtikelBearbeiten(id);
-                                Console.BackgroundColor = ConsoleColor.Green;
-                                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                                Console.WriteLine(" Art.-Id: {0} erfolgreich bearbeitet ", id.ToString());
-                                Console.ResetColor();
-                            }
-                            if (menuKey.Key == ConsoleKey.Escape)
-                            {
-                                i = pages - 1;
-                                break;
-                            }
-                        } while (true);
+                        if (paginationMaker.currentPage != i)
+                            Console.WriteLine("\n F1 - Nächste Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
+                        else
+                            Console.WriteLine("\n Letzte Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
+                        
+                        paginationMaker.GetListMenueControler();
+                        //ArtikelBearbeiten(true, paginationMaker.editId);
                     }
                 }
 
                 if (menuKey.Key == ConsoleKey.F2)
                 {
-                    // Header Spiele
-                    //Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
-                    //Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Publisher       ║ Kategorie       ║ Bestand  ║ EAN                ║");
-                    //Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-                    //foreach (Artikel item in sortiert)
-                    //{
-                    //    if (item is Spiele)
-                    //    {
-                    //        rowData = item.Ausgabe();
-                    //        Console.WriteLine(rowData);
-                    //    }
-                    //}
-                    //Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+                    
+                //    // Pagination Variablen
+                //    total = sortedResult.Count;
+                //    pages = (total - (total % limit)) / limit;
+                //    rest = total % limit;
+                //    if (rest > 0)
+                //        pages += 1;
+
+                //    // Bücher Seitenweise ausgeben
+                //    for (int i = 0; i < pages; i++)
+                //    {
+                //        Console.Clear();
+                //        Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
+                //                            "========================================\n");
+                //        Console.WriteLine("Artikelliste anzeigen\n" +
+                //                            "---------------------\n\n");
+
+                //        // Header Spiele
+                //        Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
+                //        Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Publisher       ║ Kategorie       ║ Bestand  ║ EAN                ║");
+                //        Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
+
+                //        // Limit der letzte Seite mit den restlichen Items setzen
+                //        if ((rest > 0) & (i == pages - 1))
+                //            limit = rest;
+
+
+                //        foreach (ArtikelObj element in sortedResult.GetRange(startIndex, limit))
+                //        {
+                //            rowData = element.Ausgabe();
+                //            Console.WriteLine(rowData);
+                //        }
+                //        Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+                //        Console.WriteLine("\n F1 - Nächste Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
+
+                //        // Startindex für die nächsten 'limit' Ergebnisse
+                //        startIndex += limit;
+                //        currentPage += 1;
+
+                //        // Listenmenü ausgeben
+                //        do
+                //        {
+                //            menuKey = Console.ReadKey(true);
+                //            if (menuKey.Key == ConsoleKey.F1)
+                //            {
+                //                break;
+                //            }
+                //            if (menuKey.Key == ConsoleKey.F2)
+                //            {
+                //                Console.Write(" Geben Sie die zu bearbeitende Art.-Id. ein: ");
+                //                int id = Convert.ToInt32(Console.ReadLine());
+                //                resStatus = ArtikelBearbeiten(true, id);
+                //                Console.BackgroundColor = ConsoleColor.Green;
+                //                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                //                Console.WriteLine(" Art.-Id: {0} erfolgreich bearbeitet ", id.ToString());
+                //                Console.ResetColor();
+                //            }
+                //            if (menuKey.Key == ConsoleKey.Escape)
+                //            {
+                //                i = pages - 1;
+                //                break;
+                //            }
+                //        } while (true);
+                //    }
                 }
 
                 if (menuKey.Key == ConsoleKey.F3)
                 {
-                    // Header DVD's
-                    //Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
-                    //Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Verlag          ║ Laufzeit        ║ Kategorie       ║ Bestand  ║ ISBN               ║");
-                    //Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
-                    //foreach (Artikel item in sortiert)
+                    //List<ArtikelObj> sortedResult = new List<ArtikelObj>();
+
+                    //// Bücher filtern
+                    //foreach (ArtikelObj element in ArtikelCollection)
                     //{
-                    //    if (item is Dvd)
+                    //    if (element is Dvd)
+                    //    {
+                    //        sortedResult.Add(element);
+                    //    }
+                    //}
+
+                    //// Pagination Variablen
+                    //total = sortedResult.Count;
+                    //pages = (total - (total % limit)) / limit;
+                    //rest = total % limit;
+                    //if (rest > 0)
+                    //    pages += 1;
+
+                    //// Bücher Seitenweise ausgeben
+                    //for (int i = 0; i < pages; i++)
+                    //{
+                    //    Console.Clear();
+                    //    Console.WriteLine("\nBibliothek Verwaltung v0.0.1 alpha 1 ;-)\n" +
+                    //                        "========================================\n");
+                    //    Console.WriteLine("Artikelliste anzeigen\n" +
+                    //                        "---------------------\n\n");
+
+                    //    // Header DVD's
+                    //    Console.WriteLine(" ╔══════════╦═════════════════╦═════════════════╦═════════════════╦═════════════════╦══════════╦════════════════════╗");
+                    //    Console.WriteLine(" ║ Art.-Id. ║ Titel           ║ Verlag          ║ Laufzeit        ║ Kategorie       ║ Bestand  ║ ISBN               ║");
+                    //    Console.WriteLine(" ╠══════════╬═════════════════╬═════════════════╬═════════════════╬═════════════════╬══════════╬════════════════════╣");
+
+                    //    // Limit der letzte Seite mit den restlichen Items setzen
+                    //    if ((rest > 0) & (i == pages - 1))
+                    //        limit = rest;
+
+                    //    foreach (ArtikelObj item in sortedResult.GetRange(startIndex, limit))
                     //    {
                     //        rowData = item.Ausgabe();
                     //        Console.WriteLine(rowData);
                     //    }
+                    //    Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
+                    //    Console.WriteLine("\n F1 - Nächste Seite | F2 - Einen Datensatz bearbeiten | ESC - Auflistung beenden\n");
+
+                    //    // Startindex für die nächsten 'limit' Ergebnisse
+                    //    startIndex += limit;
+                    //    currentPage += 1;
+
+                    //    // Listenmenü ausgeben
+                    //    do
+                    //    {
+                    //        menuKey = Console.ReadKey(true);
+                    //        if (menuKey.Key == ConsoleKey.F1)
+                    //        {
+                    //            break;
+                    //        }
+                    //        if (menuKey.Key == ConsoleKey.F2)
+                    //        {
+                    //            Console.Write(" Geben Sie die zu bearbeitende Art.-Id. ein: ");
+                    //            int id = Convert.ToInt32(Console.ReadLine());
+                    //            resStatus = ArtikelBearbeiten(true, id);
+                    //            Console.BackgroundColor = ConsoleColor.Green;
+                    //            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    //            Console.WriteLine(" Art.-Id: {0} erfolgreich bearbeitet ", id.ToString());
+                    //            Console.ResetColor();
+                    //        }
+                    //        if (menuKey.Key == ConsoleKey.Escape)
+                    //        {
+                    //            i = pages - 1;
+                    //            break;
+                    //        }
+                    //    } while (true);
                     //}
-                    //Console.WriteLine(" ╚══════════╩═════════════════╩═════════════════╩═════════════════╩═════════════════╩══════════╩════════════════════╝");
                 }
             } while (menuKey.Key != ConsoleKey.Escape);
         }
-
+        
         /// <summary>
         /// Einen bestimmten Artikel suchen
         /// </summary>
@@ -569,28 +661,28 @@ namespace Uebung9_Bibliothek
         /// <returns>int Gibt eine neue Artikel Id zurück</returns>
         private int GetArtikelId()
         {
-            int lastId;
 
+            int lastId = 0;
+            List<ArtikelObj> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
             if (ArtikelCollection.Count == 0)
             {
-                List<Artikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
-
                 if (sortiert.Count == 0)
-                    lastId = 0;
-                else
-                    lastId = sortiert[sortiert.Count - 1].Id;
-                lastId += 1;
-                return lastId;
+                {
+                    lastId = 1;
+                    return lastId;
+                }
             }
             else
             {
-                return 1;
+                lastId = sortiert[sortiert.Count - 1].Id + 1;
+                return lastId;
             }
+            return lastId;
         }
 
-        private List<Artikel> ArtikelSortieren()
+        private List<ArtikelObj> ArtikelSortieren()
         {
-            List<Artikel> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
+            List<ArtikelObj> sortiert = ArtikelCollection.OrderBy(x => x.Id).ToList();
             return sortiert;
         }
     }

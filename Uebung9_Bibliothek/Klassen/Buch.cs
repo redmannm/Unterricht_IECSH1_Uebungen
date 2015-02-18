@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Uebung9_Bibliothek.Artikel
 {
-    class Buch : Artikel
+    class Buch : ArtikelObj
     {
         string _author;
         public string Author

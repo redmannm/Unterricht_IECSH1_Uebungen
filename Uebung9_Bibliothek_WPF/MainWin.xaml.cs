@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Uebung9_Bibliothek_WPF.Artikel;
 
 namespace Uebung9_Bibliothek_WPF
 {
@@ -19,9 +20,11 @@ namespace Uebung9_Bibliothek_WPF
     /// </summary>
     public partial class MainWin : Window
     {
+        List<ArtikelObj> Artikel = new List<ArtikelObj>();
         public MainWin()
         {
             InitializeComponent();
+            
         }
     }
 }

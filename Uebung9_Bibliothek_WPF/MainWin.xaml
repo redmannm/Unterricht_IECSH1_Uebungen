@@ -1,8 +1,59 @@
-﻿<Window x:Class="Uebung9_Bibliothek_WPF.MainWin"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWin" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        xmlns:Artikel="clr-namespace:Uebung9_Bibliothek_WPF.Artikel"
+        x:Class="Uebung9_Bibliothek_WPF.MainWin"
+        Title="MainWin"
+        Height="481"
+        Width="640">
+    <DockPanel LastChildFill="True">
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <TabControl>
+                    <TabItem Header="Medienverwaltung">
+                        <StackPanel VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+                            <Button ToolTip="Bücher Verwaltung"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images\Book_Green.ico"
+                                           Width="32" />
+                                    <Label>Bücher</Label>
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="Spiele Verwaltung"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images\gamecontroller.ico"
+                                           Width="32" />
+                                    <Label>Spiele</Label>
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="DVD Verwaltung">
+                                <StackPanel>
+                                    <Image Source="Images\blank_cd.png"
+                                           Width="32" />
+                                    <Label>DVD's</Label>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </ToolBar>
+        </ToolBarTray>
+        <TabControl DockPanel.Dock="Bottom">
+            <TabItem Header="Bücher">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <ListView />
+                    
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>

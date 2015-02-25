@@ -127,6 +127,12 @@
     <Resource Include="Images\gamecontroller.ico" />
     <Resource Include="Images\gamecontroller.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User_Add.png" />
+    <Resource Include="Images\User_Delete.png" />
+    <Resource Include="Images\User_Edit.png" />
+    <Resource Include="Images\User_Lock.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

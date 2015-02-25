@@ -44,22 +44,33 @@
                             <Button ToolTip="Mitglied hinzufügen"
                                     Margin="0,0,4,0">
                                 <StackPanel>
-                                    <Image Source="Images\Book_Green.ico" />
+                                    <Image Source="Images/User_Add.png"
+                                           Width="32" />
                                     <Label>Hinzufügen</Label>
                                 </StackPanel>
                             </Button>
                             <Button ToolTip="Mitglied Bearbeiten"
                                     Margin="0,0,4,0">
                                 <StackPanel>
-                                    <Image Source="Images\Book_Green.ico" />
+                                    <Image Source="Images/User_Edit.png"
+                                           Width="32" />
                                     <Label>Bearbeiten</Label>
                                 </StackPanel>
                             </Button>
                             <Button ToolTip="Mitglied löschen"
                                     Margin="0,0,4,0">
                                 <StackPanel>
-                                    <Image Source="Images\Book_Green.ico" />
+                                    <Image Source="Images/User_Delete.png"
+                                           Width="32" />
                                     <Label>Löschen</Label>
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="Mitglied sperren"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images/User_Lock.png"
+                                           Width="32" />
+                                    <Label>Sperren</Label>
                                 </StackPanel>
                             </Button>
                         </StackPanel>

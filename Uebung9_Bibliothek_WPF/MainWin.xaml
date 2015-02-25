@@ -38,6 +38,32 @@
 
                         </StackPanel>
                     </TabItem>
+                    <TabItem Header="Mitgliedsverwaltung">
+                        <StackPanel VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+                            <Button ToolTip="Mitglied hinzufügen"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images\Book_Green.ico" />
+                                    <Label>Hinzufügen</Label>
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="Mitglied Bearbeiten"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images\Book_Green.ico" />
+                                    <Label>Bearbeiten</Label>
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="Mitglied löschen"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images\Book_Green.ico" />
+                                    <Label>Löschen</Label>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </TabItem>
                 </TabControl>
             </ToolBar>
         </ToolBarTray>

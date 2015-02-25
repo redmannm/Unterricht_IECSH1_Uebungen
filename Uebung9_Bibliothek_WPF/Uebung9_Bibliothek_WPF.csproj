@@ -112,7 +112,7 @@
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Save_6530.ico" />
+    <None Include="Images\Save_6530.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Book_Green_48x48.png" />

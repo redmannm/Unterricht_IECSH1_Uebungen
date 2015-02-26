@@ -142,9 +142,20 @@
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header="Titel" />
-                            <GridViewColumn Header="Autor" />
-
+                            <GridViewColumn Header="Id"
+                                            DisplayMemberBinding="{Binding Path=Id}" />
+                            <GridViewColumn Header="Titel"
+                                            DisplayMemberBinding="{Binding Path=Titel}" />
+                            <GridViewColumn Header="Autor"
+                                            DisplayMemberBinding="{Binding Path=Author}" />
+                            <GridViewColumn Header="Bestand"
+                                            DisplayMemberBinding="{Binding Path=Bestand}" />
+                            <GridViewColumn Header="ISBN"
+                                            DisplayMemberBinding="{Binding Path=Isbn}"/>
+                            <GridViewColumn Header="Kategorie"
+                                            DisplayMemberBinding="{Binding Path=Kategorie}" />
+                            <GridViewColumn Header="Verlag"
+                                            DisplayMemberBinding="{Binding Path=Verlag}" />
                         </GridView.Columns>
                     </GridView>
                 </ListView.View>

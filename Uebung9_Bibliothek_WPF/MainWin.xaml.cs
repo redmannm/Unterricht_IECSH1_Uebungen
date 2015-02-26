@@ -20,13 +20,47 @@ namespace Uebung9_Bibliothek_WPF
     /// </summary>
     public partial class MainWin : Window
     {
-        List<ArtikelObj> Artikel = new List<ArtikelObj>();
+        List<ArtikelObj> list = new List<ArtikelObj>();
+        
         public MainWin()
         {
             InitializeComponent();
-            
+            lstBuecher.ItemsSource = AddArtikel2List();
         }
-
+        private List<ArtikelObj> AddArtikel2List()
+        {
+            list.Add(new Buch
+            {
+                Id = 1,
+                Titel = "Titel des 1. Buches",
+                Author = "Marcus Redmann",
+                Bestand = 5,
+                Isbn = "1234567",
+                Kategorie = "Fantasy",
+                Verlag = "Der Verlag"
+            });
+            list.Add(new Buch
+            {
+                Id = 2,
+                Titel = "Titel des 2. Buches",
+                Author = "Marcus Redmann",
+                Bestand = 5,
+                Isbn = "1234567",
+                Kategorie = "Fantasy",
+                Verlag = "Der Verlag"
+            });
+            list.Add(new Buch
+            {
+                Id = 3,
+                Titel = "Titel des 3. Buches",
+                Author = "Marcus Redmann",
+                Bestand = 5,
+                Isbn = "1234567",
+                Kategorie = "Fantasy",
+                Verlag = "Der Verlag"
+            });
+            return list;
+        }
 
 
         private void rbtnMedium_Click(object sender, RoutedEventArgs e)

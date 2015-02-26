@@ -26,5 +26,23 @@ namespace Uebung9_Bibliothek_WPF
             InitializeComponent();
             
         }
+
+
+
+        private void rbtnMedium_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)rbtnBuch.IsChecked)
+            {
+                grpBuch.Visibility = Visibility.Visible;
+
+                grpSpiele.Visibility = Visibility.Collapsed;
+            }
+            else if ((bool)rbtnSpiel.IsChecked)
+            {
+                grpSpiele.Visibility = Visibility.Visible;
+
+                grpBuch.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

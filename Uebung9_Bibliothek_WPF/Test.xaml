@@ -1,0 +1,17 @@
+﻿<Window x:Class="Uebung9_Bibliothek_WPF.Test"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Test"
+        Height="400"
+        Width="400">
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Visible">
+            <TextBox TextWrapping="Wrap"
+                     Text="TextBox"
+                     Height="25"
+                     VerticalAlignment="Top"
+                     MinWidth="150" />
+        </ScrollViewer>
+
+    </Grid>
+</Window>

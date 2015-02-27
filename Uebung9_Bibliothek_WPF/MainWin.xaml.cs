@@ -38,6 +38,7 @@ namespace Uebung9_Bibliothek_WPF
                 Kategorie = "Fantasy",
                 Verlag = "Der Verlag"
             });
+            
             list.Add(new Buch
             {
                 Titel = "Titel des 2. Buches",
@@ -57,6 +58,12 @@ namespace Uebung9_Bibliothek_WPF
                 Verlag = "Der Verlag"
             });
             return list;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Test testFenster = new Test();
+            testFenster.Show();
         }
     }
 }

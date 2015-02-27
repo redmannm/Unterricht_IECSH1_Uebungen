@@ -67,6 +67,10 @@
     <Compile Include="Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\DataGridStyle_BlueGlass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,26 +124,26 @@
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\Save_6530.ico" />
+    <None Include="Resources\Images\Save_6530.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Book_Green_48x48.png" />
+    <Resource Include="Resources\Images\Book_Green_48x48.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Book_Green.ico" />
+    <Resource Include="Resources\Images\Book_Green.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\blank_cd.png" />
+    <Resource Include="Resources\Images\blank_cd.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\gamecontroller.ico" />
-    <Resource Include="Images\gamecontroller.png" />
+    <Resource Include="Resources\Images\gamecontroller.ico" />
+    <Resource Include="Resources\Images\gamecontroller.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\User_Add.png" />
-    <Resource Include="Images\User_Delete.png" />
-    <Resource Include="Images\User_Edit.png" />
-    <Resource Include="Images\User_Lock.png" />
+    <Resource Include="Resources\Images\User_Add.png" />
+    <Resource Include="Resources\Images\User_Delete.png" />
+    <Resource Include="Resources\Images\User_Edit.png" />
+    <Resource Include="Resources\Images\User_Lock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

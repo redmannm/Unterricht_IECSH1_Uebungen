@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +21,18 @@ namespace Uebung9_Bibliothek_WPF
     /// </summary>
     public partial class MainWin : Window
     {
-        List<ArtikelObj> list = new List<ArtikelObj>();
+        
+        ObservableCollection<ArtikelObj> observList = new ObservableCollection<ArtikelObj>();
         
         public MainWin()
         {
             InitializeComponent();
-            lstBuecher.ItemsSource = AddArtikel2List();
+            
+            lstBuecher1.ItemsSource = AddArtikel2List();
         }
-        private List<ArtikelObj> AddArtikel2List()
+        private ObservableCollection<ArtikelObj> AddArtikel2List()
         {
-            list.Add(new Buch
+            observList.Add(new Buch
             {
                 Titel = "Titel des 1. Buches",
                 Author = "Marcus Redmann",
@@ -38,8 +41,8 @@ namespace Uebung9_Bibliothek_WPF
                 Kategorie = "Fantasy",
                 Verlag = "Der Verlag"
             });
-            
-            list.Add(new Buch
+
+            observList.Add(new Buch
             {
                 Titel = "Titel des 2. Buches",
                 Author = "Marcus Redmann",
@@ -48,7 +51,7 @@ namespace Uebung9_Bibliothek_WPF
                 Kategorie = "Fantasy",
                 Verlag = "Der Verlag"
             });
-            list.Add(new Buch
+            observList.Add(new Buch
             {
                 Titel = "Titel des 3. Buches",
                 Author = "Marcus Redmann",
@@ -57,7 +60,7 @@ namespace Uebung9_Bibliothek_WPF
                 Kategorie = "Fantasy",
                 Verlag = "Der Verlag"
             });
-            return list;
+            return observList;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

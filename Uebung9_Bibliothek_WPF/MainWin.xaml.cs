@@ -31,7 +31,6 @@ namespace Uebung9_Bibliothek_WPF
         {
             list.Add(new Buch
             {
-                Id = 1,
                 Titel = "Titel des 1. Buches",
                 Author = "Marcus Redmann",
                 Bestand = 5,
@@ -41,7 +40,6 @@ namespace Uebung9_Bibliothek_WPF
             });
             list.Add(new Buch
             {
-                Id = 2,
                 Titel = "Titel des 2. Buches",
                 Author = "Marcus Redmann",
                 Bestand = 5,
@@ -51,7 +49,6 @@ namespace Uebung9_Bibliothek_WPF
             });
             list.Add(new Buch
             {
-                Id = 3,
                 Titel = "Titel des 3. Buches",
                 Author = "Marcus Redmann",
                 Bestand = 5,
@@ -60,23 +57,6 @@ namespace Uebung9_Bibliothek_WPF
                 Verlag = "Der Verlag"
             });
             return list;
-        }
-
-
-        private void rbtnMedium_Click(object sender, RoutedEventArgs e)
-        {
-            if ((bool)rbtnBuch.IsChecked)
-            {
-                grpBuch.Visibility = Visibility.Visible;
-
-                grpSpiele.Visibility = Visibility.Collapsed;
-            }
-            else if ((bool)rbtnSpiel.IsChecked)
-            {
-                grpSpiele.Visibility = Visibility.Visible;
-
-                grpBuch.Visibility = Visibility.Collapsed;
-            }
         }
     }
 }

@@ -17,18 +17,6 @@ namespace Uebung9_Bibliothek_WPF.Artikel
 
     public abstract class ArtikelObj
     {
-        private int _id;
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
 
         string _titel;
         public string Titel
@@ -69,7 +57,7 @@ namespace Uebung9_Bibliothek_WPF.Artikel
             }
         }
 
-        public abstract string Ausgabe();
+        public abstract void Ausgabe();
 
         public abstract void Eingabe(int id);
 

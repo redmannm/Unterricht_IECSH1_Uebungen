@@ -7,9 +7,27 @@
         x:Class="Uebung9_Bibliothek_WPF.MainWin"
         Title="MainWin"
         Height="600"
-        Width="649">
-    <DockPanel LastChildFill="True">
-        <ToolBarTray DockPanel.Dock="Top">
+        Width="649"
+        ScrollViewer.HorizontalScrollBarVisibility="Auto"
+        ScrollViewer.VerticalScrollBarVisibility="Auto">
+    <Window.Resources>
+        <Style x:Key="TabellenHeaderStyle"
+               TargetType="{x:Type Control}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Control}">
+                        <Grid />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Row="0">
             <ToolBar>
                 <TabControl>
                     <TabItem Header="Medienverwaltung">
@@ -81,13 +99,16 @@
                 </TabControl>
             </ToolBar>
         </ToolBarTray>
-        <StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Label HorizontalAlignment="Center"
+                   FontWeight="Bold"
+                   FontSize="18">Bücher Verwaltung</Label>
+
             <ListView x:Name="lstBuecher"
                       BorderThickness="0">
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
-                        <GridViewColumn Header="Id"
-                                        DisplayMemberBinding="{Binding Id}" />
                         <GridViewColumn Header="Titel"
                                         DisplayMemberBinding="{Binding Titel}" />
                         <GridViewColumn Header="Autor"
@@ -102,64 +123,93 @@
                                         DisplayMemberBinding="{Binding Verlag}" />
                     </GridView>
                 </ListView.View>
-
             </ListView>
+            <Grid Margin="5"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0"
+                       Grid.Row="0"
+                       Content="Titel:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="0"
+                         MinWidth="400"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="0"
+                       Grid.Row="1"
+                       Content="Bestand:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="1"
+                         MinWidth="400"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="0"
+                       Grid.Row="2"
+                       Content="Kategorie:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="2"
+                         MinWidth="400"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="0"
+                       Grid.Row="3"
+                       Content="Author:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="3"
+                         MinWidth="400"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="0"
+                       Grid.Row="4"
+                       Content="ISBN:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="4"
+                         MinWidth="400"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="0"
+                       Grid.Row="5"
+                       Content="Verlag:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="5"
+                         MinWidth="400"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <WrapPanel Grid.Column="1"
+                           Orientation="Horizontal"
+                           Grid.Row="6"
+                           FlowDirection="RightToLeft">
+                    <Button Content="Bearbeiten"
+                            HorizontalAlignment="Right"
+                            Padding="7,3"
+                            Margin="0,0,7,0"
+                            Height="24" />
+                    <Button Content="Bearbeiten"
+                            HorizontalAlignment="Right"
+                            Padding="7,3"
+                            Margin="0,0,7,0"
+                            Height="24" />
+                </WrapPanel>
+            </Grid>
         </StackPanel>
-
-        <!-- Test folgt -->
-        <TabControl DockPanel.Dock="Bottom"
-                    Visibility="Collapsed">
-            <TabItem Header="Bücher">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <GroupBox Grid.Column="0"
-                              Grid.Row="0"
-                              BorderThickness="0">
-                        <StackPanel Orientation="Horizontal">
-                            <RadioButton x:Name="rbtnBuch"
-                                         Content="Buch"
-                                         IsChecked="True"
-                                         Click="rbtnMedium_Click"
-                                         Margin="0,0,23,0" />
-                            <RadioButton x:Name="rbtnSpiel"
-                                         Content="Spiele"
-                                         Click="rbtnMedium_Click" />
-                        </StackPanel>
-                    </GroupBox>
-
-                    <StackPanel Grid.Column="0"
-                                Grid.Row="1">
-                        <GroupBox x:Name="grpBuch"
-                                  Header=""
-                                  Grid.Column="0"
-                                  Grid.Row="1"
-                                  BorderThickness="0">
-                            <StackPanel>
-                                <Button Content="Bücher 1" />
-                                <Button Content="Bücher 2" />
-                            </StackPanel>
-                        </GroupBox>
-                        <GroupBox x:Name="grpSpiele"
-                                  Header=""
-                                  Grid.Column="0"
-                                  Grid.Row="1"
-                                  Visibility="Collapsed"
-                                  BorderThickness="0">
-                            <StackPanel>
-                                <Button Content="Spiel 1" />
-                                <Button Content="Spiel 2" />
-                            </StackPanel>
-                        </GroupBox>
-                    </StackPanel>
-
-                </Grid>
-            </TabItem>
-        </TabControl>
-    </DockPanel>
+    </Grid>
 </Window>

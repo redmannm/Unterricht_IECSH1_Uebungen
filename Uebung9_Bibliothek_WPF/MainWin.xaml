@@ -18,202 +18,204 @@
             </WrapPanel>
         </DataTemplate>
     </Window.Resources>
-    <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                  VerticalScrollBarVisibility="Auto">
-        <Grid Height="570"
-              Width="641">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <ToolBarTray Grid.Row="0">
-                <ToolBar>
-                    <TabControl>
-                        <TabItem Header="Medienverwaltung">
-                            <StackPanel VerticalAlignment="Top"
-                                        Orientation="Horizontal">
-                                <Button ToolTip="Bücher Verwaltung"
-                                        Margin="0,0,4,0">
-                                    <StackPanel>
-                                        <Image Source="Images\Book_Green.ico"
-                                               Width="32" />
-                                        <Label Content="Bücher" />
-                                    </StackPanel>
-                                </Button>
-                                <Button ToolTip="Spiele Verwaltung"
-                                        Margin="0,0,4,0">
-                                    <StackPanel>
-                                        <Image Source="Images\gamecontroller.ico"
-                                               Width="32" />
-                                        <Label Content="Spiele" />
-                                    </StackPanel>
-                                </Button>
-                                <Button ToolTip="DVD Verwaltung">
-                                    <StackPanel>
-                                        <Image Source="Images\blank_cd.png"
-                                               Width="32" />
-                                        <Label Content="DVD's" />
-                                    </StackPanel>
-                                </Button>
+    <Grid Height="570"
+          Width="641">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Row="0">
+            <ToolBar>
+                <TabControl>
+                    <TabItem Header="Medienverwaltung">
+                        <StackPanel VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+                            <Button ToolTip="Bücher Verwaltung"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images\Book_Green.ico"
+                                           Width="32" />
+                                    <Label Content="Bücher" />
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="Spiele Verwaltung"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images\gamecontroller.ico"
+                                           Width="32" />
+                                    <Label Content="Spiele" />
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="DVD Verwaltung">
+                                <StackPanel>
+                                    <Image Source="Images\blank_cd.png"
+                                           Width="32" />
+                                    <Label Content="DVD's" />
+                                </StackPanel>
+                            </Button>
 
-                            </StackPanel>
-                        </TabItem>
-                        <TabItem Header="Mitgliedsverwaltung">
-                            <StackPanel VerticalAlignment="Top"
-                                        Orientation="Horizontal">
-                                <Button ToolTip="Mitglied hinzufügen"
-                                        Margin="0,0,4,0">
-                                    <StackPanel>
-                                        <Image Source="Images/User_Add.png"
-                                               Width="32" />
-                                        <Label Content="Hinzufügen" />
-                                    </StackPanel>
-                                </Button>
-                                <Button ToolTip="Mitglied Bearbeiten"
-                                        Margin="0,0,4,0">
-                                    <StackPanel>
-                                        <Image Source="Images/User_Edit.png"
-                                               Width="32" />
-                                        <Label Content="Bearbeiten" />
-                                    </StackPanel>
-                                </Button>
-                                <Button ToolTip="Mitglied löschen"
-                                        Margin="0,0,4,0">
-                                    <StackPanel>
-                                        <Image Source="Images/User_Delete.png"
-                                               Width="32" />
-                                        <Label Content="Löschen" />
-                                    </StackPanel>
-                                </Button>
-                                <Button ToolTip="Mitglied sperren"
-                                        Margin="0,0,4,0">
-                                    <StackPanel>
-                                        <Image Source="Images/User_Lock.png"
-                                               Width="32" />
-                                        <Label Content="Sperren" />
-                                    </StackPanel>
-                                </Button>
-                            </StackPanel>
-                        </TabItem>
-                    </TabControl>
-                </ToolBar>
-            </ToolBarTray>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Mitgliedsverwaltung">
+                        <StackPanel VerticalAlignment="Top"
+                                    Orientation="Horizontal">
+                            <Button ToolTip="Mitglied hinzufügen"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images/User_Add.png"
+                                           Width="32" />
+                                    <Label Content="Hinzufügen" />
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="Mitglied Bearbeiten"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images/User_Edit.png"
+                                           Width="32" />
+                                    <Label Content="Bearbeiten" />
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="Mitglied löschen"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images/User_Delete.png"
+                                           Width="32" />
+                                    <Label Content="Löschen" />
+                                </StackPanel>
+                            </Button>
+                            <Button ToolTip="Mitglied sperren"
+                                    Margin="0,0,4,0">
+                                <StackPanel>
+                                    <Image Source="Images/User_Lock.png"
+                                           Width="32" />
+                                    <Label Content="Sperren" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </ToolBar>
+        </ToolBarTray>
 
-            <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1">
 
-                <Label HorizontalAlignment="Center"
-                       FontWeight="Bold"
-                       FontSize="18"
-                       Content="Bücher Verwaltung" />
-                <ListView x:Name="lstBuecher"
-                          BorderThickness="0">
-                    <ListView.View>
-                        <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
-                            <GridViewColumn Header="Titel"
-                                            DisplayMemberBinding="{Binding Titel}" />
-                            <GridViewColumn Header="Autor"
-                                            DisplayMemberBinding="{Binding Author}" />
-                            <GridViewColumn Header="Bestand"
-                                            DisplayMemberBinding="{Binding Bestand}" />
-                            <GridViewColumn Header="ISBN"
-                                            DisplayMemberBinding="{Binding Isbn}" />
-                            <GridViewColumn Header="Kategorie"
-                                            DisplayMemberBinding="{Binding Kategorie}" />
-                            <GridViewColumn Header="Verlag"
-                                            DisplayMemberBinding="{Binding Verlag}" />
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-                <Separator Margin="5"
-                           Padding="0" />
-                <Grid Margin="5"
-                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                      ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Grid.Column="0"
-                           Grid.Row="0"
-                           Content="Titel:"
-                           VerticalContentAlignment="Center" />
-                    <TextBox Grid.Column="1"
-                             Grid.Row="0"
-                             MinWidth="400"
-                             VerticalContentAlignment="Center"
-                             Margin="0,0,0,5" />
-                    <Label Grid.Column="0"
-                           Grid.Row="1"
-                           Content="Bestand:"
-                           VerticalContentAlignment="Center" />
-                    <TextBox Grid.Column="1"
-                             Grid.Row="1"
-                             MinWidth="400"
-                             VerticalContentAlignment="Center"
-                             Margin="0,0,0,5" />
-                    <Label Grid.Column="0"
-                           Grid.Row="2"
-                           Content="Kategorie:"
-                           VerticalContentAlignment="Center" />
-                    <TextBox Grid.Column="1"
-                             Grid.Row="2"
-                             MinWidth="400"
-                             VerticalContentAlignment="Center"
-                             Margin="0,0,0,5" />
-                    <Label Grid.Column="0"
+            <Label HorizontalAlignment="Center"
+                   FontWeight="Bold"
+                   FontSize="18"
+                   Content="Bücher Verwaltung" />
+            <ListView x:Name="lstBuecher"
+                      BorderThickness="0">
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{DynamicResource GridViewColumnHeaderStyle}">
+                        <GridViewColumn Header="Titel"
+                                        DisplayMemberBinding="{Binding Titel}" />
+                        <GridViewColumn Header="Autor"
+                                        DisplayMemberBinding="{Binding Author}" />
+                        <GridViewColumn Header="Bestand"
+                                        DisplayMemberBinding="{Binding Bestand}" />
+                        <GridViewColumn Header="ISBN"
+                                        DisplayMemberBinding="{Binding Isbn}" />
+                        <GridViewColumn Header="Kategorie"
+                                        DisplayMemberBinding="{Binding Kategorie}" />
+                        <GridViewColumn Header="Verlag"
+                                        DisplayMemberBinding="{Binding Verlag}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Separator Margin="5"
+                       Padding="0" />
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0"
+                       Grid.Row="0"
+                       Content="ISBN:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="0"
+                         MinWidth="200"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="2"
+                       Grid.Row="0"
+                       Content="Titel:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="3"
+                         Grid.Row="0"
+                         MinWidth="200"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="0"
+                       Grid.Row="1"
+                       Content="Author:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="1"
+                         MinWidth="200"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="2"
+                       Grid.Row="1"
+                       Content="Verlag:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="3"
+                         Grid.Row="1"
+                         MinWidth="200"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="0"
+                       Grid.Row="2"
+                       Content="Kategorie:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="1"
+                         Grid.Row="2"
+                         MinWidth="200"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                <Label Grid.Column="2"
+                       Grid.Row="2"
+                       Content="Bestand:"
+                       VerticalContentAlignment="Center" />
+                <TextBox Grid.Column="3"
+                         Grid.Row="2"
+                         MinWidth="200"
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,0,5" />
+                
+                
+                
+                
+                <WrapPanel Grid.Column="0"
+                           Orientation="Horizontal"
                            Grid.Row="3"
-                           Content="Author:"
-                           VerticalContentAlignment="Center" />
-                    <TextBox Grid.Column="1"
-                             Grid.Row="3"
-                             MinWidth="400"
-                             VerticalContentAlignment="Center"
-                             Margin="0,0,0,5" />
-                    <Label Grid.Column="0"
-                           Grid.Row="4"
-                           Content="ISBN:"
-                           VerticalContentAlignment="Center" />
-                    <TextBox Grid.Column="1"
-                             Grid.Row="4"
-                             MinWidth="400"
-                             VerticalContentAlignment="Center"
-                             Margin="0,0,0,5" />
-                    <Label Grid.Column="0"
-                           Grid.Row="5"
-                           Content="Verlag:"
-                           VerticalContentAlignment="Center" />
-                    <TextBox Grid.Column="1"
-                             Grid.Row="5"
-                             MinWidth="400"
-                             VerticalContentAlignment="Center"
-                             Margin="0,0,0,5" />
-                    <WrapPanel Grid.Column="1"
-                               Orientation="Horizontal"
-                               Grid.Row="6"
-                               FlowDirection="RightToLeft">
-                        <Button Content="Bearbeiten"
-                                HorizontalAlignment="Right"
-                                Padding="7,3"
-                                Margin="0,0,7,0"
-                                Height="24" />
-                        <Button Content="Bearbeiten"
-                                HorizontalAlignment="Right"
-                                Padding="7,3"
-                                Margin="0,0,7,0"
-                                Height="24"
-                                Click="Button_Click" />
-                    </WrapPanel>
-                </Grid>
-            </StackPanel>
-        </Grid>
-    </ScrollViewer>
+                           Grid.ColumnSpan="4"
+                           FlowDirection="RightToLeft">
+                    <Button Content="Bearbeiten"
+                            HorizontalAlignment="Right"
+                            Padding="7,3"
+                            Margin="0,0,7,0"
+                            Height="24" />
+                    <Button Content="Bearbeiten"
+                            HorizontalAlignment="Right"
+                            Padding="7,3"
+                            Margin="0,0,7,0"
+                            Height="24"
+                            Click="Button_Click" />
+                </WrapPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
 </Window>

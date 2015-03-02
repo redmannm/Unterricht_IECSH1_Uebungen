@@ -31,8 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenüBeispiel", "MenüBeisp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BS_IECSH2_Marcus_Redmann", "BS_IECSH2_Marcus_Redmann\BS_IECSH2_Marcus_Redmann.csproj", "{52683D72-254C-48A5-A439-33EA389E525B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uebung9_Bibliothek_WPF", "Uebung9_Bibliothek_WPF\Uebung9_Bibliothek_WPF.csproj", "{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,16 +181,6 @@ Global
 		{52683D72-254C-48A5-A439-33EA389E525B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{52683D72-254C-48A5-A439-33EA389E525B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{52683D72-254C-48A5-A439-33EA389E525B}.Release|x86.ActiveCfg = Release|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{15BAD273-1C11-4C75-8ECC-8EBAA995BD75}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -75,7 +75,7 @@ namespace BS_IEWCS1_Marcus_Redmann
         {
             double netto = 0;
 
-            if (mitarbeiter.LohnsteuerKlasse == LohnStKlasse.Eins)
+            if ((mitarbeiter.LohnsteuerKlasse == LohnStKlasse.Eins) | (mitarbeiter.LohnsteuerKlasse == LohnStKlasse.Fuenf))
             {
                 netto = mitarbeiter.BruttoGehalt * 0.79;
             }
@@ -90,10 +90,6 @@ namespace BS_IEWCS1_Marcus_Redmann
             else if (mitarbeiter.LohnsteuerKlasse == LohnStKlasse.Vier)
             {
                 netto = mitarbeiter.BruttoGehalt * 0.77;
-            }
-            else if (mitarbeiter.LohnsteuerKlasse == LohnStKlasse.Fuenf)
-            {
-                netto = mitarbeiter.BruttoGehalt * 0.79;
             }
             else if (mitarbeiter.LohnsteuerKlasse == LohnStKlasse.Sechs)
             {

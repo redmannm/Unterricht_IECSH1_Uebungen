@@ -231,7 +231,7 @@
                                         DisplayMemberBinding="{Binding Konfession}" />
                         <GridViewColumn Header="Lohnsteuerklasse"
                                         Width="100"
-                                        DisplayMemberBinding="{Binding LohnSteuerKlasse}" />
+                                        DisplayMemberBinding="{Binding LohnsteuerKlasse}" />
                         <GridViewColumn Header="Kinder"
                                         Width="100"
                                         DisplayMemberBinding="{Binding Kinder}" />

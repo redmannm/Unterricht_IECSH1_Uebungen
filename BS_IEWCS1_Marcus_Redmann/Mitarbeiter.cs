@@ -58,6 +58,13 @@ namespace BS_IEWCS1_Marcus_Redmann
             set;
         }
 
+        private int _alter;
+        public int Alter
+        {
+            get;
+            set;
+        }
+
         private string _tel;
         public string Tel
         {

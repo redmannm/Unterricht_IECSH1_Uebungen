@@ -55,6 +55,7 @@ namespace BS_IEWCS1_Marcus_Redmann
             NeuerMitarbeiter.Plz = txtPlz.Text;
             NeuerMitarbeiter.Ort = txtOrt.Text;
             NeuerMitarbeiter.Geburtsdatum = txtGeburtsdatum.Text;
+            NeuerMitarbeiter.Alter = GetAlter();
             NeuerMitarbeiter.Tel = txtTelefon.Text;
             NeuerMitarbeiter.Konfession = txtKonfession.Text;
             NeuerMitarbeiter.LohnsteuerKlasse = (LohnStKlasse)Convert.ToInt32(txtLohnsteuerKlasse.Text);
@@ -65,6 +66,11 @@ namespace BS_IEWCS1_Marcus_Redmann
             MitarbeiterCollection.Add(NeuerMitarbeiter);
 
             return MitarbeiterCollection;
+        }
+
+        private int GetAlter()
+        {
+            throw new NotImplementedException();
         }
 
         private double GetNetto(Mitarbeiter mitarbeiter)

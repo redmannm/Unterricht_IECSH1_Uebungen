@@ -188,6 +188,5 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 
-# Class Diagramm
-*.cd
+# Manuell hinzugefügte Ausnahmen
 *.rar

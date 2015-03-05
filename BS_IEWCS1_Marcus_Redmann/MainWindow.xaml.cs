@@ -21,7 +21,7 @@ namespace BS_IEWCS1_Marcus_Redmann
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Mitarbeiter> _mitarbeiterCollection = new ObservableCollection<Mitarbeiter>();
+        List<Mitarbeiter> _mitarbeiterCollection = new List<Mitarbeiter>();
 
         internal List<Mitarbeiter> MitarbeiterCollection
         {
@@ -41,9 +41,7 @@ namespace BS_IEWCS1_Marcus_Redmann
 
         public void btnSpeichern_Click(object sender, RoutedEventArgs e)
         {
-            lstMitarbeiter.ItemsSource = GetMitarbeiter();
-            
-           
+            DataMitarbeiter.Items.Add(GetMitarbeiter());
         }
 
         private List<Mitarbeiter> GetMitarbeiter()

@@ -12,172 +12,92 @@ namespace BS_IEWCS1_Marcus_Redmann
         private string _name;
         public string Name
         {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
+            get;
+            set;
         }
 
         private string _vorname;
         public string Vorname
         {
-            get
-            {
-                return _vorname;
-            }
-            set
-            {
-                _vorname = value;
-            }
+            get;
+            set;
         }
-        private string _strasse;
 
+        private string _strasse;
         public string Strasse
         {
-            get
-            {
-                return _strasse;
-            }
-            set
-            {
-                _strasse = value;
-            }
+            get;
+            set;
         }
-        private string _hausnummer;
 
+        private string _hausnummer;
         public string Hausnummer
         {
-            get
-            {
-                return _hausnummer;
-            }
-            set
-            {
-                _hausnummer = value;
-            }
+            get;
+            set;
         }
-        private string _plz;
 
+        private string _plz;
         public string Plz
         {
-            get
-            {
-                return _plz;
-            }
-            set
-            {
-                _plz = value;
-            }
+            get;
+            set;
         }
-        private string _ort;
 
+        private string _ort;
         public string Ort
         {
-            get
-            {
-                return _ort;
-            }
-            set
-            {
-                _ort = value;
-            }
+            get;
+            set;
         }
-        private string _geburtsdatum;
 
+        private string _geburtsdatum;
         public string Geburtsdatum
         {
-            get
-            {
-                return _geburtsdatum;
-            }
-            set
-            {
-                _geburtsdatum = value;
-            }
+            get;
+            set;
         }
-        private string _tel;
 
+        private string _tel;
         public string Tel
         {
-            get
-            {
-                return _tel;
-            }
-            set
-            {
-                _tel = value;
-            }
+            get;
+            set;
         }
-        private string _konfession;
 
+        private string _konfession;
         public string Konfession
         {
-            get
-            {
-                return _konfession;
-            }
-            set
-            {
-                _konfession = value;
-            }
+            get;
+            set;
         }
-        private LohnStKlasse _lohnsteuerKlasse;
 
+        private LohnStKlasse _lohnsteuerKlasse;
         public LohnStKlasse LohnsteuerKlasse
         {
-            get
-            {
-                return _lohnsteuerKlasse;
-            }
-            set
-            {
-                _lohnsteuerKlasse = value;
-            }
+            get;
+            set;
         }
-        private int _kinder;
 
+        private int _kinder;
         public int Kinder
         {
-            get
-            {
-                return _kinder;
-            }
-            set
-            {
-                _kinder = value;
-            }
+            get;
+            set;
         }
-        private double _bruttoGehalt;
 
+        private double _bruttoGehalt;
         public double BruttoGehalt
         {
-            get
-            {
-                return _bruttoGehalt;
-            }
-            set
-            {
-                _bruttoGehalt = value;
-            }
+            get;
+            set;
         }
-        private double _nettoGehalt;
 
+        private double _nettoGehalt;
         public double NettoGehalt
         {
-            get
-            {
-                return _nettoGehalt;
-            }
-            set
-            {
-                _nettoGehalt = value;
-            }
+            get;
+            set;
         }
-
-
     }
 }

@@ -30,37 +30,50 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Label Grid.Column="0" Grid.Row="0" Content="Name:" />
                     <Label Grid.Column="0" Grid.Row="1" Content="Vorname:" />
                     <Label Grid.Column="0" Grid.Row="2" Content="Strasse:" />
-                    <Label Grid.Column="0" Grid.Row="3" Content="Hausnummer:" />
-                    <Label Grid.Column="0" Grid.Row="4" Content="PLZ:" />
-                    <Label Grid.Column="0" Grid.Row="5" Content="Ort:" />
-                    <Label Grid.Column="0" Grid.Row="6" Content="Geburtsdatum:" />
-                    <Label Grid.Column="0" Grid.Row="7" Content="Telefon-Nr.:" />
-                    <Label Grid.Column="0" Grid.Row="8" Content="Konfesion:" />
-                    <Label Grid.Column="0" Grid.Row="9" Content="Lohnsteuer-Kl.:" />
-                    <Label Grid.Column="0" Grid.Row="10" Content="Kinder:" />
-                    <Label Grid.Column="0" Grid.Row="11" Content="Bruttogehalt:" />
+                    <Label Grid.Column="0" Grid.Row="3" Content="PLZ:" />
+                    <Label Grid.Column="0" Grid.Row="4" Content="Ort:" />
+                    <Label Grid.Column="0" Grid.Row="5" Content="Geburtsdatum:" />
+                    <Label Grid.Column="0" Grid.Row="6" Content="Telefon-Nr.:" />
+                    <Label Grid.Column="0" Grid.Row="7" Content="Konfesion:" />
+                    <Label Grid.Column="0" Grid.Row="8" Content="Lohnsteuer-Kl.:" />
+                    <Label Grid.Column="0" Grid.Row="9" Content="Kinder:" />
+                    <Label Grid.Column="0" Grid.Row="10" Content="Bruttogehalt:" />
 
-                    <TextBox x:Name="txtName" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtVorname" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtStrasse" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtHausnummer" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtPlz" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtOrt" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Margin="0,3" />
-                    <DatePicker Name="datePickGebDat"  HorizontalAlignment="Left" VerticalAlignment="Top" />
-                    <TextBox x:Name="txtGeburtsdatum" Grid.Column="1" Grid.Row="6" TextWrapping="Wrap" Margin="0,3" Visibility="Collapsed" />
-                    <TextBox x:Name="txtTelefon" Grid.Column="1" Grid.Row="7" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtKonfession" Grid.Column="1" Grid.Row="8" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtLohnsteuerKlasse" Grid.Column="1" Grid.Row="9" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtKinder" Grid.Column="1" Grid.Row="10" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtBruttogehalt" Grid.Column="1" Grid.Row="11" TextWrapping="Wrap" Margin="0,3" />
-                    
-
+                    <TextBox x:Name="txtName" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Margin="0,3" TabIndex="1" />
+                    <TextBox x:Name="txtVorname" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Margin="0,3" TabIndex="2" />
+                    <Grid Grid.Column="1" Margin="0,3" Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="60" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" x:Name="txtStrasse" TextWrapping="Wrap" TabIndex="3" />
+                        <Label Grid.Column="1" Content="Nr.:" />
+                        <TextBox Grid.Column="2" x:Name="txtHausnummer" TextWrapping="NoWrap" TabIndex="4" />
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="0,3" Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="60" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" x:Name="txtPlz" TextWrapping="Wrap" TabIndex="3" />
+                        <Label Grid.Column="1" Content="Nr.:" />
+                        <TextBox Grid.Column="2" x:Name="txtHausnummer" TextWrapping="NoWrap" TabIndex="4" />
+                    </Grid>
+                    <TextBox x:Name="txtPlz" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0,3" TabIndex="5" />
+                    <TextBox x:Name="txtOrt" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Margin="0,3" TabIndex="6" />
+                    <DatePicker Name="datePickGebDat" Grid.Column="1" Grid.Row="5" VerticalAlignment="Top" TabIndex="7" DisplayDateStart="1900-01-01" IsTodayHighlighted="True" />
+                    <TextBox x:Name="txtTelefon" Grid.Column="1" Grid.Row="6" TextWrapping="Wrap" Margin="0,3" TabIndex="8" />
+                    <TextBox x:Name="txtKonfession" Grid.Column="1" Grid.Row="7" TextWrapping="Wrap" Margin="0,3" TabIndex="9" />
+                    <TextBox x:Name="txtLohnsteuerKlasse" Grid.Column="1" Grid.Row="8" TextWrapping="Wrap" Margin="0,3" TabIndex="10" />
+                    <TextBox x:Name="txtKinder" Grid.Column="1" Grid.Row="9" TextWrapping="Wrap" Margin="0,3" TabIndex="11" />
+                    <TextBox x:Name="txtBruttogehalt" Grid.Column="1" Grid.Row="10" TextWrapping="Wrap" Margin="0,3" TabIndex="12" />
                 </Grid>
                 <DockPanel Grid.Column="1" Margin="15,10,0,15">
                     <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Margin="0" HorizontalAlignment="Left">
@@ -74,7 +87,7 @@
                         </UniformGrid>
                     </StackPanel>
                     <WrapPanel Orientation="Vertical" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
-                        <Button x:Name="btnSpeichern" Content="Eingaben _Speichern" Click="btnSpeichern_Click" Padding="8,1" />
+                        <Button x:Name="btnSpeichern" Content="Eingaben _Speichern" Click="btnSpeichern_Click" Padding="8,1" TabIndex="13" />
                     </WrapPanel>
                 </DockPanel>
             </Grid>

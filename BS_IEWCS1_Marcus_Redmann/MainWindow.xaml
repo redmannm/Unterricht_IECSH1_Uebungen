@@ -52,12 +52,14 @@
                     <TextBox x:Name="txtHausnummer" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Margin="0,3" />
                     <TextBox x:Name="txtPlz" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Margin="0,3" />
                     <TextBox x:Name="txtOrt" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Margin="0,3" />
-                    <TextBox x:Name="txtGeburtsdatum" Grid.Column="1" Grid.Row="6" TextWrapping="Wrap" Margin="0,3" />
+                    <DatePicker Name="datePickGebDat"  HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <TextBox x:Name="txtGeburtsdatum" Grid.Column="1" Grid.Row="6" TextWrapping="Wrap" Margin="0,3" Visibility="Collapsed" />
                     <TextBox x:Name="txtTelefon" Grid.Column="1" Grid.Row="7" TextWrapping="Wrap" Margin="0,3" />
                     <TextBox x:Name="txtKonfession" Grid.Column="1" Grid.Row="8" TextWrapping="Wrap" Margin="0,3" />
                     <TextBox x:Name="txtLohnsteuerKlasse" Grid.Column="1" Grid.Row="9" TextWrapping="Wrap" Margin="0,3" />
                     <TextBox x:Name="txtKinder" Grid.Column="1" Grid.Row="10" TextWrapping="Wrap" Margin="0,3" />
                     <TextBox x:Name="txtBruttogehalt" Grid.Column="1" Grid.Row="11" TextWrapping="Wrap" Margin="0,3" />
+                    
 
                 </Grid>
                 <DockPanel Grid.Column="1" Margin="15,10,0,15">

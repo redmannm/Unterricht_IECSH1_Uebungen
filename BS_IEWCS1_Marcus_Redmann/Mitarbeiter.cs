@@ -51,8 +51,8 @@ namespace BS_IEWCS1_Marcus_Redmann
             set;
         }
 
-        private string _geburtsdatum;
-        public string Geburtsdatum
+        private DateTime? _geburtsdatum;
+        public DateTime? Geburtsdatum
         {
             get;
             set;

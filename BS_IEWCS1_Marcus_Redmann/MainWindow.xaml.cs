@@ -41,7 +41,7 @@ namespace BS_IEWCS1_Marcus_Redmann
 
         public void btnSpeichern_Click(object sender, RoutedEventArgs e)
         {
-            DataMitarbeiter.Items.Add(GetMitarbeiter());
+            DataListMitarbeiter.Items.Add(GetMitarbeiter());
         }
 
         private List<Mitarbeiter> GetMitarbeiter()
@@ -54,7 +54,7 @@ namespace BS_IEWCS1_Marcus_Redmann
             NeuerMitarbeiter.Hausnummer = txtHausnummer.Text;
             NeuerMitarbeiter.Plz = txtPlz.Text;
             NeuerMitarbeiter.Ort = txtOrt.Text;
-            NeuerMitarbeiter.Geburtsdatum = txtGeburtsdatum.Text;
+            NeuerMitarbeiter.Geburtsdatum = (DateTime)datePickGebDat.SelectedDate;
             NeuerMitarbeiter.Alter = GetAlter();
             NeuerMitarbeiter.Tel = txtTelefon.Text;
             NeuerMitarbeiter.Konfession = txtKonfession.Text;

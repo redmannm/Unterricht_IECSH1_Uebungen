@@ -41,30 +41,12 @@ namespace BS_IEWCS1_Marcus_Redmann
 
         public void btnSpeichern_Click(object sender, RoutedEventArgs e)
         {
-            DataMitarbeiter.Items.Add(GetMitarbeiter());
+            DataListMitarbeiter.Items.Add(GetMitarbeiter());
         }
 
         private List<Mitarbeiter> GetMitarbeiter()
         {
-            Mitarbeiter NeuerMitarbeiter = new Mitarbeiter();
-
-            NeuerMitarbeiter.Name = txtName.Text;
-            NeuerMitarbeiter.Vorname = txtVorname.Text;
-            NeuerMitarbeiter.Strasse = txtStrasse.Text;
-            NeuerMitarbeiter.Hausnummer = txtHausnummer.Text;
-            NeuerMitarbeiter.Plz = txtPlz.Text;
-            NeuerMitarbeiter.Ort = txtOrt.Text;
-            NeuerMitarbeiter.Geburtsdatum = txtGeburtsdatum.Text;
-            NeuerMitarbeiter.Alter = GetAlter();
-            NeuerMitarbeiter.Tel = txtTelefon.Text;
-            NeuerMitarbeiter.Konfession = txtKonfession.Text;
-            NeuerMitarbeiter.LohnsteuerKlasse = (LohnStKlasse)Convert.ToInt32(txtLohnsteuerKlasse.Text);
-            NeuerMitarbeiter.Kinder = Convert.ToInt32(txtKinder.Text);
-            NeuerMitarbeiter.BruttoGehalt = Convert.ToDouble(txtBruttogehalt.Text);
-            NeuerMitarbeiter.NettoGehalt = GetNetto(NeuerMitarbeiter);
-
-            MitarbeiterCollection.Add(NeuerMitarbeiter);
-
+            
             return MitarbeiterCollection;
         }
 
@@ -99,6 +81,8 @@ namespace BS_IEWCS1_Marcus_Redmann
             }
             return netto;
         }
+
+        
 
     }
 }

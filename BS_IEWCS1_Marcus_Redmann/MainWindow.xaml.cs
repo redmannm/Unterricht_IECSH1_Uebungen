@@ -37,6 +37,7 @@ namespace BS_IEWCS1_Marcus_Redmann
         public MainWindow()
         {
             InitializeComponent();
+            // Mitarbeiter mitarbeiter = new Mitarbeiter();
         }
 
         public void btnSpeichern_Click(object sender, RoutedEventArgs e)

@@ -48,7 +48,10 @@ namespace BS_IEWCS1_Marcus_Redmann
         private string _strasse;
         public string Strasse
         {
-            get;
+            get
+            {
+                return _strasse;
+            }
             set
             {
                 _strasse = value;

@@ -1,4 +1,8 @@
-﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:BS_IEWCS1_Marcus_Redmann" x:Class="BS_IEWCS1_Marcus_Redmann.MainWindow" Title="Lohnkostenrechner Lite" Height="600" Width="1280">
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:local="clr-namespace:BS_IEWCS1_Marcus_Redmann" 
+        x:Class="BS_IEWCS1_Marcus_Redmann.MainWindow" 
+        Title="Lohnkostenrechner Lite" Height="600" Width="1280">
     <Window.Resources>
         <local:Mitarbeiter x:Key="mitarbeiter" />
     </Window.Resources>
@@ -37,10 +41,10 @@
                 </Grid.RowDefinitions>
 
                 <Label Grid.Column="0" Grid.Row="0" Content="Name:" />
-                <TextBox x:Name="txtName" Grid.Column="1" Grid.Row="0" Margin="0,3" TabIndex="1" Text="{Binding Path=Name}" />
+                <TextBox x:Name="txtName" Grid.Column="1" Grid.Row="0" Margin="0,3" TabIndex="1" Text="{Binding Source={StaticResource mitarbeiter}, Path=Name}" />
 
                 <Label Grid.Column="0" Grid.Row="1" Content="Vorname:" />
-                <TextBox x:Name="txtVorname" Grid.Column="1" Grid.Row="1" Margin="0,3" TabIndex="2" Text="{Binding Path=Vorname}" />
+                <TextBox x:Name="txtVorname" Grid.Column="1" Grid.Row="1" Margin="0,3" TabIndex="2" Text="{Binding Source={StaticResource mitarbeiter}, Path=Vorname}" />
 
                 <Label Grid.Column="0" Grid.Row="2" Content="Strasse:" VerticalAlignment="Center" />
                 <Grid Grid.Column="1" Grid.Row="2" Margin="0,3">
@@ -49,9 +53,9 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="60" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" x:Name="txtStrasse" TabIndex="3" Text="{Binding Path=Strasse}" />
+                    <TextBox Grid.Column="0" x:Name="txtStrasse" TabIndex="3" Text="{Binding Source={StaticResource mitarbeiter}, Path=Strasse}" />
                     <Label Grid.Column="1" Content="Nr.:" VerticalContentAlignment="Center" />
-                    <TextBox Grid.Column="2" x:Name="txtHausnummer" TabIndex="4" Text="{Binding Path=Haussnummer}" />
+                    <TextBox Grid.Column="2" x:Name="txtHausnummer" TabIndex="4" Text="{Binding Source={StaticResource mitarbeiter}, Path=Haussnummer}" />
                 </Grid>
 
                 <!-- Postleitzahl / Ort-->
@@ -62,35 +66,35 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" x:Name="txtPlz" TabIndex="5" Text="{Binding Path=Plz}" />
+                    <TextBox Grid.Column="0" x:Name="txtPlz" TabIndex="5" Text="{Binding Source={StaticResource mitarbeiter}, Path=Plz}" />
                     <Label Grid.Column="1" Content="Ort:" />
-                    <TextBox Grid.Column="2" x:Name="txtOrt" TabIndex="6" Text="{Binding Path=Ort}" />
+                    <TextBox Grid.Column="2" x:Name="txtOrt" TabIndex="6" Text="{Binding Source={StaticResource mitarbeiter}, Path=Ort}" />
                 </Grid>
 
                 <!-- Geburtsdatum -->
                 <Label Grid.Column="0" Grid.Row="4" Content="Geburtsdatum:" />
-
+                <DatePicker x:Name="datePickGebDat" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" TabIndex="7" IsTodayHighlighted="True" IsTabStop="True" Text="{Binding Source={StaticResource mitarbeiter}, Path=Geburtsdatum}" />
+                
                 <!-- Telefonnummer -->
                 <Label Grid.Column="0" Grid.Row="5" Content="Telefon-Nr.:" />
-
+                <TextBox x:Name="txtTelefon" Grid.Column="1" Grid.Row="5" Margin="0,3" TabIndex="8" Text="{Binding Source={StaticResource mitarbeiter}, Path=Tel}" />
+                
                 <!-- Konfession -->
                 <Label Grid.Column="0" Grid.Row="6" Content="Konfesion:" />
-
+                <TextBox x:Name="txtKonfession" Grid.Column="1" Grid.Row="6" Margin="0,3" TabIndex="9" Text="{Binding Source={StaticResource mitarbeiter}, Path=Konfession}" />
+                
                 <!-- Lohnsteuerklasse -->
                 <Label Grid.Column="0" Grid.Row="7" Content="Lohnsteuer-Kl.:" />
-
+                <TextBox x:Name="txtLohnsteuerKlasse" Grid.Column="1" Grid.Row="7" Margin="0,3" TabIndex="10" Text="{Binding Source={StaticResource mitarbeiter}, Path=LohnsteuerKlasse}" />
+                
                 <!-- Anzahl der Kinder -->
                 <Label Grid.Column="0" Grid.Row="8" Content="Kinder:" />
-
+                <TextBox x:Name="txtKinder" Grid.Column="1" Grid.Row="8" Margin="0,3" TabIndex="11" Text="{Binding Source={StaticResource mitarbeiter}, Path=Kinder}" />
+                
                 <!-- Bruttogehalt -->
                 <Label Grid.Column="0" Grid.Row="9" Content="Bruttogehalt:" />
-
-                <DatePicker x:Name="datePickGebDat" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" TabIndex="7" IsTodayHighlighted="True" IsTabStop="True" Text="{Binding Path=Geburtsdatum}" />
-                <TextBox x:Name="txtTelefon" Grid.Column="1" Grid.Row="5" Margin="0,3" TabIndex="8" Text="{Binding Path=Tel}" />
-                <TextBox x:Name="txtKonfession" Grid.Column="1" Grid.Row="6" Margin="0,3" TabIndex="9" Text="{Binding Path=Konfession}" />
-                <TextBox x:Name="txtLohnsteuerKlasse" Grid.Column="1" Grid.Row="7" Margin="0,3" TabIndex="10" Text="{Binding Path=LohnsteuerKlasse}" />
-                <TextBox x:Name="txtKinder" Grid.Column="1" Grid.Row="8" Margin="0,3" TabIndex="11" Text="{Binding Path=Kinder}" />
-                <TextBox x:Name="txtBruttogehalt" Grid.Column="1" Grid.Row="9" Margin="0,3" TabIndex="12" Text="{Binding Path=BruttoGehalt}" />
+                <TextBox x:Name="txtBruttogehalt" Grid.Column="1" Grid.Row="9" Margin="0,3" TabIndex="12" Text="{Binding Source={StaticResource mitarbeiter}, Path=BruttoGehalt}" />
+                
                 <Grid Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,15,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -159,9 +163,9 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="0" Grid.Row="1">
-            <ScrollViewer>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
 
-                <DataGrid x:Name="DataListMitarbeiter" AutoGenerateColumns="False" Width="1272">
+                <DataGrid x:Name="DataListMitarbeiter" AutoGenerateColumns="False">
                     <DataGrid.AlternatingRowBackground>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFFFD792" Offset="0" />
